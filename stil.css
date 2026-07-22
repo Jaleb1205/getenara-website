@@ -6,6 +6,33 @@
    Handy Rahmen sind das Herz der Seite.
    ============================================================ */
 
+/* Schriften liegen bei uns selbst (DSGVO: keine Anfragen an Google).
+   Variable Fonts: eine Datei deckt den ganzen Gewichtsbereich ab. */
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('schriften/lora.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('schriften/lora-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('schriften/nunito-sans.woff2') format('woff2');
+}
+
 :root {
   --nacht0: #08081a;          /* tiefste Nacht, Seitengrund */
   --nacht1: #0e0e26;          /* Abschnittsgrund */
