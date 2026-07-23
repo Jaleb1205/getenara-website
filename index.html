@@ -167,18 +167,17 @@
           <div class="reihe-medien">
             <div class="telefon telefon-mittel">
               <div class="glow" aria-hidden="true"></div>
-              <img src="bilder/screens/screen-sternendeck.png" width="780" height="1688" alt="Das Sternendeck in Enara: eine Affirmationskarte aus der Kategorie Selbstliebe in der Satzstärke Wachstum" loading="lazy">
+              <img id="sternendeck-bild" src="bilder/screens/screen-sternendeck-wachstum.png" width="780" height="1688" alt="Das Sternendeck in Enara: eine Affirmationskarte aus der Kategorie Selbstliebe in der gewählten Satzstärke" loading="lazy">
             </div>
           </div>
           <div>
             <h3>720 Sätze, die sich nach dir richten.</h3>
             <p>Die Bibliothek trägt zwölf Lebensbereiche, von Selbstliebe bis Fülle. Jeder Satz gibt es in drei Stärken, damit er sich glaubwürdig anfühlt statt zu groß.</p>
             <div class="chips" role="tablist" aria-label="Die drei Satzstärken zum Ausprobieren">
-              <button type="button" class="chip" role="tab" aria-selected="false" data-satz="Ich übe, freundlicher mit mir zu sprechen. Jeden Tag gelingt es mir ein bisschen mehr.">Sanft</button>
-              <button type="button" class="chip aktiv" role="tab" aria-selected="true" data-satz="Ich spreche immer öfter freundlich mit mir, und ich merke, wie gut mir das tut.">Wachstum</button>
-              <button type="button" class="chip" role="tab" aria-selected="false" data-satz="Ich bin genug, so wie ich bin. Nicht irgendwann, nicht nach dem nächsten Ziel: jetzt.">Kraftvoll</button>
+              <button type="button" class="chip" role="tab" aria-selected="false" data-bild="bilder/screens/screen-sternendeck-sanft.png">Sanft</button>
+              <button type="button" class="chip aktiv" role="tab" aria-selected="true" data-bild="bilder/screens/screen-sternendeck-wachstum.png">Wachstum</button>
+              <button type="button" class="chip" role="tab" aria-selected="false" data-bild="bilder/screens/screen-sternendeck-kraftvoll.png">Kraftvoll</button>
             </div>
-            <p class="chip-satz" aria-live="polite">„Ich spreche immer öfter freundlich mit mir, und ich merke, wie gut mir das tut.“</p>
             <ul class="merkmale">
               <li>Zwölf Kategorien, 720 kuratierte Sätze auf Deutsch</li>
               <li>Was dich trifft, merkst du dir mit dem Herz</li>
@@ -379,11 +378,16 @@
       elemente.forEach(function (el) { beobachter.observe(el); });
     })();
 
-    // Satzstärken zum Ausprobieren: Chip antippen zeigt denselben Gedanken in der gewählten Stärke
+    // Satzstärken zum Ausprobieren: Chip antippen wechselt den App Screen im Handy daneben
     (function () {
-      var chips = document.querySelectorAll('.chips .chip[data-satz]');
-      var satz = document.querySelector('.chip-satz');
-      if (!chips.length || !satz) { return; }
+      var chips = document.querySelectorAll('.chips .chip[data-bild]');
+      var bild = document.getElementById('sternendeck-bild');
+      if (!chips.length || !bild) { return; }
+      // Alle Varianten vorladen, damit der Wechsel ohne Ruckeln kommt
+      chips.forEach(function (chip) {
+        var lader = new Image();
+        lader.src = chip.getAttribute('data-bild');
+      });
       chips.forEach(function (chip) {
         chip.addEventListener('click', function () {
           if (chip.classList.contains('aktiv')) { return; }
@@ -393,11 +397,11 @@
           });
           chip.classList.add('aktiv');
           chip.setAttribute('aria-selected', 'true');
-          satz.classList.add('wechselt');
+          bild.classList.add('wechselt');
           window.setTimeout(function () {
-            satz.textContent = '„' + chip.getAttribute('data-satz') + '“';
-            satz.classList.remove('wechselt');
-          }, 250);
+            bild.src = chip.getAttribute('data-bild');
+            bild.classList.remove('wechselt');
+          }, 200);
         });
       });
     })();

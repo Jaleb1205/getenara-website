@@ -503,19 +503,9 @@ a { color: var(--goldhell); }
 
 .chip:hover { border-color: var(--gold); color: var(--creme); }
 
-/* Beispielsatz unter den Staerke Chips; feste Mindesthoehe, damit beim Umschalten nichts springt */
-.chip-satz {
-  margin-top: 14px;
-  min-height: 3.4em;
-  max-width: 480px;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 1.05rem;
-  color: var(--creme);
-  transition: opacity 0.25s ease;
-}
-
-.chip-satz.wechselt { opacity: 0; }
+/* Weicher Wechsel des App Screens, wenn eine Satzstaerke gewaehlt wird */
+#sternendeck-bild { transition: opacity 0.2s ease; }
+#sternendeck-bild.wechselt { opacity: 0; }
 
 .chip.aktiv { background: var(--creme); color: #241a05; border-color: var(--creme); font-weight: 700; }
 
