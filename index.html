@@ -173,11 +173,12 @@
           <div>
             <h3>720 Sätze, die sich nach dir richten.</h3>
             <p>Die Bibliothek trägt zwölf Lebensbereiche, von Selbstliebe bis Fülle. Jeder Satz gibt es in drei Stärken, damit er sich glaubwürdig anfühlt statt zu groß.</p>
-            <div class="chips" aria-label="Die drei Satzstärken">
-              <span class="chip">Sanft</span>
-              <span class="chip aktiv">Wachstum</span>
-              <span class="chip">Kraftvoll</span>
+            <div class="chips" role="tablist" aria-label="Die drei Satzstärken zum Ausprobieren">
+              <button type="button" class="chip" role="tab" aria-selected="false" data-satz="Ich übe, freundlicher mit mir zu sprechen. Jeden Tag gelingt es mir ein bisschen mehr.">Sanft</button>
+              <button type="button" class="chip aktiv" role="tab" aria-selected="true" data-satz="Ich spreche immer öfter freundlich mit mir, und ich merke, wie gut mir das tut.">Wachstum</button>
+              <button type="button" class="chip" role="tab" aria-selected="false" data-satz="Ich bin genug, so wie ich bin. Nicht irgendwann, nicht nach dem nächsten Ziel: jetzt.">Kraftvoll</button>
             </div>
+            <p class="chip-satz" aria-live="polite">„Ich spreche immer öfter freundlich mit mir, und ich merke, wie gut mir das tut.“</p>
             <ul class="merkmale">
               <li>Zwölf Kategorien, 720 kuratierte Sätze auf Deutsch</li>
               <li>Was dich trifft, merkst du dir mit dem Herz</li>
@@ -376,6 +377,29 @@
         });
       }, { threshold: 0.15 });
       elemente.forEach(function (el) { beobachter.observe(el); });
+    })();
+
+    // Satzstärken zum Ausprobieren: Chip antippen zeigt denselben Gedanken in der gewählten Stärke
+    (function () {
+      var chips = document.querySelectorAll('.chips .chip[data-satz]');
+      var satz = document.querySelector('.chip-satz');
+      if (!chips.length || !satz) { return; }
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          if (chip.classList.contains('aktiv')) { return; }
+          chips.forEach(function (c) {
+            c.classList.remove('aktiv');
+            c.setAttribute('aria-selected', 'false');
+          });
+          chip.classList.add('aktiv');
+          chip.setAttribute('aria-selected', 'true');
+          satz.classList.add('wechselt');
+          window.setTimeout(function () {
+            satz.textContent = '„' + chip.getAttribute('data-satz') + '“';
+            satz.classList.remove('wechselt');
+          }, 250);
+        });
+      });
     })();
   </script>
 
