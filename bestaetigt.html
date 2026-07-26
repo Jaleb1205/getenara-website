@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-Mail bestätigt | Enara</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="bilder/favicon.png">
+  <link rel="stylesheet" href="stil.css">
+  <style>
+    /* Kleine Zusatzstile nur für diese Seite */
+    .bestaetigt-buehne {
+      position: relative;
+      min-height: calc(100vh - 140px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #101030, var(--nacht0));
+      overflow: hidden;
+    }
+    .bestaetigt-karte { position: relative; max-width: 560px; }
+    .bestaetigt-karte .stern-gross {
+      font-size: 2.2rem;
+      color: var(--goldhell);
+      display: block;
+      margin-bottom: 18px;
+    }
+    .bestaetigt-karte h1 {
+      font-family: var(--serif);
+      color: var(--creme);
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      margin-bottom: 14px;
+    }
+    .bestaetigt-karte p { color: var(--text); margin-bottom: 10px; }
+    .bestaetigt-karte .knopf-gold { margin-top: 22px; }
+    .bestaetigt-hinweis { color: var(--leise); font-size: 0.92rem; margin-top: 26px; }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <a class="nav-marke" href="index.html">
+      <img src="bilder/logo-weiss.png" alt="" aria-hidden="true">
+      <span>Enara</span>
+    </a>
+  </header>
+
+  <main class="bestaetigt-buehne">
+    <div class="sterne" aria-hidden="true"></div>
+
+    <div class="bestaetigt-karte" id="ansicht-ok">
+      <span class="stern-gross" aria-hidden="true">✦</span>
+      <h1>Deine E-Mail ist bestätigt.</h1>
+      <p>Schön, dass du da bist. Dein Konto ist jetzt startklar.</p>
+      <p>Geh zurück in die Enara App und tippe dort auf <strong>„Ich habe bestätigt“</strong>, dann geht es direkt weiter.</p>
+      <a class="knopf-gold" href="enara://">Enara öffnen</a>
+      <p class="bestaetigt-hinweis">Öffnet sich die App nicht von selbst, wechsle einfach von Hand zur Enara App. Liest du das gerade am Computer, nimm dein Handy, dort wartet die App auf dich.</p>
+    </div>
+
+    <div class="bestaetigt-karte" id="ansicht-fehler" hidden>
+      <span class="stern-gross" aria-hidden="true">✦</span>
+      <h1>Dieser Link ist nicht mehr gültig.</h1>
+      <p>Der Bestätigungslink wurde schon benutzt oder ist abgelaufen.</p>
+      <p>Öffne die Enara App: entweder bist du schon bestätigt, oder du kannst dir dort eine neue Mail schicken lassen.</p>
+      <a class="knopf-gold" href="enara://">Enara öffnen</a>
+    </div>
+
+    <script>
+      // Supabase hängt bei abgelaufenen Links Fehlerinfos an die Adresse an
+      if (window.location.hash.indexOf('error') !== -1 || window.location.search.indexOf('error') !== -1) {
+        document.getElementById('ansicht-ok').hidden = true;
+        document.getElementById('ansicht-fehler').hidden = false;
+      }
+    </script>
+  </main>
+
+  <footer>
+    <div class="footer-innen">
+      <span class="footer-copy">© 2026 Enara</span>
+      <nav aria-label="Rechtliches">
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="agb.html">AGB</a>
+        <a href="mailto:support@getenara.app">Kontakt</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
