@@ -386,14 +386,19 @@ a { color: var(--goldhell); }
 
 .schritte {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  /* Vier Spalten fuer vier Tageszeiten: Morgens, Mittags, Abends, Mit der
+     Zeit. Bei drei Spalten fiel der vierte Schritt allein in eine zweite
+     Reihe und der Bogen, den der Abschnitt erzaehlt, brach mittendrin ab. */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
   align-items: start;
 }
 
 .schritt { text-align: center; }
 
-.schritt .telefon { margin: 0 auto 26px; }
+/* Nie breiter als seine Spalte: bei vier Spalten wird es unter etwa 1000 px
+   Fensterbreite enger als die festen 230 px, und das Handy stuende ueber. */
+.schritt .telefon { width: min(230px, 100%); margin: 0 auto 26px; }
 
 .schritt-zeit {
   font-size: 0.8rem;
@@ -409,6 +414,12 @@ a { color: var(--goldhell); }
 .schritt p { font-size: 0.99rem; max-width: 34ch; margin: 0 auto; }
 
 @media (max-width: 900px) {
+  /* Zwei mal zwei statt einer langen Spalte: bleibt ausgewogen und niemand
+     steht allein */
+  .schritte { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+}
+
+@media (max-width: 520px) {
   .schritte { grid-template-columns: 1fr; gap: 56px; }
 }
 
@@ -533,8 +544,21 @@ a { color: var(--goldhell); }
 
 .bento-karte p { font-size: 0.93rem; color: var(--leise); }
 
-@media (max-width: 900px) { .bento { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 620px) { .bento { grid-template-columns: 1fr; } }
+/* Bleibt am Ende eine einzelne Karte uebrig, spannt sie die volle Breite.
+   Eine Waise neben zwei Luecken sieht nach Fehler aus, nicht nach Absicht. */
+.bento-karte:last-child:nth-child(3n + 1) { grid-column: 1 / -1; }
+
+@media (max-width: 900px) {
+  .bento { grid-template-columns: 1fr 1fr; }
+  /* bei zwei Spalten faellt die Waise auf ungerade Positionen */
+  .bento-karte:last-child:nth-child(3n + 1) { grid-column: auto; }
+  .bento-karte:last-child:nth-child(2n + 1) { grid-column: 1 / -1; }
+}
+
+@media (max-width: 620px) {
+  .bento { grid-template-columns: 1fr; }
+  .bento-karte:last-child { grid-column: auto; }
+}
 
 /* ---------- Vertrauen ---------- */
 
