@@ -34,9 +34,9 @@
 }
 
 :root {
-  --nacht0: #08081a;          /* tiefste Nacht, Seitengrund */
-  --nacht1: #0e0e26;          /* Abschnittsgrund */
-  --nacht2: #14142e;          /* Kartengrund */
+  --nacht0: #0b1128;          /* tiefe Nacht, klar blau statt schwarz */
+  --nacht1: #111b36;          /* Abschnittsgrund, das Navy der App */
+  --nacht2: #172341;          /* Kartengrund */
   --creme: #f5f0e6;           /* Überschriften, wie in der App */
   --text: rgba(245, 240, 230, 0.78);
   --leise: rgba(245, 240, 230, 0.55);
@@ -130,7 +130,7 @@ a { color: var(--goldhell); }
   justify-content: space-between;
   gap: 16px;
   padding: 14px 28px;
-  background: rgba(8, 8, 26, 0.78);
+  background: rgba(11, 17, 40, 0.78);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(245, 240, 230, 0.08);
@@ -207,22 +207,28 @@ a { color: var(--goldhell); }
 .telefon-klein img  { border-radius: 28px; }
 
 /* Leuchten hinter dem Handy, damit sich Dunkel von Dunkel löst.
-   Warm statt hell: der Schein trägt etwas Morgenrot im Gold. */
+   Warm statt hell: der Schein trägt etwas Morgenrot im Gold.
+   WICHTIG: z-index 0, nicht -1. Mit -1 fiel der Schein hinter den
+   Abschnittshintergrund, sobald die Einblend Animation endete
+   (ihr transform hielt ihn nur währenddessen im eigenen Stapel). */
 .glow {
   position: absolute;
-  inset: -14%;
-  z-index: -1;
+  inset: -16%;
+  z-index: 0;
   background:
-    radial-gradient(circle at 50% 60%, rgba(201, 130, 78, 0.16), transparent 62%),
-    radial-gradient(circle, rgba(217, 164, 65, 0.3), transparent 68%);
+    radial-gradient(circle at 50% 62%, rgba(201, 130, 78, 0.2), transparent 62%),
+    radial-gradient(circle, rgba(217, 164, 65, 0.34), transparent 68%);
   filter: blur(34px);
   pointer-events: none;
 }
 
-/* Solange ein Screen noch lädt, steht dort ein sanfter Nachtverlauf
-   statt eines schwarzen Lochs (die Bilder laden erst beim Scrollen) */
+/* Der Screen liegt über dem Schein, der Schein über dem Seitengrund.
+   Der Verlauf dahinter steht dort, solange ein Screen noch lädt,
+   damit nie ein schwarzes Loch zu sehen ist. */
 .telefon img {
-  background: linear-gradient(180deg, #232347 0%, #14142e 55%, #0e0e26 100%);
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(180deg, #26325c 0%, #172341 55%, #111b36 100%);
 }
 
 /* ---------- Hero ---------- */
@@ -232,7 +238,7 @@ a { color: var(--goldhell); }
   overflow: hidden;
   background:
     radial-gradient(1100px 520px at 78% -10%, rgba(58, 48, 100, 0.55), transparent 65%),
-    linear-gradient(180deg, #101030 0%, var(--nacht0) 88%);
+    linear-gradient(180deg, #142046 0%, var(--nacht0) 88%);
 }
 
 .hero-innen {
@@ -368,6 +374,26 @@ a { color: var(--goldhell); }
 
 .abschnitt { position: relative; padding: 96px 0; }
 
+/* Blau und Gold im Wechsel statt einer durchgehend schwarzen Wand:
+   jeder große Abschnitt bekommt seine eigene, leise Farbinsel
+   (Aurora Prinzip: weiche Radialverläufe auf dunklem Blau) */
+#funktionen {
+  background:
+    radial-gradient(1000px 520px at 12% 16%, rgba(52, 46, 96, 0.4), transparent 70%),
+    radial-gradient(900px 500px at 88% 70%, rgba(217, 164, 65, 0.08), transparent 70%),
+    var(--nacht0);
+}
+
+#mehr {
+  background: linear-gradient(180deg, var(--nacht0), #0e1834 55%, var(--nacht0));
+}
+
+#preise {
+  background:
+    radial-gradient(820px 440px at 50% 26%, rgba(217, 164, 65, 0.09), transparent 70%),
+    var(--nacht0);
+}
+
 .abschnitt-kopf { max-width: 640px; margin-bottom: 56px; }
 
 .abschnitt-kopf.mittig { margin-left: auto; margin-right: auto; text-align: center; }
@@ -439,7 +465,7 @@ a { color: var(--goldhell); }
   overflow: hidden;
   background:
     radial-gradient(800px 500px at 50% 40%, rgba(42, 36, 82, 0.5), transparent 70%),
-    linear-gradient(180deg, var(--nacht0), #060614 55%, var(--nacht0));
+    linear-gradient(180deg, var(--nacht0), #0a0f2a 55%, var(--nacht0));
   text-align: center;
 }
 
@@ -575,18 +601,15 @@ a { color: var(--goldhell); }
   .bento-karte:last-child { grid-column: auto; }
 }
 
-/* ---------- Vertrauen: die helle Insel der Seite ----------
-   Ein einziger Abschnitt in Creme gibt der langen Nacht einen
-   Atemzug. Ausgerechnet beim Vertrauen: hell, offen, nichts
-   zu verbergen. */
+/* ---------- Vertrauen: tiefblaue Bühne mit Gold ----------
+   Kein Farbbruch zur Nacht, sondern der blaueste Moment der
+   Seite, und die goldenen Kartenränder tragen die Brandfarbe. */
 
-.vertrauen { background: var(--creme); }
-
-.vertrauen .eyebrow { color: #9a7015; }
-
-.vertrauen .abschnitt-kopf h2 { color: #1c1633; }
-
-.vertrauen .abschnitt-kopf p { color: rgba(28, 22, 51, 0.72); }
+.vertrauen {
+  background:
+    radial-gradient(900px 480px at 50% 0%, rgba(58, 48, 100, 0.45), transparent 70%),
+    linear-gradient(180deg, var(--nacht0), var(--nacht1) 45%, var(--nacht0));
+}
 
 .vertrauen-gitter {
   display: grid;
@@ -595,22 +618,21 @@ a { color: var(--goldhell); }
 }
 
 .vertrauen-karte {
-  background: #fffdf8;
-  border: 1px solid rgba(28, 22, 51, 0.12);
+  background: rgba(23, 35, 65, 0.55);
+  border: 1px solid rgba(217, 164, 65, 0.28);
   border-radius: 20px;
   padding: 26px;
-  box-shadow: 0 10px 30px -18px rgba(28, 22, 51, 0.25);
 }
 
 .vertrauen-karte h3 {
   font-size: 1.05rem;
-  color: #9a7015;
+  color: var(--goldhell);
   margin-bottom: 8px;
   font-family: var(--sans);
   font-weight: 800;
 }
 
-.vertrauen-karte p { font-size: 0.95rem; color: rgba(28, 22, 51, 0.78); }
+.vertrauen-karte p { font-size: 0.95rem; }
 
 @media (max-width: 720px) { .vertrauen-gitter { grid-template-columns: 1fr; } }
 
@@ -747,7 +769,7 @@ a { color: var(--goldhell); }
 
 footer {
   border-top: 1px solid rgba(245, 240, 230, 0.08);
-  background: #060612;
+  background: #0a0f26;
 }
 
 .footer-innen {
