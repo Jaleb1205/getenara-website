@@ -138,12 +138,15 @@ a { color: var(--goldhell); }
   background: linear-gradient(90deg, transparent, rgba(255, 233, 184, 0.95));
   opacity: 0;
   pointer-events: none;
-  animation: schnuppe 13s linear infinite;
+  animation: schnuppe 11s linear infinite;
+  /* Negativer Start: der erste Flug kommt schon 1 Sekunde nach dem
+     Laden (niemand wartet 13 Sekunden auf dem Hero), danach alle 11 */
+  animation-delay: -8.9s;
 }
 
 /* Im Himmel Abschnitt fliegt sie versetzt und in eigenem Takt,
    damit nie zwei gleichzeitig unterwegs sind */
-.himmel .sternschnuppe { top: 30%; left: 22%; animation-duration: 17s; animation-delay: 7s; }
+.himmel .sternschnuppe { top: 30%; left: 22%; animation-duration: 17s; animation-delay: -9s; }
 
 @keyframes schnuppe {
   0%    { opacity: 0; transform: translate3d(0, 0, 0) rotate(16deg); }
