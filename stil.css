@@ -206,14 +206,23 @@ a { color: var(--goldhell); }
 .telefon-klein  { width: 230px; border-radius: 38px; }
 .telefon-klein img  { border-radius: 28px; }
 
-/* Leuchten hinter dem Handy, damit sich Dunkel von Dunkel löst */
+/* Leuchten hinter dem Handy, damit sich Dunkel von Dunkel löst.
+   Warm statt hell: der Schein trägt etwas Morgenrot im Gold. */
 .glow {
   position: absolute;
-  inset: -12%;
+  inset: -14%;
   z-index: -1;
-  background: radial-gradient(circle, rgba(217, 164, 65, 0.22), transparent 68%);
+  background:
+    radial-gradient(circle at 50% 60%, rgba(201, 130, 78, 0.16), transparent 62%),
+    radial-gradient(circle, rgba(217, 164, 65, 0.3), transparent 68%);
   filter: blur(34px);
   pointer-events: none;
+}
+
+/* Solange ein Screen noch lädt, steht dort ein sanfter Nachtverlauf
+   statt eines schwarzen Lochs (die Bilder laden erst beim Scrollen) */
+.telefon img {
+  background: linear-gradient(180deg, #232347 0%, #14142e 55%, #0e0e26 100%);
 }
 
 /* ---------- Hero ---------- */
@@ -520,6 +529,12 @@ a { color: var(--goldhell); }
 
 .chip.aktiv { background: var(--creme); color: #241a05; border-color: var(--creme); font-weight: 700; }
 
+/* ---------- Kaufknopf in der Seitenmitte ---------- */
+
+.mitte-cta { text-align: center; padding: 40px 0 8px; }
+
+.mitte-cta p { margin-top: 14px; font-size: 0.92rem; color: var(--leise); }
+
 /* ---------- Bento: und noch mehr ---------- */
 
 .bento {
@@ -560,9 +575,18 @@ a { color: var(--goldhell); }
   .bento-karte:last-child { grid-column: auto; }
 }
 
-/* ---------- Vertrauen ---------- */
+/* ---------- Vertrauen: die helle Insel der Seite ----------
+   Ein einziger Abschnitt in Creme gibt der langen Nacht einen
+   Atemzug. Ausgerechnet beim Vertrauen: hell, offen, nichts
+   zu verbergen. */
 
-.vertrauen { background: var(--nacht1); }
+.vertrauen { background: var(--creme); }
+
+.vertrauen .eyebrow { color: #9a7015; }
+
+.vertrauen .abschnitt-kopf h2 { color: #1c1633; }
+
+.vertrauen .abschnitt-kopf p { color: rgba(28, 22, 51, 0.72); }
 
 .vertrauen-gitter {
   display: grid;
@@ -571,21 +595,22 @@ a { color: var(--goldhell); }
 }
 
 .vertrauen-karte {
-  background: rgba(8, 8, 26, 0.5);
-  border: 1px solid rgba(245, 240, 230, 0.1);
+  background: #fffdf8;
+  border: 1px solid rgba(28, 22, 51, 0.12);
   border-radius: 20px;
   padding: 26px;
+  box-shadow: 0 10px 30px -18px rgba(28, 22, 51, 0.25);
 }
 
 .vertrauen-karte h3 {
   font-size: 1.05rem;
-  color: var(--goldhell);
+  color: #9a7015;
   margin-bottom: 8px;
   font-family: var(--sans);
   font-weight: 800;
 }
 
-.vertrauen-karte p { font-size: 0.95rem; }
+.vertrauen-karte p { font-size: 0.95rem; color: rgba(28, 22, 51, 0.78); }
 
 @media (max-width: 720px) { .vertrauen-gitter { grid-template-columns: 1fr; } }
 
