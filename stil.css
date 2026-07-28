@@ -34,9 +34,14 @@
 }
 
 :root {
-  --nacht0: #0b1128;          /* tiefe Nacht, klar blau statt schwarz */
-  --nacht1: #111b36;          /* Abschnittsgrund, das Navy der App */
-  --nacht2: #172341;          /* Kartengrund */
+  /* Die Farbwerte kommen woertlich aus der App (28.07.):
+     Nachthimmel #0A0F22 → #131B38 → #241E4A mit Nebel #6C55B8,
+     Morgenhimmel endet in #C98A3E mit Horizont #FFC96B,
+     Schwalbenblau #1D2E4E, Gold #D9A441. */
+  --nacht0: #0a0f22;          /* tiefe Nacht, Start des App Nachthimmels */
+  --nacht1: #131b38;          /* Mitte des App Nachthimmels */
+  --nacht2: #1d2e4e;          /* Kartengrund: das Schwalbenblau */
+  --lila: #241e4a;            /* das Lila unten im App Nachthimmel */
   --creme: #f5f0e6;           /* Überschriften, wie in der App */
   --text: rgba(245, 240, 230, 0.78);
   --leise: rgba(245, 240, 230, 0.55);
@@ -44,7 +49,7 @@
   --flaeche: rgba(245, 240, 230, 0.045);
   --gold: #d9a441;
   --goldhell: #ebc57d;
-  --morgen: #c9824e;          /* das Morgenrot aus dem App Verlauf */
+  --morgen: #c98a3e;          /* das warme Gold am App Morgenhorizont */
   --serif: 'Lora', Georgia, serif;
   --sans: 'Nunito Sans', 'Segoe UI', sans-serif;
 }
@@ -130,7 +135,7 @@ a { color: var(--goldhell); }
   justify-content: space-between;
   gap: 16px;
   padding: 14px 28px;
-  background: rgba(11, 17, 40, 0.78);
+  background: rgba(10, 15, 34, 0.78);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(245, 240, 230, 0.08);
@@ -228,17 +233,19 @@ a { color: var(--goldhell); }
 .telefon img {
   position: relative;
   z-index: 1;
-  background: linear-gradient(180deg, #26325c 0%, #172341 55%, #111b36 100%);
+  background: linear-gradient(180deg, #1d2e4e 0%, #131b38 55%, #0a0f22 100%);
 }
 
 /* ---------- Hero ---------- */
 
+/* Der Hero ist der App Nachthimmel: oben tiefes Blau, unten das Lila,
+   dazu ein lila Nebelfleck wie hinter dem Mond in der App */
 .hero {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(1100px 520px at 78% -10%, rgba(58, 48, 100, 0.55), transparent 65%),
-    linear-gradient(180deg, #142046 0%, var(--nacht0) 88%);
+    radial-gradient(1100px 520px at 78% -10%, rgba(108, 85, 184, 0.3), transparent 65%),
+    linear-gradient(180deg, #0c1229 0%, var(--nacht1) 52%, var(--lila) 100%);
 }
 
 .hero-innen {
@@ -379,18 +386,18 @@ a { color: var(--goldhell); }
    (Aurora Prinzip: weiche Radialverläufe auf dunklem Blau) */
 #funktionen {
   background:
-    radial-gradient(1000px 520px at 12% 16%, rgba(52, 46, 96, 0.4), transparent 70%),
+    radial-gradient(1000px 520px at 12% 16%, rgba(108, 85, 184, 0.2), transparent 70%),
     radial-gradient(900px 500px at 88% 70%, rgba(217, 164, 65, 0.08), transparent 70%),
     var(--nacht0);
 }
 
 #mehr {
-  background: linear-gradient(180deg, var(--nacht0), #0e1834 55%, var(--nacht0));
+  background: linear-gradient(180deg, var(--nacht0), var(--nacht1) 55%, var(--nacht0));
 }
 
 #preise {
   background:
-    radial-gradient(820px 440px at 50% 26%, rgba(217, 164, 65, 0.09), transparent 70%),
+    radial-gradient(820px 440px at 50% 26%, rgba(201, 138, 62, 0.11), transparent 70%),
     var(--nacht0);
 }
 
@@ -413,9 +420,12 @@ a { color: var(--goldhell); }
 
 /* ---------- Ein Tag mit Enara: drei Schritte, Morgenglow ---------- */
 
+/* Der Morgenhimmel der App: das Blau kippt am unteren Horizont
+   ins warme Gold (#C98A3E mit #FFC96B Leuchten) */
 .tagesbogen {
   background:
-    radial-gradient(900px 420px at 50% 108%, rgba(201, 130, 78, 0.2), transparent 70%),
+    radial-gradient(900px 380px at 50% 106%, rgba(255, 201, 107, 0.13), transparent 58%),
+    radial-gradient(1200px 540px at 50% 112%, rgba(201, 138, 62, 0.26), transparent 72%),
     var(--nacht0);
 }
 
@@ -464,8 +474,8 @@ a { color: var(--goldhell); }
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(800px 500px at 50% 40%, rgba(42, 36, 82, 0.5), transparent 70%),
-    linear-gradient(180deg, var(--nacht0), #0a0f2a 55%, var(--nacht0));
+    radial-gradient(800px 500px at 50% 40%, rgba(74, 58, 140, 0.38), transparent 70%),
+    linear-gradient(180deg, var(--nacht0), #080d1d 55%, var(--nacht0));
   text-align: center;
 }
 
@@ -607,7 +617,7 @@ a { color: var(--goldhell); }
 
 .vertrauen {
   background:
-    radial-gradient(900px 480px at 50% 0%, rgba(58, 48, 100, 0.45), transparent 70%),
+    radial-gradient(900px 480px at 50% 0%, rgba(74, 58, 140, 0.35), transparent 70%),
     linear-gradient(180deg, var(--nacht0), var(--nacht1) 45%, var(--nacht0));
 }
 
@@ -618,7 +628,7 @@ a { color: var(--goldhell); }
 }
 
 .vertrauen-karte {
-  background: rgba(23, 35, 65, 0.55);
+  background: rgba(29, 46, 78, 0.45);
   border: 1px solid rgba(217, 164, 65, 0.28);
   border-radius: 20px;
   padding: 26px;
@@ -755,7 +765,7 @@ a { color: var(--goldhell); }
   text-align: center;
   padding: 120px 24px 110px;
   background:
-    radial-gradient(700px 380px at 50% 20%, rgba(42, 36, 82, 0.55), transparent 70%),
+    radial-gradient(700px 380px at 50% 20%, rgba(108, 85, 184, 0.28), transparent 70%),
     var(--nacht0);
 }
 
@@ -769,7 +779,7 @@ a { color: var(--goldhell); }
 
 footer {
   border-top: 1px solid rgba(245, 240, 230, 0.08);
-  background: #0a0f26;
+  background: #080d1d;
 }
 
 .footer-innen {
@@ -795,7 +805,7 @@ footer {
 /* ---------- Rechtsseiten ---------- */
 
 .recht-kopf {
-  background: linear-gradient(180deg, #101030, var(--nacht0));
+  background: linear-gradient(180deg, var(--nacht1), var(--nacht0));
   padding: 64px 0 40px;
 }
 
