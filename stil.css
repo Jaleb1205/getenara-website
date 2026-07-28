@@ -124,6 +124,35 @@ a { color: var(--goldhell); }
   to   { opacity: 1; }
 }
 
+/* ---------- Sternschnuppe: der Wunschmoment ----------
+   Fast den ganzen Zyklus unsichtbar, dann zieht sie in gut einer
+   Sekunde schräg über den Himmel. Selten ist hier der Punkt. */
+
+.sternschnuppe {
+  position: absolute;
+  top: 16%;
+  left: -6%;
+  width: 110px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 233, 184, 0.95));
+  opacity: 0;
+  pointer-events: none;
+  animation: schnuppe 13s linear infinite;
+}
+
+/* Im Himmel Abschnitt fliegt sie versetzt und in eigenem Takt,
+   damit nie zwei gleichzeitig unterwegs sind */
+.himmel .sternschnuppe { top: 30%; left: 22%; animation-duration: 17s; animation-delay: 7s; }
+
+@keyframes schnuppe {
+  0%    { opacity: 0; transform: translate3d(0, 0, 0) rotate(16deg); }
+  90%   { opacity: 0; transform: translate3d(0, 0, 0) rotate(16deg); }
+  92%   { opacity: 0.9; }
+  99%   { opacity: 0.5; }
+  100%  { opacity: 0; transform: translate3d(64vw, 19vw, 0) rotate(16deg); }
+}
+
 /* ---------- Navigation ---------- */
 
 .nav {
@@ -238,14 +267,31 @@ a { color: var(--goldhell); }
 
 /* ---------- Hero ---------- */
 
-/* Der Hero ist der App Nachthimmel: oben tiefes Blau, unten das Lila,
-   dazu ein lila Nebelfleck wie hinter dem Mond in der App */
+/* Der Hero ist der App Nachthimmel: oben tiefes Blau, unten das Lila.
+   Der Nebelfleck liegt als eigene Ebene darüber, damit er atmen kann. */
 .hero {
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(1100px 520px at 78% -10%, rgba(108, 85, 184, 0.3), transparent 65%),
-    linear-gradient(180deg, #0c1229 0%, var(--nacht1) 52%, var(--lila) 100%);
+  background: linear-gradient(180deg, #0c1229 0%, var(--nacht1) 52%, var(--lila) 100%);
+}
+
+/* Der lila Nebel driftet kaum merklich: der Himmel lebt, ohne dass
+   man die Bewegung bewusst sieht */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -34%;
+  right: -16%;
+  width: 980px;
+  height: 640px;
+  background: radial-gradient(closest-side, rgba(108, 85, 184, 0.32), transparent 72%);
+  pointer-events: none;
+  animation: nebeldrift 24s ease-in-out infinite alternate;
+}
+
+@keyframes nebeldrift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(-70px, 44px, 0) scale(1.08); }
 }
 
 .hero-innen {
@@ -843,7 +889,8 @@ footer {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .schwebt, .sterne::after { animation: none; }
+  .schwebt, .sterne::after, .hero::before { animation: none; }
+  .sternschnuppe { animation: none; opacity: 0; }
   .zeigen { opacity: 1; transform: none; transition: none; }
   .bento-karte, .bento-karte:hover { transform: none; transition: none; }
 }
