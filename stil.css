@@ -946,6 +946,30 @@ footer {
   .abschnitt { padding: 72px 0; }
 }
 
+/* ---------- Plus Kennzeichnung (31.07.2026) ----------
+   Der Funktionsteil beschrieb Gespraeche, Impulse, Mondritual und die
+   Vorlagen, ohne dass irgendwo stand, dass sie zur Bezahlfassung gehoeren.
+   Das erfuhr man erst in der Preistabelle weit unten. Bei einer
+   Preisueberschrift "Ehrlich und einfach" ist das der teuerste Widerspruch
+   der Seite. Das Zeichen steht bewusst leise neben der Ueberschrift, es soll
+   einordnen und nicht bremsen. */
+.plus-marke {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  padding: 2px 10px;
+  border: 1px solid rgba(217, 164, 65, 0.5);
+  border-radius: 999px;
+  font-family: var(--sans, inherit);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold, #d9a441);
+  white-space: nowrap;
+  transform: translateY(-2px);
+}
+
 /* ---------- Kompakt am Handy (31.07.2026) ----------
    Gemessen: die Seite lief auf 22 Bildschirmhoehen, davon waren nur rund 11
    Text und Bild. Die andere Haelfte war Weissraum, gebaut fuer den grossen
