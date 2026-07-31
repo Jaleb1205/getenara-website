@@ -620,6 +620,39 @@ a { color: var(--goldhell); }
 
 .mitte-cta p { margin-top: 14px; font-size: 0.92rem; color: var(--leise); }
 
+/* ---------- App Store Badge ----------
+   Apples Original, unveraendert (Regel: die Badge darf nicht nachgebaut oder
+   umgefaerbt werden, nur die gelieferte Grafik zaehlt). Hoehe 48px, Apple
+   verlangt am Bildschirm mindestens 40. Der Rand ringsum ist der geforderte
+   Freiraum von einem Viertel der Hoehe, dort darf nichts hineinragen. */
+.store-badge {
+  display: inline-block;
+  line-height: 0;
+  margin: 12px;
+}
+
+.store-badge img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+/* Sanftes Anheben beim Zeigen, aber die Grafik selbst bleibt unberuehrt */
+.store-badge:hover { transform: translateY(-2px); }
+.store-badge { transition: transform 0.2s ease; }
+
+/* Die Ladezeile: Badge und darunter der Hinweis auf die Gratistage */
+.laden {
+  text-align: center;
+  padding: 32px 0 8px;
+}
+
+.laden p {
+  margin-top: 6px;
+  font-size: 0.92rem;
+  color: var(--leise);
+}
+
 /* ---------- Bento: und noch mehr ---------- */
 
 .bento {
