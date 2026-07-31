@@ -945,3 +945,26 @@ footer {
   .hero-buehne .telefon { transform: none; }
   .abschnitt { padding: 72px 0; }
 }
+
+/* ---------- Kompakt am Handy (31.07.2026) ----------
+   Gemessen: die Seite lief auf 22 Bildschirmhoehen, davon waren nur rund 11
+   Text und Bild. Die andere Haelfte war Weissraum, gebaut fuer den grossen
+   Bildschirm. Am Handy wirkt derselbe Abstand doppelt so gross, weil alles
+   untereinander steht statt nebeneinander.
+   Es geht hier also KEIN Inhalt verloren, die Seite atmet nur weniger tief.
+   Die neun Telefonbilder allein trugen 6,3 Bildschirme. */
+@media (max-width: 720px) {
+  .abschnitt { padding: 44px 0; }
+  .abschnitt-kopf { margin-bottom: 28px; }
+
+  /* Die Geraetebilder sind hoch (780 zu 1688), jedes kostet also fast eine
+     ganze Bildschirmlaenge. Etwas schmaler spart die meiste Strecke. */
+  .telefon-gross  { width: 230px; }
+  .telefon-mittel { width: 205px; }
+  .telefon-klein  { width: 170px; }
+
+  .reihe, .reihe.getauscht { gap: 24px; padding: 24px 0; }
+  .bento { gap: 12px; }
+  .laden { padding: 20px 0 4px; }
+  .mitte-cta { padding: 24px 0 4px; }
+}
