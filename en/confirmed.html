@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Email confirmed | Enara</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="../bilder/favicon.png">
+  <link rel="stylesheet" href="../stil.css?v=9">
+  <style>
+    /* Same extra styles as the German bestaetigt.html, paths adjusted */
+    .bestaetigt-buehne {
+      position: relative;
+      min-height: calc(100vh - 140px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #101030, var(--nacht0));
+      overflow: hidden;
+    }
+    .bestaetigt-karte { position: relative; max-width: 560px; }
+    .bestaetigt-karte .stern-gross {
+      font-size: 2.2rem;
+      color: var(--goldhell);
+      display: block;
+      margin-bottom: 18px;
+    }
+    .bestaetigt-karte h1 {
+      font-family: var(--serif);
+      color: var(--creme);
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      margin-bottom: 14px;
+    }
+    .bestaetigt-karte p { color: var(--text); margin-bottom: 10px; }
+    .bestaetigt-karte .knopf-gold { margin-top: 22px; }
+    .bestaetigt-hinweis { color: var(--leise); font-size: 0.92rem; margin-top: 26px; }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <a class="nav-marke" href="index.html">
+      <img src="../bilder/logo-weiss.png" alt="" aria-hidden="true">
+      <span>Enara</span>
+    </a>
+  </header>
+
+  <main class="bestaetigt-buehne">
+    <div class="sterne" aria-hidden="true"></div>
+
+    <div class="bestaetigt-karte" id="ansicht-ok">
+      <span class="stern-gross" aria-hidden="true">✦</span>
+      <h1>Your email is confirmed.</h1>
+      <p>Good to have you here. Your account is ready.</p>
+      <p>Go back to the Enara app and tap <strong>“I have confirmed”</strong>, then you are on your way.</p>
+      <a class="knopf-gold" href="enara://">Open Enara</a>
+      <p class="bestaetigt-hinweis">If the app does not open by itself, just switch to Enara by hand. Reading this on a computer? Pick up your phone, the app is waiting there.</p>
+    </div>
+
+    <div class="bestaetigt-karte" id="ansicht-fehler" hidden>
+      <span class="stern-gross" aria-hidden="true">✦</span>
+      <h1>This link is no longer valid.</h1>
+      <p>The confirmation link has already been used, or it has expired.</p>
+      <p>Open the Enara app: either you are confirmed already, or you can have a new email sent from there.</p>
+      <a class="knopf-gold" href="enara://">Open Enara</a>
+    </div>
+
+    <script>
+      // Supabase appends error details to the address for expired links
+      if (window.location.hash.indexOf('error') !== -1 || window.location.search.indexOf('error') !== -1) {
+        document.getElementById('ansicht-ok').hidden = true;
+        document.getElementById('ansicht-fehler').hidden = false;
+      }
+    </script>
+  </main>
+
+  <footer>
+    <div class="footer-innen">
+      <span class="footer-copy">© 2026 Enara</span>
+      <nav aria-label="Legal">
+        <a href="../privacy.html">Privacy</a>
+        <a href="../impressum.html">Legal notice</a>
+        <a href="../terms.html">Terms</a>
+        <a href="mailto:support@getenara.app">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

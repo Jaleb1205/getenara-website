@@ -18,6 +18,42 @@
        wiederkehrende Besucher die neuen Ladeknöpfe ohne deren Formatierung,
        also linksbündig am Rand statt mittig. -->
   <link rel="stylesheet" href="stil.css?v=9">
+  <!-- Sprachpaare fuer Google. Ohne sie haelt Google die englische Seite fuer
+       eine Dublette und indexiert nur eine von beiden. -->
+  <link rel="alternate" hreflang="de" href="https://getenara.app/">
+  <link rel="alternate" hreflang="en" href="https://getenara.app/en/">
+  <link rel="alternate" hreflang="x-default" href="https://getenara.app/">
+  <script>
+    // Sprachweiche. Steht bewusst im head und VOR dem sichtbaren Inhalt, sonst
+    // sieht ein englischer Besucher fuer einen Moment die deutsche Seite
+    // aufblitzen.
+    //
+    // Umgeleitet wird nur, wenn ALLE drei Bedingungen stimmen:
+    //   1. der Browser steht nicht auf Deutsch
+    //   2. die Person hat nicht schon selbst Deutsch gewaehlt (Merker)
+    //   3. es ist kein Aufruf mit ?lang=de (der Weg zurueck aus der Suche)
+    // So landet niemand in einer Schleife und niemand wird ueberstimmt.
+    (function () {
+      try {
+        var suche = window.location.search;
+        if (suche.indexOf('lang=de') !== -1) {
+          localStorage.setItem('enara-sprache', 'de');
+          return;
+        }
+        if (localStorage.getItem('enara-sprache')) { return; }
+        var sprachen = navigator.languages || [navigator.language || ''];
+        var deutsch = sprachen.some(function (s) {
+          return String(s).toLowerCase().indexOf('de') === 0;
+        });
+        if (!deutsch) {
+          window.location.replace('/en/');
+        }
+      } catch (e) {
+        // Kein localStorage (privater Modus, alte Browser): dann bleibt die
+        // deutsche Seite stehen. Lieber die falsche Sprache als eine Schleife.
+      }
+    })();
+  </script>
 </head>
 <body>
 
@@ -31,6 +67,9 @@
       <a href="#funktionen">Funktionen</a>
       <a href="#preise">Preise</a>
       <a href="#faq">Fragen</a>
+      <!-- Sprachumschalter. Er setzt den Merker, damit die Weiche oben die
+           Wahl beim naechsten Besuch nicht ueberstimmt. -->
+      <a href="/en/" hreflang="en" id="sprach-schalter">English</a>
       <a class="nav-cta" href="https://apps.apple.com/de/app/enara/id6791974547">Gratis laden</a>
     </nav>
   </header>
@@ -472,6 +511,15 @@
   </footer>
 
   <script>
+    // Sprachwahl merken, sobald jemand selbst auf English klickt
+    (function () {
+      var schalter = document.getElementById('sprach-schalter');
+      if (!schalter) { return; }
+      schalter.addEventListener('click', function () {
+        try { localStorage.setItem('enara-sprache', 'en'); } catch (e) {}
+      });
+    })();
+
     // Sanfte Scroll Reveals; wer weniger Bewegung wünscht, sieht alles sofort
     (function () {
       var ruhig = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
