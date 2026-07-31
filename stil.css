@@ -484,17 +484,18 @@ a { color: var(--goldhell); }
 
 .schritte {
   display: grid;
-  /* Vier Spalten fuer vier Tageszeiten: Morgens, Mittags, Abends, Mit der
-     Zeit. Bei drei Spalten fiel der vierte Schritt allein in eine zweite
-     Reihe und der Bogen, den der Abschnitt erzaehlt, brach mittendrin ab. */
-  grid-template-columns: repeat(4, 1fr);
+  /* Drei Spalten fuer drei Tageszeiten: Morgens, Mittags, Abends. Der vierte
+     Schritt "Mit der Zeit" wurde am 31.07.2026 entfernt, die vierte Spalte
+     blieb aber stehen und zog die drei Telefone 145 px nach links, waehrend
+     Ueberschrift und Text darueber zentriert blieben. */
+  grid-template-columns: repeat(3, 1fr);
   gap: 28px;
   align-items: start;
 }
 
 .schritt { text-align: center; }
 
-/* Nie breiter als seine Spalte: bei vier Spalten wird es unter etwa 1000 px
+/* Nie breiter als seine Spalte: bei drei Spalten wird es unter etwa 780 px
    Fensterbreite enger als die festen 230 px, und das Handy stuende ueber. */
 .schritt .telefon { width: min(230px, 100%); margin: 0 auto 26px; }
 
@@ -512,8 +513,9 @@ a { color: var(--goldhell); }
 .schritt p { font-size: 0.99rem; max-width: 34ch; margin: 0 auto; }
 
 @media (max-width: 900px) {
-  /* Zwei mal zwei statt einer langen Spalte: bleibt ausgewogen und niemand
-     steht allein */
+  /* Zwei Spalten am Tablet: der dritte Schritt rutscht in die zweite Reihe.
+     Kuerzer als drei untereinander, und die Reihenfolge des Tages bleibt
+     lesbar. */
   .schritte { grid-template-columns: repeat(2, 1fr); gap: 40px; }
 }
 
