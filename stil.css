@@ -210,7 +210,11 @@ a { color: var(--goldhell); }
 .nav-cta:hover { background: rgba(217, 164, 65, 0.12); }
 
 @media (max-width: 720px) {
-  .nav-links a:not(.nav-cta) { display: none; }
+  /* Am Handy blieb frueher nur der Ladeknopf stehen. Wer den Preis wissen
+     wollte, musste zwanzig Bildschirme scrollen, und genau das ist die Frage,
+     die eine Kaufentscheidung aufhaelt. Der Preislink bleibt deshalb. */
+  .nav-links a:not(.nav-cta):not([href="#preise"]) { display: none; }
+  .nav-links { gap: 16px; }
 }
 
 /* ---------- Handy Rahmen ----------
