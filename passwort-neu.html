@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neues Passwort | Enara</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="bilder/favicon.png">
+  <link rel="stylesheet" href="stil.css?v=9">
+  <style>
+    /* Gerüst wie bestaetigt.html, dazu die Felder für das neue Passwort */
+    .bestaetigt-buehne {
+      position: relative;
+      min-height: calc(100vh - 140px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #101030, var(--nacht0));
+      overflow: hidden;
+    }
+    .bestaetigt-karte { position: relative; max-width: 560px; }
+    .bestaetigt-karte .stern-gross {
+      font-size: 2.2rem;
+      color: var(--goldhell);
+      display: block;
+      margin-bottom: 18px;
+    }
+    .bestaetigt-karte h1 {
+      font-family: var(--serif);
+      color: var(--creme);
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      margin-bottom: 14px;
+    }
+    .bestaetigt-karte p { color: var(--text); margin-bottom: 10px; }
+    .bestaetigt-karte .knopf-gold { margin-top: 22px; }
+    .bestaetigt-hinweis { color: var(--leise); font-size: 0.92rem; margin-top: 26px; }
+
+    .pw-form { margin-top: 26px; display: flex; flex-direction: column; gap: 14px; }
+    .pw-form input {
+      width: 100%;
+      padding: 15px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(245, 240, 230, 0.18);
+      background: rgba(245, 240, 230, 0.06);
+      color: var(--creme);
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .pw-form input::placeholder { color: rgba(245, 240, 230, 0.45); }
+    .pw-form input:focus {
+      outline: none;
+      border-color: var(--goldhell);
+      background: rgba(245, 240, 230, 0.09);
+    }
+    .pw-form button {
+      margin-top: 4px;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .pw-form button[disabled] { opacity: 0.55; cursor: default; }
+    .pw-meldung { color: var(--gold); font-size: 0.95rem; min-height: 1.2em; margin: 0; }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <a class="nav-marke" href="index.html">
+      <img src="bilder/logo-weiss.png" alt="" aria-hidden="true">
+      <span>Enara</span>
+    </a>
+  </header>
+
+  <main class="bestaetigt-buehne">
+    <div class="sterne" aria-hidden="true"></div>
+
+    <!-- Ansicht 1: das Formular, sichtbar sobald der Link gültig ist -->
+    <div class="bestaetigt-karte" id="ansicht-form" hidden>
+      <span class="stern-gross" aria-hidden="true">✦</span>
+      <h1>Setz dir ein neues Passwort.</h1>
+      <p>Danach meldest du dich in der Enara App damit an. Deine Einträge warten auf dich.</p>
+      <form class="pw-form" id="formular" autocomplete="off">
+        <input type="password" id="passwort" name="new-password" autocomplete="new-password"
+               placeholder="Neues Passwort (mindestens 8 Zeichen)" required minlength="8">
+        <input type="password" id="wiederholung" name="confirm-password" autocomplete="new-password"
+               placeholder="Noch einmal zur Sicherheit" required minlength="8">
+        <p class="pw-meldung" id="meldung" role="status"></p>
+        <button class="knopf-gold" type="submit" id="absenden">Passwort speichern</button>
+      </form>
+    </div>
+
+    <!-- Ansicht 2: geschafft -->
+    <div class="bestaetigt-karte" id="ansicht-ok" hidden>
+      <span class="stern-gross" aria-hidden="true">✦</span>
+      <h1>Dein neues Passwort steht.</h1>
+      <p>Geh zurück in die Enara App und melde dich damit an.</p>
+      <a class="knopf-gold" href="enara://">Enara öffnen</a>
+      <p class="bestaetigt-hinweis">Öffnet sich die App nicht von selbst, wechsle einfach von Hand zur Enara App. Liest du das gerade am Computer, nimm dein Handy, dort wartet die App auf dich.</p>
+    </div>
+
+    <!-- Ansicht 3: Link abgelaufen, schon benutzt oder direkt aufgerufen -->
+    <div class="bestaetigt-karte" id="ansicht-fehler" hidden>
+      <span class="stern-gross" aria-hidden="true">✦</span>
+      <h1>Dieser Link ist nicht mehr gültig.</h1>
+      <p>Er wurde schon benutzt oder ist abgelaufen. Das passiert auch, wenn du diese Seite direkt aufrufst.</p>
+      <p>Öffne die Enara App und tippe beim Anmelden auf „Passwort vergessen?“, dann bekommst du einen frischen Link.</p>
+      <a class="knopf-gold" href="enara://">Enara öffnen</a>
+    </div>
+
+    <script>
+      // Das neue Passwort wird hier im Browser gesetzt und nicht in der App:
+      // so funktioniert der Weg auch für App Stände, die "Passwort vergessen"
+      // noch nicht kennen, und er braucht kein Deep Link Handling.
+      //
+      // Bewusst ohne Supabase SDK. Gebraucht wird genau ein Aufruf
+      // (PUT /auth/v1/user), dafür lohnt keine Bibliothek von einem fremden
+      // Server, schon gar nicht auf einer Seite, die ein Passwort entgegennimmt.
+      (function () {
+        var SUPABASE_URL = 'https://ztmtqdmarasmizudvaji.supabase.co';
+        // Der anon Schlüssel ist öffentlich, er steckt in jeder App Kopie.
+        var ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp0bXRxZG1hcmFzbWl6dWR2YWppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM5NTU0MjcsImV4cCI6MjA5OTUzMTQyN30.D5cqxwOlS5bYj0nb7WNkRp73fMyrgOeHuRXSnf2gAbA';
+        var MINDESTLAENGE = 8; // muss zu PASSWORT_MINDESTLAENGE in der App passen
+
+        var zeige = function (id) { document.getElementById(id).hidden = false; };
+        var meldung = document.getElementById('meldung');
+
+        // Supabase hängt die Sitzung als Fragment an (#access_token=...),
+        // bei abgelaufenen Links stattdessen #error=...
+        var hash = window.location.hash.replace(/^#/, '');
+        var felder = new URLSearchParams(hash);
+        var token = felder.get('access_token');
+
+        if (!token || felder.get('error')) {
+          zeige('ansicht-fehler');
+          return;
+        }
+
+        // Der Token gehört nicht in die Adresszeile: von dort landet er im
+        // Verlauf und wandert beim Teilen des Links mit.
+        history.replaceState(null, '', window.location.pathname);
+
+        zeige('ansicht-form');
+
+        var formular = document.getElementById('formular');
+        var knopf = document.getElementById('absenden');
+
+        formular.addEventListener('submit', function (ereignis) {
+          ereignis.preventDefault();
+          var passwort = document.getElementById('passwort').value;
+          var wiederholung = document.getElementById('wiederholung').value;
+
+          if (passwort.length < MINDESTLAENGE) {
+            meldung.textContent = 'Das Passwort braucht mindestens ' + MINDESTLAENGE + ' Zeichen.';
+            return;
+          }
+          if (passwort !== wiederholung) {
+            meldung.textContent = 'Die beiden Eingaben sind nicht gleich.';
+            return;
+          }
+
+          meldung.textContent = '';
+          knopf.disabled = true;
+          knopf.textContent = 'Einen Moment …';
+
+          fetch(SUPABASE_URL + '/auth/v1/user', {
+            method: 'PUT',
+            headers: {
+              'apikey': ANON,
+              'Authorization': 'Bearer ' + token,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ password: passwort })
+          }).then(function (antwort) {
+            if (antwort.ok) {
+              document.getElementById('ansicht-form').hidden = true;
+              zeige('ansicht-ok');
+              return null;
+            }
+            return antwort.json().catch(function () { return {}; });
+          }).then(function (fehler) {
+            if (!fehler) { return; }
+            knopf.disabled = false;
+            knopf.textContent = 'Passwort speichern';
+            var text = (fehler.msg || fehler.error_description || fehler.message || '').toLowerCase();
+            if (text.indexOf('different from the old') !== -1) {
+              meldung.textContent = 'Das ist dein bisheriges Passwort. Wähle bitte ein anderes.';
+            } else if (text.indexOf('should be at least') !== -1 || text.indexOf('weak') !== -1) {
+              meldung.textContent = 'Dieses Passwort ist zu schwach. Nimm bitte ein längeres.';
+            } else if (text.indexOf('expired') !== -1 || text.indexOf('invalid') !== -1) {
+              document.getElementById('ansicht-form').hidden = true;
+              zeige('ansicht-fehler');
+            } else {
+              meldung.textContent = 'Das hat gerade nicht geklappt. Versuche es bitte noch einmal.';
+            }
+          }).catch(function () {
+            knopf.disabled = false;
+            knopf.textContent = 'Passwort speichern';
+            meldung.textContent = 'Keine Verbindung. Prüfe dein Internet und versuche es erneut.';
+          });
+        });
+      })();
+    </script>
+  </main>
+
+  <footer>
+    <div class="footer-innen">
+      <span class="footer-copy">© 2026 Enara</span>
+      <nav aria-label="Rechtliches">
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="agb.html">AGB</a>
+        <a href="mailto:support@getenara.app">Kontakt</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
