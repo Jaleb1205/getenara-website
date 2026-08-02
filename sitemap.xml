@@ -32,6 +32,14 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://getenara.app/"/>
   </url>
 
+  <!-- Artikel. Noch ohne xhtml:link Paar, weil es die englische Fassung noch
+       nicht gibt. Begruendung in .planning/seo/themen.md unter "Bewusst nicht".
+       Sobald sie steht, kommt das Paar hier hinein. -->
+  <url>
+    <loc>https://getenara.app/wissen/manifestationsjournal.html</loc>
+    <lastmod>2026-08-02</lastmod>
+  </url>
+
   <url>
     <loc>https://getenara.app/datenschutz.html</loc>
     <lastmod>2026-08-01</lastmod>
