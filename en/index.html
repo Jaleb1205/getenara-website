@@ -17,6 +17,82 @@
   <link rel="alternate" hreflang="de" href="https://getenara.app/">
   <link rel="alternate" hreflang="en" href="https://getenara.app/en/">
   <link rel="alternate" hreflang="x-default" href="https://getenara.app/">
+  <!-- The one valid address of this page. Without it Google counts /en/ and
+       /en/index.html as two separate pages and splits their strength. -->
+  <link rel="canonical" href="https://getenara.app/en/">
+  <!-- Preview card for WhatsApp, Telegram, Instagram, LinkedIn and the rest.
+       Without these lines a shared link shows as a bare address, no image. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Enara">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:url" content="https://getenara.app/en/">
+  <meta property="og:title" content="Enara, your manifestation journal">
+  <meta property="og:description" content="A morning ritual, an evening ritual, and a journal that remembers what matters to you. Every day you write becomes a star.">
+  <meta property="og:image" content="https://getenara.app/bilder/og-en.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Enara, your manifestation journal">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Structured data. Tells Google that a publisher, a website and an app sit
+       behind this page and how the three relate. DELIBERATELY WITHOUT
+       aggregateRating: that would need real, publicly verifiable review counts.
+       Invented or polished stars break Google's guidelines and get the whole
+       markup dropped. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://getenara.app/#anbieter",
+        "name": "Enara",
+        "url": "https://getenara.app/",
+        "logo": "https://getenara.app/bilder/logo-gold.png",
+        "email": "support@getenara.app"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://getenara.app/en/#website",
+        "url": "https://getenara.app/en/",
+        "name": "Enara",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://getenara.app/#anbieter" }
+      },
+      {
+        "@type": "MobileApplication",
+        "@id": "https://getenara.app/#app",
+        "name": "Enara: Manifestation Journal",
+        "description": "A manifestation journal with a morning ritual, an evening ritual, a moon ritual and a coach that remembers what you wrote.",
+        "operatingSystem": "iOS",
+        "applicationCategory": "HealthApplication",
+        "url": "https://apps.apple.com/app/id6791974547",
+        "inLanguage": ["en", "de"],
+        "publisher": { "@id": "https://getenara.app/#anbieter" },
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Rituals, journal and sky free permanently"
+          },
+          {
+            "@type": "Offer",
+            "price": "12.99",
+            "priceCurrency": "USD",
+            "description": "Enara Plus, monthly"
+          },
+          {
+            "@type": "Offer",
+            "price": "59.99",
+            "priceCurrency": "USD",
+            "description": "Enara Plus, yearly"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 

@@ -1,0 +1,12 @@
+# getenara.app
+#
+# Alles darf gelesen werden. Die vier Seiten mit Einmal Token in der Adresse
+# (Mailbestaetigung, Passwort setzen) stehen auf noindex im Kopf der Seite und
+# werden hier BEWUSST NICHT gesperrt: Ein Disallow wuerde Google das Lesen
+# verbieten, damit sieht Google das noindex nie und darf die Adresse trotzdem
+# in den Index nehmen, wenn sie ihm von woanders zugetragen wird. Genau das
+# passiert hier, denn Google ruft die Links aus verschickten Mails ab.
+User-agent: *
+Allow: /
+
+Sitemap: https://getenara.app/sitemap.xml

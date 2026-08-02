@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Eigentumsnachweis fuer die Google Search Console, angelegt am 02.08.2026
+       als Property https://getenara.app/ (URL Praefix, deckt auch /en/ ab).
+       NICHT ENTFERNEN: Google prueft die Zeile regelmaessig nach. Faellt sie
+       weg, verliert das Konto den Zugriff auf alle Suchdaten der Seite. -->
+  <meta name="google-site-verification" content="fKZt1KqiFV8rRYNeQomMzWMHQovvWvsDIgBtXEecuAM">
   <title>Enara, dein Journal für Manifestation</title>
   <meta name="description" content="Enara begleitet dich mit Morgenritual, Abendritual und einem Journal, das dich kennt. Jeder Tag wird ein Stern an deinem Himmel. Jetzt im App Store.">
   <!-- Smart App Banner: Safari zeigt auf dem iPhone von selbst einen schmalen
@@ -23,6 +28,85 @@
   <link rel="alternate" hreflang="de" href="https://getenara.app/">
   <link rel="alternate" hreflang="en" href="https://getenara.app/en/">
   <link rel="alternate" hreflang="x-default" href="https://getenara.app/">
+  <!-- Die eine gueltige Adresse dieser Seite. Ohne sie zaehlt Google
+       getenara.app/ und getenara.app/index.html sowie jeden Aufruf mit ?lang=de
+       als eigene Seite und verteilt die Staerke auf mehrere Dubletten. -->
+  <link rel="canonical" href="https://getenara.app/">
+  <!-- Vorschaukarte fuer WhatsApp, Telegram, Instagram, LinkedIn und Co.
+       Ohne diese Zeilen erscheint ein geteilter Link als nackte Adresse ohne
+       Bild und ohne Text. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Enara">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:url" content="https://getenara.app/">
+  <meta property="og:title" content="Enara, dein Journal für Manifestation">
+  <meta property="og:description" content="Morgenritual, Abendritual und ein Journal, das dich kennt. Jeder Tag wird ein Stern an deinem Himmel.">
+  <meta property="og:image" content="https://getenara.app/bilder/og-de.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Enara, dein Journal für Manifestation">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Strukturierte Daten. Sie erklaeren Google, dass hinter der Seite ein
+       Anbieter, eine Website und eine App stehen und wie die drei
+       zusammenhaengen. BEWUSST OHNE aggregateRating: dafuer braeuchten wir
+       echte, oeffentlich nachpruefbare Bewertungszahlen. Erfundene oder
+       geschoente Sterne sind ein Verstoss gegen Googles Richtlinien und
+       fliegen samt der ganzen Auszeichnung raus. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://getenara.app/#anbieter",
+        "name": "Enara",
+        "url": "https://getenara.app/",
+        "logo": "https://getenara.app/bilder/logo-gold.png",
+        "email": "support@getenara.app"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://getenara.app/#website",
+        "url": "https://getenara.app/",
+        "name": "Enara",
+        "inLanguage": "de",
+        "publisher": { "@id": "https://getenara.app/#anbieter" }
+      },
+      {
+        "@type": "MobileApplication",
+        "@id": "https://getenara.app/#app",
+        "name": "Enara: Manifestation Journal",
+        "description": "Journal für Manifestation mit Morgenritual, Abendritual, Mondritual und einem Coach, der sich an deine Einträge erinnert.",
+        "operatingSystem": "iOS",
+        "applicationCategory": "HealthApplication",
+        "url": "https://apps.apple.com/app/id6791974547",
+        "inLanguage": ["de", "en"],
+        "publisher": { "@id": "https://getenara.app/#anbieter" },
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "description": "Rituale, Journal und Himmel dauerhaft kostenlos"
+          },
+          {
+            "@type": "Offer",
+            "price": "12.99",
+            "priceCurrency": "EUR",
+            "description": "Enara Plus, monatlich"
+          },
+          {
+            "@type": "Offer",
+            "price": "59.99",
+            "priceCurrency": "EUR",
+            "description": "Enara Plus, jährlich"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
   <script>
     // Sprachweiche. Steht bewusst im head und VOR dem sichtbaren Inhalt, sonst
     // sieht ein englischer Besucher fuer einen Moment die deutsche Seite
