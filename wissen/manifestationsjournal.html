@@ -10,12 +10,14 @@
   <link rel="preload" href="../schriften/nunito-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../stil.css?v=10">
   <link rel="canonical" href="https://getenara.app/wissen/manifestationsjournal.html">
-  <!-- KEINE hreflang Zeilen, und das ist Absicht: Es gibt noch keine englische
-       Fassung. Grund steht in .planning/seo/themen.md, Abschnitt "Bewusst
-       nicht": Die App ist derzeit nur in Deutschland, Oesterreich und der
-       Schweiz kaeuflich. Ein hreflang Paar auf eine Seite, die es nicht gibt,
-       waere ein Fehler. Sobald die Laender offen sind und die englische Fassung
-       steht, kommen die drei Zeilen hier und drueben hinein. -->
+  <!-- Sprachpaar. Beide Seiten nennen sich gegenseitig, sonst ignoriert Google
+       das Paar und haelt eine der beiden fuer eine Dublette. Entscheidung vom
+       04.08.2026: englische Fassungen entstehen jetzt, obwohl die App noch in
+       drei Laendern verkaeuflich ist, weil eine Seite drei bis sechs Monate
+       braucht, bis sie rankt. -->
+  <link rel="alternate" hreflang="de" href="https://getenara.app/wissen/manifestationsjournal.html">
+  <link rel="alternate" hreflang="en" href="https://getenara.app/en/learn/manifestation-journal.html">
+  <link rel="alternate" hreflang="x-default" href="https://getenara.app/wissen/manifestationsjournal.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Enara">
   <meta property="og:locale" content="de_DE">
@@ -35,6 +37,12 @@
       <img src="../bilder/logo-weiss.png" alt="" aria-hidden="true">
       <span>Enara</span>
     </a>
+    <!-- Der Weg zurueck. Bewusst mit der Klasse nav-cta: die Regel in stil.css
+         bei 720px blendet alle anderen Navigationslinks am Handy aus, und genau
+         dort braucht man ihn am dringendsten. -->
+    <nav class="nav-links" aria-label="Zurück">
+      <a class="nav-cta" href="../index.html">Zur Startseite</a>
+    </nav>
   </header>
 
   <div class="recht-kopf">

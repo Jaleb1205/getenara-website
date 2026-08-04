@@ -10,11 +10,10 @@
   <link rel="preload" href="../schriften/nunito-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../stil.css?v=10">
   <link rel="canonical" href="https://getenara.app/wissen/scripting-manifestieren.html">
-  <!-- KEINE hreflang Zeilen, gleiche Begruendung wie bei
-       manifestationsjournal.html: Es gibt noch keine englische Fassung, weil
-       die App derzeit nur in Deutschland, Oesterreich und der Schweiz
-       kaeuflich ist. Sobald die Laender offen sind, kommen die drei Zeilen
-       hier und in der englischen Fassung hinein. Siehe .planning/seo/themen.md. -->
+  <!-- Sprachpaar, beidseitig. Siehe Kommentar in manifestationsjournal.html. -->
+  <link rel="alternate" hreflang="de" href="https://getenara.app/wissen/scripting-manifestieren.html">
+  <link rel="alternate" hreflang="en" href="https://getenara.app/en/learn/scripting-manifestation.html">
+  <link rel="alternate" hreflang="x-default" href="https://getenara.app/wissen/scripting-manifestieren.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Enara">
   <meta property="og:locale" content="de_DE">
@@ -34,6 +33,12 @@
       <img src="../bilder/logo-weiss.png" alt="" aria-hidden="true">
       <span>Enara</span>
     </a>
+    <!-- Der Weg zurueck. Bewusst mit der Klasse nav-cta: die Regel in stil.css
+         bei 720px blendet alle anderen Navigationslinks am Handy aus, und genau
+         dort braucht man ihn am dringendsten. -->
+    <nav class="nav-links" aria-label="Zurück">
+      <a class="nav-cta" href="../index.html">Zur Startseite</a>
+    </nav>
   </header>
 
   <div class="recht-kopf">

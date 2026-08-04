@@ -32,22 +32,56 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://getenara.app/"/>
   </url>
 
-  <!-- Artikel. Noch ohne xhtml:link Paar, weil es die englische Fassung noch
-       nicht gibt. Begruendung in .planning/seo/themen.md unter "Bewusst nicht".
-       Sobald sie steht, kommt das Paar hier hinein. -->
+  <!-- Artikel, jeweils als Sprachpaar. Deutsch ist x-default, weil die App
+       heute in Deutschland, Oesterreich und der Schweiz verkaeuflich ist.
+       Entscheidung vom 04.08.2026: die englischen Fassungen entstehen trotzdem
+       jetzt, weil eine Seite drei bis sechs Monate braucht, bis sie rankt. -->
   <url>
     <loc>https://getenara.app/wissen/manifestationsjournal.html</loc>
     <lastmod>2026-08-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://getenara.app/wissen/manifestationsjournal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getenara.app/en/learn/manifestation-journal.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getenara.app/wissen/manifestationsjournal.html"/>
+  </url>
+
+  <url>
+    <loc>https://getenara.app/en/learn/manifestation-journal.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://getenara.app/wissen/manifestationsjournal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getenara.app/en/learn/manifestation-journal.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getenara.app/wissen/manifestationsjournal.html"/>
   </url>
 
   <url>
     <loc>https://getenara.app/wissen/scripting-manifestieren.html</loc>
     <lastmod>2026-08-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://getenara.app/wissen/scripting-manifestieren.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getenara.app/en/learn/scripting-manifestation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getenara.app/wissen/scripting-manifestieren.html"/>
+  </url>
+
+  <url>
+    <loc>https://getenara.app/en/learn/scripting-manifestation.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://getenara.app/wissen/scripting-manifestieren.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getenara.app/en/learn/scripting-manifestation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getenara.app/wissen/scripting-manifestieren.html"/>
   </url>
 
   <url>
     <loc>https://getenara.app/wissen/funktioniert-manifestieren.html</loc>
     <lastmod>2026-08-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://getenara.app/wissen/funktioniert-manifestieren.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getenara.app/en/learn/does-manifestation-work.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getenara.app/wissen/funktioniert-manifestieren.html"/>
+  </url>
+
+  <url>
+    <loc>https://getenara.app/en/learn/does-manifestation-work.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://getenara.app/wissen/funktioniert-manifestieren.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://getenara.app/en/learn/does-manifestation-work.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://getenara.app/wissen/funktioniert-manifestieren.html"/>
   </url>
 
   <url>
