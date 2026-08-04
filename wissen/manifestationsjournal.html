@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="../bilder/favicon.png?v=2">
   <link rel="preload" href="../schriften/lora.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../schriften/nunito-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../stil.css?v=10">
+  <link rel="stylesheet" href="../stil.css?v=11">
   <link rel="canonical" href="https://getenara.app/wissen/manifestationsjournal.html">
   <!-- Sprachpaar. Beide Seiten nennen sich gegenseitig, sonst ignoriert Google
        das Paar und haelt eine der beiden fuer eine Dublette. Entscheidung vom
@@ -37,12 +37,6 @@
       <img src="../bilder/logo-weiss.png" alt="" aria-hidden="true">
       <span>Enara</span>
     </a>
-    <!-- Der Weg zurueck. Bewusst mit der Klasse nav-cta: die Regel in stil.css
-         bei 720px blendet alle anderen Navigationslinks am Handy aus, und genau
-         dort braucht man ihn am dringendsten. -->
-    <nav class="nav-links" aria-label="Zurück">
-      <a class="nav-cta" href="../index.html">Zur Startseite</a>
-    </nav>
   </header>
 
   <div class="recht-kopf">
@@ -142,7 +136,7 @@
 
       <p>2023 haben Dixon, Hornsey und Hartley drei Studien mit zusammen 1023 Personen veröffentlicht. Wer stärker an Manifestation glaubte, neigte häufiger zu riskanten Anlagen, hatte öfter eine Insolvenz erlebt und erwartete außergewöhnlichen Erfolg in kürzerer Zeit. Einen Beleg für tatsächlich größeren Erfolg fanden sie nicht.</p>
 
-      <p>Die Studie ist korrelativ. Sie zeigt, was zusammen auftritt, nicht was woraus folgt. Und sie sagt nichts darüber, ob dein Wunsch aufgeht. Ausführlich, mit allen Zahlen und den drei Stellen, an denen es kippt: <a href="funktioniert-manifestieren.html">Funktioniert Manifestieren wirklich?</a></p>
+      <p>Die Studie ist korrelativ. Sie zeigt, was zusammen auftritt, nicht was woraus folgt. Und sie sagt nichts darüber, ob dein Wunsch aufgeht. Wie die Praxis dann wirklich arbeitet, in fünf Schritten: <a href="funktioniert-manifestieren.html">So funktioniert Manifestieren wirklich</a></p>
 
       <p>Was sie brauchbar macht, ist die Trennlinie, die sie zieht. Die Teile, die messbar etwas bewegen, sind die, die in deiner Hand liegen: klarer sehen, was du willst, wissen, was dazwischen steht, den ersten Schritt terminieren, freundlich mit dir bleiben, wenn es dauert. Das ist genau das, was ein Journal kann. Was danach kommt, ist nicht die Frage, die ein Heft beantwortet.</p>
 
@@ -154,7 +148,7 @@
 
       <p><strong>Enara</strong> ist ein Journal, das nach diesen Bausteinen gebaut ist. Für die Szene gibt es fertige Schreibvorlagen, Intention und Dankbarkeit gehören zum Morgen und zum Abend, und dein Himmel füllt sich mit jedem Tag, an dem du schreibst. Die Rituale, das Journal und dein Himmel sind dauerhaft kostenlos, die Schreibvorlagen und die Gespräche mit Enara gehören zu Enara Plus.</p>
 
-      <p>Ehrlich auch an dieser Stelle: Den zweiten Absatz aus Baustein 3, also das Hindernis und den ersten Schritt, schreibst du bisher selbst. Ein eigenes Werkzeug dafür gibt es in Enara noch nicht. <a href="../index.html">Hier steht, wie ein Tag mit Enara aussieht</a>, und <a href="../index.html#faq">hier stehen die häufigsten Fragen</a>.</p>
+      <p>Den zweiten Absatz aus Baustein 3, also das Hindernis und den ersten Schritt, schreibst du selbst ins Journal, direkt unter die Szene. Eine geführte Vorlage, die dich danach fragt, gibt es noch nicht. <a href="../index.html">Hier steht, wie ein Tag mit Enara aussieht</a>, und <a href="../index.html#faq">hier stehen die häufigsten Fragen</a>.</p>
 
     </div>
   </main>
@@ -170,6 +164,11 @@
       </nav>
     </div>
   </footer>
+  <!-- Laeuft beim Scrollen mit, damit man fuer den Rueckweg nicht
+       hunderte Zeilen hochscrollen muss. -->
+  <a class="zurueck-schwebend" href="../index.html">
+    <span class="pfeil" aria-hidden="true">&#8592;</span>Zur Startseite
+  </a>
 
 </body>
 </html>

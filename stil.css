@@ -870,6 +870,43 @@ a { color: var(--goldhell); }
 
 .wissen-eintrag p { font-size: 0.93rem; color: var(--leise); margin: 0; }
 
+/* ---------- Mitlaufender Weg zurueck ----------
+   Die Kopfzeile ist zwar sticky, aber auf einem langen Artikel scrollt man
+   trotzdem hunderte Zeilen, ohne sie im Blick zu haben. Dieser Knopf steht
+   fest unten rechts und ist auf jeder Bildschirmhoehe erreichbar, ohne
+   hochzuscrollen. Bewusst nicht nur ein Symbol: ein Pfeil allein sagt nicht,
+   wohin er fuehrt. */
+
+.zurueck-schwebend {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  background: rgba(10, 15, 34, 0.92);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: var(--goldhell);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.zurueck-schwebend:hover { background: rgba(217, 164, 65, 0.16); transform: translateY(-2px); }
+
+.zurueck-schwebend .pfeil { font-size: 1.05rem; line-height: 1; }
+
+@media (max-width: 620px) {
+  .zurueck-schwebend { right: 14px; bottom: 14px; padding: 11px 17px; font-size: 0.9rem; }
+}
+
 /* ---------- Finale ---------- */
 
 .finale {
@@ -961,6 +998,7 @@ footer {
   .zeigen { opacity: 1; transform: none; transition: none; }
   .bento-karte, .bento-karte:hover { transform: none; transition: none; }
   .wissen-eintrag, .wissen-eintrag:hover { transform: none; transition: none; }
+  .zurueck-schwebend, .zurueck-schwebend:hover { transform: none; transition: none; }
 }
 
 /* ---------- Kleine Bildschirme ---------- */

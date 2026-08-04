@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="../bilder/favicon.png?v=2">
   <link rel="preload" href="../schriften/lora.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../schriften/nunito-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../stil.css?v=10">
+  <link rel="stylesheet" href="../stil.css?v=11">
   <link rel="canonical" href="https://getenara.app/wissen/scripting-manifestieren.html">
   <!-- Sprachpaar, beidseitig. Siehe Kommentar in manifestationsjournal.html. -->
   <link rel="alternate" hreflang="de" href="https://getenara.app/wissen/scripting-manifestieren.html">
@@ -33,12 +33,6 @@
       <img src="../bilder/logo-weiss.png" alt="" aria-hidden="true">
       <span>Enara</span>
     </a>
-    <!-- Der Weg zurueck. Bewusst mit der Klasse nav-cta: die Regel in stil.css
-         bei 720px blendet alle anderen Navigationslinks am Handy aus, und genau
-         dort braucht man ihn am dringendsten. -->
-    <nav class="nav-links" aria-label="Zurück">
-      <a class="nav-cta" href="../index.html">Zur Startseite</a>
-    </nav>
   </header>
 
   <div class="recht-kopf">
@@ -138,7 +132,7 @@
 
       <h2>Was an Scripting belegt ist, und was nicht</h2>
 
-      <p class="ehrlich"><strong>Die Mechanik: reine Lehre.</strong> Es gibt keine Studie, die zeigt, dass geschriebene Zukunftsszenen äußere Ereignisse herbeiführen. Wer dir an dieser Stelle eine Studie verspricht, hat keine. Der ganze Forschungsstand dazu steht in <a href="funktioniert-manifestieren.html">Funktioniert Manifestieren wirklich?</a></p>
+      <p class="ehrlich"><strong>Die Mechanik: reine Lehre.</strong> Es gibt keine Studie, die zeigt, dass geschriebene Zukunftsszenen äußere Ereignisse herbeiführen. Wer dir an dieser Stelle eine Studie verspricht, hat keine. Was dagegen belegt ist und wie du es nutzt, steht in <a href="funktioniert-manifestieren.html">So funktioniert Manifestieren wirklich</a></p>
 
       <p class="ehrlich"><strong>Die beforschte Schwester: belegt.</strong> In der Psychologie heißt die nächste Verwandte Best Possible Self. Laura King untersuchte sie 2001 mit 81 Studierenden, vier Tage lang je zwanzig Minuten. Eine Metaanalyse über 29 Studien findet kleine bis mittlere Effekte auf Stimmung und Optimismus. Der Vergleich entscheidet allerdings alles: gegen eine Warteliste sieht der Effekt groß aus, gegen eine andere aktive Schreibübung schrumpft er, und direkt gegen Dankbarkeitsübungen getestet bleibt praktisch nichts übrig. Es ist also eine gute Übung, aber keine bessere.</p>
 
@@ -168,7 +162,7 @@
 
       <p><strong>Enara</strong> ist ein Journal für genau diese Art zu schreiben. Die sechs Startsätze oben stammen aus den Schreibvorlagen der App, dort mit Anleitung und Leitfragen. Das freie Schreiben, die Rituale und dein Himmel sind dauerhaft kostenlos, die Schreibvorlagen und die Gespräche mit Enara gehören zu Enara Plus.</p>
 
-      <p>Ehrlich auch hier: Den zweiten Absatz, also das Hindernis und den Wenn Dann Satz, schreibst du bisher selbst. Keine Vorlage in Enara fragt danach. <a href="../index.html">Hier steht, wie ein Tag mit Enara aussieht</a>.</p>
+      <p>Den zweiten Absatz, also das Hindernis und den Wenn Dann Satz, schreibst du selbst ins Journal, direkt unter die Szene. Eine geführte Vorlage, die dich danach fragt, gibt es noch nicht. <a href="../index.html">Hier steht, wie ein Tag mit Enara aussieht</a>.</p>
 
     </div>
   </main>
@@ -184,6 +178,11 @@
       </nav>
     </div>
   </footer>
+  <!-- Laeuft beim Scrollen mit, damit man fuer den Rueckweg nicht
+       hunderte Zeilen hochscrollen muss. -->
+  <a class="zurueck-schwebend" href="../index.html">
+    <span class="pfeil" aria-hidden="true">&#8592;</span>Zur Startseite
+  </a>
 
 </body>
 </html>
