@@ -42,6 +42,7 @@
   --nacht1: #131b38;          /* Mitte des App Nachthimmels */
   --nacht2: #1d2e4e;          /* Kartengrund: das Schwalbenblau */
   --lila: #241e4a;            /* das Lila unten im App Nachthimmel */
+  --nebel: #6c55b8;           /* der Nebel im App Nachthimmel */
   --creme: #f5f0e6;           /* Überschriften, wie in der App */
   --text: rgba(245, 240, 230, 0.78);
   --leise: rgba(245, 240, 230, 0.55);
@@ -597,6 +598,23 @@ a { color: var(--goldhell); }
   color: var(--leise);
   margin-top: 18px;
 }
+
+/* Der Hinweis, welches Werkzeug in der App zu einer Technik gehoert.
+   Bewusst anders als .ehrlich: dort ist der Text gedaempft, weil er
+   einordnet. Hier soll er in normaler Textfarbe stehen, weil er etwas
+   anbietet. Der Nebel violett grenzt ihn vom Gold der Belegkaesten ab,
+   damit man auf einer langen Seite beide Sorten auseinanderhaelt. */
+.werkzeug {
+  border-left: 2px solid var(--nebel);
+  padding: 10px 16px;
+  background: rgba(108, 85, 184, 0.09);
+  border-radius: 0 12px 12px 0;
+  font-size: 0.93rem;
+  color: var(--text);
+  margin-top: 18px;
+}
+
+.werkzeug a { color: var(--goldhell); }
 
 .chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
 
