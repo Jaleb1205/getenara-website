@@ -997,6 +997,62 @@ footer {
 
 .recht-inhalt li { margin-bottom: 8px; }
 
+/* ---------- Sprungmarken in langen Artikeln ---------- */
+/* Ab etwa 2500 Woertern findet niemand mehr die eine Technik, die er sucht.
+   Google baut aus solchen Ankerlisten ausserdem Sprungmarken direkt in die
+   Suchergebnisse, wenn die Seite eine nummerierte Sammlung verspricht. */
+
+.sprungmarken {
+  border: 1px solid var(--linie);
+  border-radius: 12px;
+  background: var(--flaeche);
+  padding: 18px 22px;
+  margin: 30px 0;
+}
+
+.sprungmarken p {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--leise);
+  margin-bottom: 14px;
+}
+
+/* zwei Spalten, sonst waeren zwoelf Zeilen eine halbe Bildschirmhoehe */
+.sprungmarken ol {
+  margin: 0;
+  padding-left: 20px;
+  columns: 2;
+  column-gap: 30px;
+}
+
+.sprungmarken li {
+  margin-bottom: 7px;
+  break-inside: avoid;
+  color: var(--leise);
+}
+
+.sprungmarken a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.sprungmarken a:hover {
+  color: var(--goldhell);
+  border-bottom-color: var(--goldhell);
+}
+
+/* Die Kopfleiste klebt oben und ist rund 56 Pixel hoch. Ohne diese Zeile
+   landet die angesprungene Ueberschrift genau darunter und ist unsichtbar. */
+.recht-inhalt h3[id] { scroll-margin-top: 80px; }
+
+@media (max-width: 560px) {
+  .sprungmarken ol { columns: 1; }
+}
+
 /* ---------- Scroll Reveal ---------- */
 
 .zeigen {
