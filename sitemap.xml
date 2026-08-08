@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Nur Seiten, die in den Suchindex gehoeren. Bewusst NICHT enthalten:
-  bestaetigt.html, passwort-neu.html, en/confirmed.html, en/new-password.html.
-  Die tragen Einmal Token in der Adresse und stehen auf noindex.
+  bestaetigt.html, passwort-neu.html, en/confirmed.html, en/new-password.html
+  (Einmal Token in der Adresse) sowie alle Rechtsseiten (Impressum,
+  Datenschutz/Privacy, AGB/Terms, Konto loeschen/Delete Account). Alle diese
+  Seiten stehen auf noindex, und eine Sitemap darf nur Seiten nennen, die
+  indexiert werden sollen. Google meldet den Widerspruch sonst als Fehler
+  (Search Console Mails vom 08.08.2026).
 
   Jede Seite nennt sich selbst und ihre Sprachfassung als xhtml:link. Das ist
   dieselbe Aussage wie die hreflang Zeilen im Kopf der Seite, nur an der
@@ -114,53 +118,6 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://getenara.app/wissen/manifestieren-techniken.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://getenara.app/en/learn/manifestation-techniques.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://getenara.app/wissen/manifestieren-techniken.html"/>
-  </url>
-
-  <url>
-    <loc>https://getenara.app/datenschutz.html</loc>
-    <lastmod>2026-08-01</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://getenara.app/datenschutz.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://getenara.app/privacy.html"/>
-  </url>
-
-  <url>
-    <loc>https://getenara.app/privacy.html</loc>
-    <lastmod>2026-08-01</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://getenara.app/datenschutz.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://getenara.app/privacy.html"/>
-  </url>
-
-  <url>
-    <loc>https://getenara.app/agb.html</loc>
-    <lastmod>2026-07-30</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://getenara.app/agb.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://getenara.app/terms.html"/>
-  </url>
-
-  <url>
-    <loc>https://getenara.app/terms.html</loc>
-    <lastmod>2026-07-30</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://getenara.app/agb.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://getenara.app/terms.html"/>
-  </url>
-
-  <url>
-    <loc>https://getenara.app/impressum.html</loc>
-    <lastmod>2026-07-22</lastmod>
-  </url>
-
-  <url>
-    <loc>https://getenara.app/konto-loeschen.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://getenara.app/konto-loeschen.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://getenara.app/en/delete-account.html"/>
-  </url>
-
-  <url>
-    <loc>https://getenara.app/en/delete-account.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://getenara.app/konto-loeschen.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://getenara.app/en/delete-account.html"/>
   </url>
 
 </urlset>
