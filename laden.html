@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enara laden</title>
+  <meta name="description" content="Enara für iPhone und Android laden. Die Seite führt dich in den passenden Store.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/png" href="bilder/favicon.png?v=2">
+  <link rel="canonical" href="https://getenara.app/laden.html">
+  <link rel="stylesheet" href="stil.css?v=19">
+  <style>
+    /* Zweisprachig ohne zweite Datei: eine Fassung steht immer, die andere
+       wird vom Skript oben umgeschaltet. Ohne Skript bleibt Deutsch stehen. */
+    html.en [data-de] { display: none; }
+    html:not(.en) [data-en] { display: none; }
+  </style>
+  <script>
+    // Der QR Code am Desktop und Links aus Reels zeigen hierher. Auf dem
+    // Handy geht es sofort in den passenden Store, am Rechner bleiben beide
+    // Knoepfe stehen. Ohne Weiterleitung, wenn ?bleiben=1 gesetzt ist.
+    //
+    // Der Apple Link traegt KEIN Laenderkuerzel (22.09.2026): ein /de/ Link
+    // zeigt einer Person in den USA den deutschen Store. Apple schickt den
+    // kurzen Link von selbst in den Store des Besuchers.
+    //
+    // Sprache: die englische Startseite zeigt denselben QR Code. Wer nicht
+    // auf Deutsch surft, bekommt hier englischen Text, dafuer die Klasse en.
+    (function () {
+      try {
+        var sprachen = navigator.languages || [navigator.language || ''];
+        var deutsch = sprachen.some(function (s) {
+          return String(s).toLowerCase().indexOf('de') === 0;
+        });
+        if (!deutsch) {
+          document.documentElement.className = 'en';
+          document.documentElement.lang = 'en';
+        }
+        if (window.location.search.indexOf('bleiben=1') !== -1) { return; }
+        var ua = navigator.userAgent || '';
+        if (/iPhone|iPad|iPod/i.test(ua)) {
+          window.location.replace('https://apps.apple.com/app/id6791974547');
+        } else if (/Android/i.test(ua)) {
+          window.location.replace('https://play.google.com/store/apps/details?id=de.enara.app&referrer=utm_source%3Dgetenara.app%26utm_medium%3Dqr');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body class="laden-seite">
+  <main class="laden-karte">
+    <img class="finale-logo" src="bilder/logo-gold.png" alt="Enara Logo, eine fliegende Schwalbe aus goldenen Linien">
+    <h1 data-de>Enara laden</h1>
+    <h1 data-en>Get Enara</h1>
+    <p data-de>Für iPhone im App Store, für Android bei Google Play. Die Rituale und dein Journal bleiben kostenlos, sieben Tage lang ist auch Plus dabei.</p>
+    <p data-en>For iPhone on the App Store, for Android on Google Play. The rituals and your journal stay free, and Plus is included for seven days.</p>
+    <div class="store-reihe" data-de>
+      <a class="store-badge" href="https://apps.apple.com/app/id6791974547">
+        <img src="bilder/app-store-badge.svg" alt="Laden im App Store" width="144" height="48">
+      </a>
+      <a class="store-badge" href="https://play.google.com/store/apps/details?id=de.enara.app&amp;referrer=utm_source%3Dgetenara.app%26utm_medium%3Dqr">
+        <img src="bilder/google-play-badge-de.png" alt="Jetzt bei Google Play" width="162" height="48">
+      </a>
+    </div>
+    <div class="store-reihe" data-en>
+      <a class="store-badge" href="https://apps.apple.com/app/id6791974547">
+        <img src="bilder/app-store-badge.svg" alt="Download on the App Store" width="144" height="48">
+      </a>
+      <a class="store-badge" href="https://play.google.com/store/apps/details?id=de.enara.app&amp;referrer=utm_source%3Dgetenara.app%26utm_medium%3Dqr">
+        <img src="bilder/google-play-badge-en.png" alt="Get it on Google Play" width="162" height="48">
+      </a>
+    </div>
+    <p class="laden-klein" data-de><a href="/">Zurück zu getenara.app</a> · <a href="/en/">English</a></p>
+    <p class="laden-klein" data-en><a href="/en/">Back to getenara.app</a> · <a href="/?lang=de">Deutsch</a></p>
+  </main>
+</body>
+</html>

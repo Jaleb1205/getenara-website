@@ -1,44 +1,37 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Enara, your manifestation journal</title>
-  <meta name="description" content="A morning ritual, an evening ritual, and a journal that remembers what matters to you. Every day you write becomes a star. Free on the App Store.">
-  <!-- Smart App Banner: Safari on iPhone shows a slim install strip by itself. -->
+  <title>Enara: the manifestation journal that shows up every day</title>
+  <meta name="description" content="Tell Enara what you want. Two short rituals, a guided audio course and a companion who remembers last week. For iPhone and Android, 7 free days, no card needed.">
+  <!-- Smart App Banner: Safari on iPhone shows a slim strip with the app icon
+       and a download button. -->
   <meta name="apple-itunes-app" content="app-id=6791974547">
   <link rel="icon" type="image/png" href="../bilder/favicon.png?v=2">
   <link rel="preload" href="../schriften/lora.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../schriften/nunito-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <!-- Same stylesheet as the German page, same cache version. When stil.css
-       changes, BOTH pages need the number raised. -->
-  <link rel="stylesheet" href="../stil.css?v=13">
-  <!-- Sprachpaare fuer Google. Die deutsche Seite traegt das Gegenstueck. -->
+  <!-- Bump the version on EVERY change to stil.css, or returning visitors
+       see the new page with the old styles. -->
+  <link rel="stylesheet" href="../stil.css?v=19">
   <link rel="alternate" hreflang="de" href="https://getenara.app/">
   <link rel="alternate" hreflang="en" href="https://getenara.app/en/">
   <link rel="alternate" hreflang="x-default" href="https://getenara.app/">
-  <!-- The one valid address of this page. Without it Google counts /en/ and
-       /en/index.html as two separate pages and splits their strength. -->
   <link rel="canonical" href="https://getenara.app/en/">
-  <!-- Preview card for WhatsApp, Telegram, Instagram, LinkedIn and the rest.
-       Without these lines a shared link shows as a bare address, no image. -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Enara">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:url" content="https://getenara.app/en/">
-  <meta property="og:title" content="Enara, your manifestation journal">
-  <meta property="og:description" content="A morning ritual, an evening ritual, and a journal that remembers what matters to you. Every day you write becomes a star.">
-  <meta property="og:image" content="https://getenara.app/bilder/og-en.png">
+  <meta property="og:title" content="Enara: the manifestation journal that shows up every day">
+  <meta property="og:description" content="Tell Enara what you want. Two short rituals, a guided audio course, and a companion who remembers last week. For iPhone and Android.">
+  <meta property="og:image" content="https://getenara.app/bilder/og-en.png?v=2">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Enara, your manifestation journal">
+  <meta property="og:image:alt" content="Enara, your manifestation journal: the Today screen of the app">
   <meta name="twitter:card" content="summary_large_image">
-  <!-- Structured data. Tells Google that a publisher, a website and an app sit
-       behind this page and how the three relate. DELIBERATELY WITHOUT
-       aggregateRating: that would need real, publicly verifiable review counts.
-       Invented or polished stars break Google's guidelines and get the whole
-       markup dropped. -->
+  <!-- Structured data. DELIBERATELY without aggregateRating: that needs real,
+       publicly verifiable review numbers. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -63,31 +56,17 @@
         "@type": "MobileApplication",
         "@id": "https://getenara.app/#app",
         "name": "Enara: Manifestation Journal",
-        "description": "A manifestation journal with a morning ritual, an evening ritual, a moon ritual and a coach that remembers what you wrote.",
-        "operatingSystem": "iOS",
+        "description": "Manifestation journal with a morning ritual, an evening ritual, a guided audio course, a task of the day and a companion who remembers your entries.",
+        "operatingSystem": "iOS, Android",
         "applicationCategory": "HealthApplication",
         "url": "https://apps.apple.com/app/id6791974547",
-        "inLanguage": ["en", "de"],
+        "downloadUrl": "https://play.google.com/store/apps/details?id=de.enara.app",
+        "inLanguage": ["de", "en"],
         "publisher": { "@id": "https://getenara.app/#anbieter" },
         "offers": [
-          {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD",
-            "description": "Rituals, journal and sky free permanently"
-          },
-          {
-            "@type": "Offer",
-            "price": "12.99",
-            "priceCurrency": "USD",
-            "description": "Enara Plus, monthly"
-          },
-          {
-            "@type": "Offer",
-            "price": "59.99",
-            "priceCurrency": "USD",
-            "description": "Enara Plus, yearly"
-          }
+          { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Rituals, journal, sky, library, listening and the first course chapters, free forever" },
+          { "@type": "Offer", "price": "12.99", "priceCurrency": "USD", "description": "Enara Plus, monthly" },
+          { "@type": "Offer", "price": "59.99", "priceCurrency": "USD", "description": "Enara Plus, yearly" }
         ]
       }
     ]
@@ -102,288 +81,382 @@
       <span>Enara</span>
     </a>
     <nav class="nav-links" aria-label="Sections">
-      <a href="#day">A day with Enara</a>
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
+      <a href="#month">A month with Maya</a>
+      <a href="#listen">Listen</a>
+      <a href="#included">What is included</a>
+      <a href="#preise">Pricing</a>
       <a href="#faq">Questions</a>
-      <!-- Sprachumschalter. Er merkt sich die Wahl, damit die automatische
-           Weiterleitung auf der deutschen Seite sie nicht ueberstimmt. -->
-      <a href="../" hreflang="de" id="sprach-schalter">Deutsch</a>
-      <a class="nav-cta" href="https://apps.apple.com/app/id6791974547">Get it free</a>
+      <a href="../?lang=de" hreflang="de" id="sprach-schalter">Deutsch</a>
+      <a class="nav-cta" href="#download">Get it free</a>
     </nav>
   </header>
 
   <main>
 
-    <!-- Hero -->
+    <!-- Hero: category small, the method big, Maya's phone -->
     <section class="hero" aria-label="Enara">
-      <div class="sterne" aria-hidden="true"><div class="sternschnuppe"></div></div>
+      <div class="sterne" aria-hidden="true"></div>
       <div class="hero-innen">
         <div>
           <p class="hero-eyebrow">Your manifestation journal</p>
-          <h1>What you want has a place here.</h1>
-          <p class="hero-sub">A morning ritual, an evening ritual, and a journal that remembers what matters to you. And because you should see what comes of it, Enara shows you what you have already built.</p>
+          <h1>Tell Enara what you want. She works on it with you, every day.</h1>
+          <p class="hero-sub">Two short rituals, a guided audio course, and a companion who remembers what you wrote last week. A few minutes a day, on iPhone and Android.</p>
           <div class="hero-ctas">
-            <!-- Eigenes Badge, NICHT das deutsche: app-store-badge.svg traegt
-                 "Laden im App Store" als Pfade, nicht als Text, es laesst sich
-                 also nicht umschreiben. Dies hier ist Apples offizielles
-                 US/UK Badge (viewBox 119.66x40, deshalb passt 144x48 fast
-                 exakt auf die Groesse der deutschen Fassung). -->
-            <a class="store-badge" href="https://apps.apple.com/app/id6791974547">
-              <img src="../bilder/app-store-badge-en.svg" alt="Download on the App Store" width="144" height="48">
-            </a>
-            <a class="knopf-geist" href="#day">See how it works</a>
+            <div class="store-reihe">
+              <a class="store-badge" href="https://apps.apple.com/app/id6791974547">
+                <img src="../bilder/app-store-badge-en.svg" alt="Download on the App Store" width="144" height="48">
+              </a>
+              <a class="store-badge" href="https://play.google.com/store/apps/details?id=de.enara.app&amp;hl=en_US&amp;referrer=utm_source%3Dgetenara.app%26utm_medium%3Dwebsite">
+                <img src="../bilder/google-play-badge-en.png" alt="Get it on Google Play" width="162" height="48">
+              </a>
+            </div>
           </div>
-          <p class="hero-hinweis">For iPhone. Your rituals and your journal stay free, always. Every new account gets seven days of Plus, with no payment details.</p>
+          <p class="hero-hinweis">The rituals, your journal and your sky stay free. Plus is included for seven days, no card needed.</p>
         </div>
         <div class="hero-buehne">
           <div class="schwebt">
             <div class="telefon telefon-gross">
               <div class="glow" aria-hidden="true"></div>
-              <img src="../bilder/screens-en/01-home.webp" width="780" height="1688" alt="The Enara home screen: the constellation The Swallow built from 16 collected stars, the current week, and the two daily rituals below" fetchpriority="high">
+              <img src="../bilder/maya/01-home.webp" width="780" height="1688" alt="The Today screen of the Enara app in Maya’s sample account: a morning greeting, the day’s timeline with morning, midday, task, and evening, and the morning ritual below" fetchpriority="high">
             </div>
           </div>
+          <span class="beispiel-marke">Sample account Maya, not a real user</span>
         </div>
       </div>
     </section>
 
-    <!-- Trust strip. Deliberately NOT a copy of the German one: "made in
-         German, from the ground up" is a selling point at home and means
-         nothing here. -->
+    <!-- Trust strip: only what the code supports -->
     <div class="streifen">
       <div class="streifen-innen">
-        <p class="streifen-punkt"><span class="stern-icon" aria-hidden="true">✦</span> Private and encrypted, your words stay yours</p>
-        <p class="streifen-punkt"><span class="stern-icon" aria-hidden="true">✦</span> No ads, no tracking, no data selling</p>
-        <p class="streifen-punkt"><span class="stern-icon" aria-hidden="true">✦</span> Seven free days, and no subscription starts on its own</p>
+        <p class="streifen-punkt"><span class="stern-icon" aria-hidden="true">✦</span> For iPhone and Android</p>
+        <p class="streifen-punkt"><span class="stern-icon" aria-hidden="true">✦</span> Written in English, not translated</p>
+        <p class="streifen-punkt"><span class="stern-icon" aria-hidden="true">✦</span> No ads, no tracking</p>
+        <p class="streifen-punkt"><span class="stern-icon" aria-hidden="true">✦</span> Seven free days, no automatic subscription</p>
       </div>
     </div>
 
-    <!-- A day with Enara. Built as one row instead of three phone cards,
-         because the English screenshots for morning, midday and evening do not
-         exist yet. Rather one honest image than three German ones. -->
-    <section class="abschnitt tagesbogen" id="day">
+    <!-- Her words, Enara's answer: the proof in the first ten seconds -->
+    <section class="abschnitt worte" id="words">
       <div class="innen">
         <div class="abschnitt-kopf mittig zeigen">
-          <p class="eyebrow">A day with Enara</p>
-          <h2>A quiet start, a soft ending.</h2>
-          <p>Enara is not a program to complete. She gives your day two small anchors and keeps what comes out of them.</p>
+          <p class="eyebrow">Sample account Maya</p>
+          <h2>Her words. Enara’s answer.</h2>
+          <p>Maya is not a real user. Hers is a sample account we set up for this page. Her wish is in her own words, and everything Enara says back to her was generated exactly like this inside the app.</p>
         </div>
-
-        <div class="reihe zeigen">
-          <div class="reihe-medien">
+        <div class="worte-paar zeigen">
+          <div class="worte-seite">
             <div class="telefon telefon-mittel">
               <div class="glow" aria-hidden="true"></div>
-              <img src="../bilder/screens-en/01-home.webp" width="780" height="1688" alt="The Enara home screen with the evening ritual and the morning ritual, each about two to three minutes" loading="lazy">
+              <img src="../bilder/maya/00-wunschsatz.webp" width="780" height="1688" alt="The wish screen during setup: Maya tells Enara what she wants, in her own words" loading="lazy">
             </div>
+            <h3>What Maya tells her</h3>
+            <p class="zitat">“I want to make a living from work that feels like mine, and stop holding my breath every time I open my banking app.”</p>
           </div>
-          <div>
-            <h3>Three minutes in the morning. Two in the evening.</h3>
-            <ul class="merkmale">
-              <li><strong>Morning is where you aim.</strong> One intention, one moment of gratitude, and your line for today, built from your own words instead of a calendar quote.</li>
-              <li><strong>Midday asks you back.</strong> Enara picks up what you set out to do this morning and asks about exactly that. One line is enough. Say more if you want to.</li>
-              <li><strong>Evening does not grade you, it closes.</strong> What was good, what you let go of, what you are grateful for. Then the day is closed and you can sleep.</li>
-            </ul>
+          <div class="worte-pfeil" aria-hidden="true">✦</div>
+          <div class="worte-seite">
+            <div class="telefon telefon-mittel">
+              <div class="glow" aria-hidden="true"></div>
+              <img src="../bilder/maya/00-aha.webp" width="780" height="1688" alt="The aha moment in onboarding: Enara explains why Maya’s path starts with this exact sentence, and shows her first affirmation" loading="lazy">
+            </div>
+            <h3>What Enara makes of it</h3>
+            <p>A short getting-to-know-you conversation, and out of that comes her first affirmation. Not pulled from a list. From what Maya just said.</p>
           </div>
         </div>
-      </div>
-      <div class="laden zeigen">
-        <a class="knopf-gold" href="https://apps.apple.com/app/id6791974547">Get Enara free</a>
-        <p>Seven free days, no payment details.</p>
       </div>
     </section>
 
-    <!-- Your sky -->
-    <section class="abschnitt himmel" id="sky">
-      <div class="sterne" aria-hidden="true"><div class="sternschnuppe"></div></div>
+    <!-- The walkthrough: day 1, week 1, month 1 -->
+    <section class="abschnitt durchlauf" id="month">
       <div class="innen">
         <div class="abschnitt-kopf mittig zeigen">
-          <p class="eyebrow">Your sky</p>
-          <h2>Every day you write becomes a star.</h2>
-          <p>One point for every day of the month. Tap a star and it takes you back to the day it came from. Nothing expires, nothing nags you into a streak. Your sky only grows.</p>
+          <p class="eyebrow">A month with Maya, a sample account</p>
+          <h2>This is how Enara works with you.</h2>
+          <p>A few minutes a day is all it takes. Here is Maya’s first month, screen by screen, straight from her account.</p>
         </div>
-        <div class="himmel-buehne zeigen">
-          <div class="telefon telefon-gross">
-            <div class="glow" aria-hidden="true"></div>
-            <img src="../bilder/screens-en/02-himmel.webp" width="780" height="1688" alt="Your sky in Enara: the constellation The Swallow, filled from sixteen journal days in July" loading="lazy">
+
+        <div class="etappe zeigen">
+          <div class="etappe-kopf"><p class="eyebrow">Day 1</p></div>
+          <h3 class="etappe-titel">Two anchors and one small task.</h3>
+          <p class="etappe-satz">In the morning Maya sets the day, in the evening she closes it. In between, there is one task from the course, and Enara ties it to Maya’s own wish.</p>
+          <div class="stationen">
+            <div class="station">
+              <div class="telefon telefon-klein">
+                <div class="glow" aria-hidden="true"></div>
+                <img src="../bilder/maya/14-morgenritual.webp" width="780" height="1688" alt="The morning ritual in Enara: the first step with three breaths before the day begins" loading="lazy">
+              </div>
+              <p class="station-zeit">Morning</p>
+              <h4>Three minutes that set the day.</h4>
+              <p>One intention, three things she is grateful for, and her affirmation for today, worded so she can actually believe it.</p>
+            </div>
+            <div class="station">
+              <div class="telefon telefon-klein">
+                <div class="glow" aria-hidden="true"></div>
+                <img src="../bilder/maya/02-aufgabe.webp" width="780" height="1688" alt="The task of the day: A picture for your wish, with Enara’s personal line about Maya’s wish above and three steps below" loading="lazy">
+              </div>
+              <p class="station-zeit">During the day</p>
+              <h4>One task, made personal for Maya.</h4>
+              <p>The course has 85 small tasks, one per day. With Plus, Enara ties the task to her wish:</p>
+              <p class="zitat">“This picture is a small way to stand inside days that feel steady and yours, instead of pieced together from every yes.”</p>
+            </div>
+            <div class="station">
+              <div class="telefon telefon-klein">
+                <div class="glow" aria-hidden="true"></div>
+                <img src="../bilder/maya/16-abendritual.webp" width="780" height="1688" alt="The evening ritual in Enara: the evening closes the day with the question of what was good today" loading="lazy">
+              </div>
+              <p class="station-zeit">Evening</p>
+              <h4>The evening doesn’t grade. It closes.</h4>
+              <p>What was good, what she lets go of. Then the day is done, and a star appears in her sky.</p>
+            </div>
           </div>
         </div>
-        <p class="himmel-zeile zeigen">That is a real July. Sixteen entries, sixteen stars, one swallow.</p>
-        <div class="laden zeigen">
-          <a class="knopf-gold" href="https://apps.apple.com/app/id6791974547">Get Enara free</a>
-          <p>Your first star happens tonight.</p>
+
+        <div class="etappe zeigen">
+          <div class="etappe-kopf"><p class="eyebrow">Week 1</p></div>
+          <h3 class="etappe-titel">Enara learns how Maya talks.</h3>
+          <p class="etappe-satz">After a few days Enara knows what Maya has written. What Maya writes shows up again in conversations, and the course walks her through what she practices in the rituals, chapter by chapter.</p>
+          <div class="stationen">
+            <div class="station">
+              <div class="telefon telefon-klein">
+                <div class="glow" aria-hidden="true"></div>
+                <img src="../bilder/maya/03-enara-chat.webp" width="780" height="1688" alt="A conversation with Enara: Maya writes about an invoice and her chest going tight, Enara brings up an entry from the week before and asks a question" loading="lazy">
+              </div>
+              <p class="station-zeit">The conversation</p>
+              <h4>Her answers remember.<span class="plus-marke">Plus</span></h4>
+              <p>Maya writes about an invoice. Enara doesn’t name a number, and she doesn’t offer a trick. She points to a day in Maya’s journal that went differently, and asks one question.</p>
+            </div>
+            <div class="station">
+              <div class="telefon telefon-klein">
+                <div class="glow" aria-hidden="true"></div>
+                <img src="../bilder/maya/06-kurs.webp" width="780" height="1688" alt="The course in Enara: six chapters as guided sessions, with the Arriving session before the path begins, chapter 1 up next" loading="lazy">
+              </div>
+              <p class="station-zeit">The course</p>
+              <h4>Six chapters, in her ear.</h4>
+              <p>Each chapter is a guided session of about ten minutes in Enara’s voice, one week per chapter, one task per day. The first two chapters are free.</p>
+            </div>
+            <div class="station">
+              <div class="telefon telefon-klein">
+                <div class="glow" aria-hidden="true"></div>
+                <img src="../bilder/maya/08-hoeren.webp" width="780" height="1688" alt="The Listen area in Enara: playlists by time of day, for hard moments and for the long road, plus Sound Only" loading="lazy">
+              </div>
+              <p class="station-zeit">In between</p>
+              <h4>Enara reads to her.</h4>
+              <p>13 playlists in her voice, from falling asleep to the long road, plus eight sounds. Put the phone down, it keeps playing, even on the lock screen.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="etappe zeigen">
+          <div class="etappe-kopf"><p class="eyebrow">Month 1</p></div>
+          <h3 class="etappe-titel">At the end of the month, something comes back.</h3>
+          <p class="etappe-satz">Every day with a ritual becomes a star. The stars form a picture, and at the end of the month Enara hands it back to Maya, together with a line from her own words.</p>
+          <div class="stationen">
+            <div class="station">
+              <div class="telefon telefon-klein">
+                <div class="glow" aria-hidden="true"></div>
+                <img src="../bilder/maya/04-himmel.webp" width="780" height="1688" alt="Your Sky in Enara: September as a crescent of 16 stars, with August as the swallow below" loading="lazy">
+              </div>
+              <p class="station-zeit">Her sky</p>
+              <h4>Every day with a ritual adds a star.</h4>
+              <p>Maya’s September, 16 stars, and her August below it. Every star leads back to its day. Nothing expires, nothing nags.</p>
+            </div>
+            <div class="station">
+              <div class="telefon telefon-klein">
+                <div class="glow" aria-hidden="true"></div>
+                <img src="../bilder/maya/05b-monat-brief.webp" width="780" height="1688" alt="The monthly review in Enara: 18 stars, the swallow has taken shape, the question of how close her wish feels, and a line from Maya’s own words" loading="lazy">
+              </div>
+              <p class="station-zeit">The monthly review</p>
+              <h4>Not a trophy. Proof.</h4>
+              <p>18 stars in August, her intention from the last day, and once a month the question of how close her wish feels right now. With Plus, Enara adds a letter about the month.</p>
+            </div>
+            <div class="station">
+              <div class="telefon telefon-klein">
+                <div class="glow" aria-hidden="true"></div>
+                <img src="../bilder/maya/09-zukunft.webp" width="780" height="1688" alt="A message from your future self in Enara: Maya’s wish, and below it her message, ready to play" loading="lazy">
+              </div>
+              <p class="station-zeit">Her future self</p>
+              <h4>One day from the life she wants.<span class="plus-marke">Plus</span></h4>
+              <p>Her future self walks through an ordinary day, as a voice message in Enara’s voice. A way to picture it, not a promise. You can listen to it below.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="laden zeigen" id="download">
+          <div class="store-reihe">
+            <a class="store-badge" href="https://apps.apple.com/app/id6791974547">
+              <img src="../bilder/app-store-badge-en.svg" alt="Download on the App Store" width="144" height="48">
+            </a>
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=de.enara.app&amp;hl=en_US&amp;referrer=utm_source%3Dgetenara.app%26utm_medium%3Dwebsite">
+              <img src="../bilder/google-play-badge-en.png" alt="Get it on Google Play" width="162" height="48" loading="lazy">
+            </a>
+          </div>
+          <p>Your first star can appear tonight. Seven free days, no card needed.</p>
         </div>
       </div>
     </section>
 
-    <!-- Features -->
-    <section class="abschnitt" id="features">
+    <!-- Listen: the demo replaces the missing star ratings -->
+    <section class="abschnitt hoerprobe" id="listen">
+      <div class="sterne" aria-hidden="true"></div>
       <div class="innen">
-        <div class="abschnitt-kopf zeigen">
-          <p class="eyebrow">Features</p>
-          <h2>What is with you every day.</h2>
+        <div class="abschnitt-kopf mittig zeigen">
+          <p class="eyebrow">Listen</p>
+          <h2>Enara’s voice, right here.</h2>
+          <p>Everything Enara reads to you is voiced in her voice, an AI voice that belongs to her: 1,560 affirmations, 8 guided sessions, 13 playlists. Here are two of them, no app needed.</p>
         </div>
-
-        <div class="reihe zeigen">
-          <div class="reihe-medien">
-            <div class="telefon telefon-mittel">
-              <div class="glow" aria-hidden="true"></div>
-              <img src="../bilder/screens-en/03-enara-chat.webp" width="780" height="1688" alt="A conversation with Enara: she remembers a journal entry from the 17th and reflects it back" loading="lazy">
-            </div>
+        <div class="hoer-gitter zeigen">
+          <div class="hoer-karte">
+            <h3>From the course: Arriving</h3>
+            <p class="hoer-unter">The first minute of the session, the part that can come before any exercise. Free in the app.</p>
+            <audio controls preload="none" src="../ton/kurs-ankommen-en.mp3"></audio>
+            <p class="zitat">“Sit up tall, awake and at ease. Let your hands rest in your lap or on your legs.”</p>
+            <p class="hoer-hinweis">The whole session runs about three and a half minutes, each of the six chapters about ten.</p>
           </div>
-          <div>
-            <h3>Enara knows your journal and listens.<span class="plus-marke">Plus</span></h3>
-            <p>Enara remembers what matters to you. She reflects your own words back and asks the one question that moves you forward. In the screenshot she answers a real doubt, using an entry from four days earlier.</p>
-            <ul class="merkmale">
-              <li>Memory from your journal, across weeks and months</li>
-              <li>Write to her, or just speak, the microphone is listening</li>
-              <li>A greeting in the morning and in the evening, if you want one</li>
-            </ul>
-            <p class="ehrlich">Enara is an artificial intelligence and she tells you so plainly. She does not replace therapy, and if things get heavy she names people who can listen right now.</p>
-          </div>
-        </div>
-
-        <div class="reihe getauscht zeigen">
-          <div class="reihe-medien">
-            <div class="telefon telefon-mittel">
-              <div class="glow" aria-hidden="true"></div>
-              <img src="../bilder/screens-en/05-sternendeck.webp" width="780" height="1688" alt="The library in Enara: twelve areas of life such as self love, love and relationships, abundance, money and wealth" loading="lazy">
-            </div>
-          </div>
-          <div>
-            <h3>720 affirmations that meet you where you are.</h3>
-            <p>The library holds twelve areas of life, from self love to abundance. Most apps hand everyone the same lines. Enara asks how far you can go today and moves with you, because a sentence you cannot believe yet does nothing for you.</p>
-            <ul class="merkmale">
-              <li>Twelve categories, 720 written affirmations</li>
-              <li>Three strength levels: gentle, growth, bold</li>
-              <li>One line drawn for you every day</li>
-              <li>Tell Enara a wish and she builds affirmations from it</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="laden zeigen">
-          <a class="knopf-gold" href="https://apps.apple.com/app/id6791974547">Get Enara free</a>
-        </div>
-
-        <div class="reihe zeigen">
-          <div class="reihe-medien">
-            <div class="telefon telefon-mittel">
-              <div class="glow" aria-hidden="true"></div>
-              <img src="../bilder/screens-en/04-journal-tag.webp" width="780" height="1688" alt="Your journal in Enara: a July calendar where written days carry a golden dot, with the entries listed below" loading="lazy">
-            </div>
-          </div>
-          <div>
-            <h3>Your journal, one day at a time.</h3>
-            <p>Morning and evening land on the same page: intention, gratitude, what was good. Speak instead of typing and Enara turns it into a clear entry. After two weeks it reads like a letter to yourself.</p>
-            <ul class="merkmale">
-              <li>A calendar that shows at a glance which days you were there</li>
-              <li>Search your own journal by word</li>
-              <li>Write freely, or start from a template</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="mitte-cta zeigen">
-          <a class="knopf-gold" href="https://apps.apple.com/app/id6791974547">Get Enara free</a>
-          <p>The rituals, your journal and your sky cost nothing, permanently.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Bento -->
-    <section class="abschnitt" id="more" style="padding-top: 0;">
-      <div class="innen">
-        <div class="abschnitt-kopf zeigen">
-          <p class="eyebrow">And more</p>
-          <h2>Small things that make the difference.</h2>
-        </div>
-        <div class="bento">
-          <div class="bento-karte zeigen">
-            <p class="zeichen" aria-hidden="true">✧</p>
-            <h3>Your vision board</h3>
-            <p>Your own photos, not stock imagery. Under each one you write a sentence in the present tense, and above it stands your wish, in the words you told Enara. When something arrives, it gets a golden check and stays as proof.</p>
-          </div>
-          <div class="bento-karte zeigen">
-            <p class="zeichen" aria-hidden="true">✎</p>
-            <h3>Writing templates<span class="plus-marke">Plus</span></h3>
-            <p>For when the blank page is too blank: seven templates, from scripting your life as if it already happened to a letter to your younger self. Two more belong to the moon ritual.</p>
-          </div>
-          <div class="bento-karte zeigen">
-            <p class="zeichen" aria-hidden="true">☽</p>
-            <h3>Moon rituals<span class="plus-marke">Plus</span></h3>
-            <p>At the new moon and the full moon the ritual opens: you write a letter to your next full moon and open it when it is full.</p>
-          </div>
-          <div class="bento-karte zeigen">
-            <p class="zeichen" aria-hidden="true">✦</p>
-            <h3>The month comes back to you</h3>
-            <p>At the end of the month Enara lays it out once more: the finished constellation, your number, and a sentence you wrote yourself. Not a trophy. Proof that you were there.</p>
-          </div>
-          <div class="bento-karte zeigen">
-            <p class="zeichen" aria-hidden="true">✧</p>
-            <h3>Share a line</h3>
-            <p>A sentence that lands becomes a card in a starry sky with one tap. Send it to a friend, put it in your story, or keep it with your photos.</p>
-          </div>
-          <div class="bento-karte zeigen">
-            <p class="zeichen" aria-hidden="true">✦</p>
-            <h3>Impulses<span class="plus-marke">Plus</span></h3>
-            <p>If you want them, Enara reaches out with a short impulse, personal and quiet instead of loud and constant.</p>
-          </div>
-          <div class="bento-karte zeigen">
-            <p class="zeichen" aria-hidden="true">✎</p>
-            <h3>Weekly questions</h3>
-            <p>Enara gets to know you slowly: one small question a week. Your answers stay visible to you, and deletable.</p>
-          </div>
-          <div class="bento-karte zeigen">
-            <p class="zeichen" aria-hidden="true">✧</p>
-            <h3>Your constellation</h3>
-            <p>From what you have told Enara about yourself, an image, a name and a path take shape. No new questions, no quiz. It changes when you change.</p>
-          </div>
-          <div class="bento-karte zeigen">
-            <p class="zeichen" aria-hidden="true">♡</p>
-            <h3>Your favorites</h3>
-            <p>Lines that land go into your collection and come back to you when they fit.</p>
+          <div class="hoer-karte">
+            <h3>Maya’s message from her future self<span class="plus-marke">Plus</span></h3>
+            <p class="hoer-unter">Made from her wish, spoken in Enara’s voice. About a minute.</p>
+            <audio controls preload="none" src="../ton/zukunft-maya.mp3"></audio>
+            <p class="zitat">“I wake up before the alarm and just lie there for a second, listening to the quiet. No tightness in my chest yet, that’s new.”</p>
+            <p class="hoer-hinweis">Text and voice are generated with AI from your own wish. A way to picture it, not a promise. Three new messages a month, and the ones you save stay in your account.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Trust -->
-    <section class="abschnitt vertrauen" id="trust">
+    <!-- Other wishes: same method -->
+    <section class="abschnitt wuensche" id="wishes">
       <div class="innen">
-        <div class="abschnitt-kopf zeigen">
-          <p class="eyebrow">Trust</p>
-          <h2>Your words stay yours.</h2>
-          <p>A journal only works if you can be honest in it. That is why trust is part of the product here, not a footnote.</p>
+        <div class="abschnitt-kopf mittig zeigen">
+          <p class="eyebrow">Other wishes</p>
+          <h2>Maya wants calm around money. You might want something else.</h2>
+          <p>Six areas of life to choose from during setup, one main wish and a second one. The method stays the same. The words in it are yours.</p>
         </div>
-        <div class="vertrauen-gitter">
-          <div class="vertrauen-karte zeigen">
-            <h3>On your phone first</h3>
-            <p>Much of it stays on your device. Your account keeps your entries encrypted so they follow you to a new phone.</p>
+        <div class="chips zeigen" role="tablist" aria-label="Examples of other wishes">
+          <button type="button" class="chip aktiv" role="tab" aria-selected="true" data-wunsch="liebe">Love</button>
+          <button type="button" class="chip" role="tab" aria-selected="false" data-wunsch="frieden">Inner peace</button>
+          <button type="button" class="chip" role="tab" aria-selected="false" data-wunsch="gesundheit">Health and energy</button>
+        </div>
+        <div class="wunsch-karte zeigen" data-wunsch="liebe">
+          <p class="zitat">“I want a relationship where I don’t have to shrink to be loved.”</p>
+          <dl>
+            <dt>Your affirmation</dt><dd>Enara builds it from your words, at a strength you can actually believe. Bridge, Growth, or Full.</dd>
+            <dt>The task</dt><dd>The same small tasks from the course, with Plus, tied to your wish: about you, not about somebody else.</dd>
+            <dt>The conversation</dt><dd>Enara asks about your day and your entries. She won’t promise you a person, and she won’t talk you out of one.</dd>
+          </dl>
+        </div>
+        <div class="wunsch-karte zeigen" data-wunsch="frieden" hidden>
+          <p class="zitat">“I want to go to bed without replaying everything I said today.”</p>
+          <dl>
+            <dt>Your affirmation</dt><dd>Built from your words, in your morning ritual and when you close the day.</dd>
+            <dt>The evening ritual</dt><dd>What was good, what you let go of. Then the playlist for falling asleep in Enara’s voice, and it keeps playing on the lock screen.</dd>
+            <dt>The conversation</dt><dd>Enara listens, remembers the week and asks the one question that moves things. In a crisis she points you to people who can help right now.</dd>
+          </dl>
+        </div>
+        <div class="wunsch-karte zeigen" data-wunsch="gesundheit" hidden>
+          <p class="zitat">“I want to still have energy in the evening for the things I love.”</p>
+          <dl>
+            <dt>Your affirmation</dt><dd>From your words, never a diagnosis and never a promise of healing. Enara is an AI, and she makes no secret of it.</dd>
+            <dt>The task</dt><dd>Small steps of one to ten minutes, with Plus, tied to your everyday life.</dd>
+            <dt>The sky</dt><dd>Every day you show up becomes a star. Even three stars are three real days.</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- What is included: counted numbers, free and Plus kept apart -->
+    <section class="abschnitt" id="included">
+      <div class="innen">
+        <div class="abschnitt-kopf mittig zeigen">
+          <p class="eyebrow">What is included</p>
+          <h2>A lot stays free. Plus makes Enara personal.</h2>
+          <p>The numbers are counted in the code, as of September 2026.</p>
+        </div>
+        <div class="zahlen-zeile zeigen">
+          <div class="zahl"><b>1,560</b><span>affirmations in 17 categories</span></div>
+          <div class="zahl"><b>8</b><span>guided sessions</span></div>
+          <div class="zahl"><b>85</b><span>tasks of the day</span></div>
+          <div class="zahl"><b>13</b><span>playlists in Enara’s voice</span></div>
+          <div class="zahl"><b>10</b><span>writing templates</span></div>
+          <div class="zahl"><b>12</b><span>constellations in your sky</span></div>
+        </div>
+        <div class="dabei-gitter">
+          <div class="dabei-karte zeigen">
+            <h3>Free forever</h3>
+            <p class="dabei-unter">No card needed, and it follows you to any device.</p>
+            <ul>
+              <li><strong>Morning ritual, midday check in, evening ritual</strong> with optional deeper questions, plus a question each week</li>
+              <li><strong>Journal</strong> with calendar, day pages, search and free writing</li>
+              <li><strong>Your sky</strong> with 12 constellations, a year view and the monthly review</li>
+              <li><strong>Your constellation,</strong> the one that grows with you</li>
+              <li><strong>The whole library:</strong> 1,560 affirmations in three strengths, favorites, share one as a card</li>
+              <li><strong>Listen:</strong> all 13 playlists, 8 sounds, Sound Only with a timer</li>
+              <li><strong>Course:</strong> the Arriving session, chapters 1 and 2, all 85 tasks</li>
+              <li>Vision Board with two pictures, five affirmations in your own voice</li>
+              <li>Reminders, app lock, English and German</li>
+            </ul>
           </div>
-          <div class="vertrauen-karte zeigen">
+          <div class="dabei-karte plus zeigen">
+            <h3>Enara Plus</h3>
+            <p class="dabei-unter">Everything that only works once Enara knows you. Seven days included.</p>
+            <ul>
+              <li><strong>Conversations with Enara,</strong> with memory from your journal, and Ask your journal</li>
+              <li><strong>The personal task:</strong> Enara ties every task to your wish</li>
+              <li><strong>Messages from your future self,</strong> three a month</li>
+              <li><strong>Every guided session,</strong> chapters 3 to 6 and the evening session</li>
+              <li><strong>Her greetings, morning and evening,</strong> in her own words, plus nudges through the day</li>
+              <li><strong>The letter about your month</strong> and Enara’s note after a ritual</li>
+              <li><strong>Talk instead of typing:</strong> Enara turns it into a clean entry</li>
+              <li><strong>Moon ritual</strong> at new moon and full moon, all writing templates, Your Wish in your own lines</li>
+              <li>Vision Board and your own voice without limits</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Honest: what Enara never promises, privacy only where proven -->
+    <section class="abschnitt" id="ehrlich">
+      <div class="innen">
+        <div class="abschnitt-kopf mittig zeigen">
+          <p class="eyebrow">Honest</p>
+          <h2>What Enara never promises.</h2>
+          <p>A journal only works if you can be honest in it. The same goes for us.</p>
+        </div>
+        <div class="nie zeigen">
+          <ul>
+            <li><strong>No outcome.</strong> Enara never says where your path leads. She helps you show up, a few minutes a day. The path is yours to walk.</li>
+            <li><strong>No amount, no date, no higher power that delivers for you.</strong> If your wish is about money, Enara talks about calm and order in your everyday life, never about numbers.</li>
+            <li><strong>No therapy.</strong> Enara is an AI and says so openly. In a crisis she points you to the 988 Suicide and Crisis Lifeline in the US, and to findahelpline.com anywhere else.</li>
+            <li><strong>No invented voices.</strong> Maya is a sample account. There are no testimonials on this page, because we won’t make them up.</li>
+          </ul>
+        </div>
+        <div class="vertrauen-gitter zeigen" style="margin-top: 28px;">
+          <div class="vertrauen-karte">
+            <h3>Your account lives in Frankfurt</h3>
+            <p>Your entries are stored in your account on servers in Frankfurt, Germany, and sent over an encrypted connection. That is how they follow you to a new phone.</p>
+          </div>
+          <div class="vertrauen-karte">
+            <h3>AI only if you say yes</h3>
+            <p>Before you agree, not a word goes to an AI. You can withdraw your consent at any time, and Enara stays fully usable as a journal.</p>
+          </div>
+          <div class="vertrauen-karte">
             <h3>No ads, no tracking</h3>
-            <p>Enara shows you nothing but Enara. No ad networks, no analytics for marketing.</p>
+            <p>Enara shows you nothing but Enara. No ad networks, no marketing analytics, not on this page either.</p>
           </div>
-          <div class="vertrauen-karte zeigen">
-            <h3>AI only with your yes</h3>
-            <p>Not a word leaves your device toward an AI before you have said yes. You can take that yes back at any time.</p>
-          </div>
-          <div class="vertrauen-karte zeigen">
-            <h3>Fair stays fair</h3>
-            <p>No weekly subscription, no hidden costs. What you have written stays yours, with or without a subscription, always.</p>
+          <div class="vertrauen-karte">
+            <h3>Delete whenever you want</h3>
+            <p>You can delete your account and everything in it yourself, right in the app. What you wrote stays yours, with or without a subscription, always.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Pricing -->
-    <section class="abschnitt" id="pricing">
+    <section class="abschnitt" id="preise">
       <div class="innen">
         <div class="abschnitt-kopf mittig zeigen">
           <p class="eyebrow">Pricing</p>
           <h2>Plain and simple.</h2>
-          <p>Every new account starts with seven free days and full access, with no payment details. After that you decide. A subscription never starts on its own.</p>
+          <p>Every new account starts with seven free days and full access, no card needed. Do a ritual on five of those days and you get three more. After that you decide. A subscription never starts automatically.</p>
         </div>
         <div class="preise-gitter">
           <div class="preis-karte zeigen">
@@ -392,36 +465,40 @@
             <p class="preis-betrag">$0 <span>forever</span></p>
             <p class="preis-jahr">&nbsp;</p>
             <ul>
-              <li>Morning ritual and evening ritual</li>
-              <li>Journal with calendar and daily pages</li>
-              <li>Your sky with every constellation</li>
-              <li>The library to browse</li>
+              <li>Both rituals and the midday check in</li>
+              <li>Journal, sky, constellation, monthly review</li>
+              <li>The whole library and everything to listen to</li>
+              <li>Course through chapter 2, every task of the day</li>
             </ul>
           </div>
           <div class="preis-karte plus zeigen">
-            <!-- 59.99 divided by 12 is 5.00 exactly. Twelve single months cost
-                 155.88, so the year saves 95.89, about seven months. The
-                 checkable number carries further than a percentage. -->
-            <span class="preis-badge">Yearly: $5 a month</span>
+            <!-- 59.99 divided by 12 is 4.9992, so the badge says "about". -->
+            <span class="preis-badge">Yearly: $59.99, about $5 a month</span>
             <h3>Enara Plus</h3>
             <p class="preis-unter">With Enara as your companion.</p>
             <p class="preis-betrag">$12.99 <span>a month</span></p>
             <p class="preis-jahr">or $59.99 a year</p>
             <ul>
-              <li>Conversations with Enara, with memory from your journal</li>
-              <li>Her greetings in the morning and in the evening, in her own words</li>
-              <li>Her impulses in between, drawn from what you talked about</li>
-              <li>Speak your entry and she turns it into a clear one</li>
-              <li>The moon ritual and all seven writing templates</li>
-              <li>Your Wish: Enara builds affirmations from your own words</li>
-              <li>Your vision board without a limit</li>
+              <li>Conversations with memory from your journal</li>
+              <li>The personal task and messages from your future self</li>
+              <li>Every guided session of the course</li>
+              <li>Greetings, nudges and the letter about your month</li>
+              <li>Talk instead of typing, moon ritual, all templates</li>
+              <li>Vision Board and your own voice without limits</li>
             </ul>
           </div>
         </div>
-        <p class="preis-zeile">You see the price in the App Store before every purchase. A subscription renews automatically until you cancel, which you can do at any time in your store settings. Your entries stay with you in full, with or without a subscription.</p>
+        <p class="preis-zeile">You will see the price in the App Store or on Google Play before any purchase. A subscription renews automatically until you cancel, which you can do anytime in your app store settings. Your entries stay yours either way.</p>
         <div class="laden zeigen">
-          <a class="knopf-gold" href="https://apps.apple.com/app/id6791974547">Get Enara free</a>
-          <p>You start on the free version. Plus is only there if you want it.</p>
+          <div class="store-reihe">
+            <a class="store-badge" href="https://apps.apple.com/app/id6791974547">
+              <img src="../bilder/app-store-badge-en.svg" alt="Download on the App Store" width="144" height="48">
+            </a>
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=de.enara.app&amp;hl=en_US&amp;referrer=utm_source%3Dgetenara.app%26utm_medium%3Dwebsite">
+              <img src="../bilder/google-play-badge-en.png" alt="Get it on Google Play" width="162" height="48" loading="lazy">
+            </a>
+          </div>
+          <p>You start on the free version. Plus is yours only if you want it.</p>
         </div>
       </div>
     </section>
@@ -436,35 +513,37 @@
         <div class="faq-liste zeigen">
           <details>
             <summary>What does Enara cost?</summary>
-            <p class="faq-antwort">The rituals, the journal and your sky are free permanently. Enara Plus is $12.99 a month or $59.99 a year, which works out to $5 a month. That covers conversations with Enara and her memory, her greetings and impulses, speaking your entries, the moon ritual, all seven writing templates, affirmations built from your own wish, and the vision board without a limit. Every new account starts with seven free days and full access, with no payment details.</p>
+            <p class="faq-antwort">The rituals, the journal, your sky, the whole library and everything to listen to are free forever. Enara Plus is $12.99 a month, or $59.99 a year billed once, which works out to about $5 a month. That includes conversations with memory, the personal task, messages from your future self, every guided session, greetings and nudges, the letter about your month, talk instead of typing, the moon ritual and all writing templates. Every new account starts with seven free days and full access, no card needed.</p>
           </details>
           <details>
             <summary>Does a subscription start automatically after the free days?</summary>
-            <p class="faq-antwort">No, never. After the seven days Enara moves to the free version by itself. A subscription only exists if you start one in the App Store yourself.</p>
+            <p class="faq-antwort">No, never. When the free days end, Enara switches back to the free version on her own. A subscription only exists if you start one yourself in the App Store or on Google Play.</p>
+          </details>
+          <details>
+            <summary>Is Maya real?</summary>
+            <p class="faq-antwort">No. Maya is a sample account we set up for this page, with a wish in her words and journal entries we wrote. Everything Enara says back to her was generated inside the app. Enara writes something new every time. The screenshots show one real session. She is not a customer, and nothing here is a testimonial from her.</p>
           </details>
           <details>
             <summary>What happens to my entries?</summary>
-            <p class="faq-antwort">Your entries live on your device and are backed up encrypted in Europe, so they follow you to a new phone. Enara shows no ads and sells no data. The details are in the <a href="../privacy.html">privacy policy</a>.</p>
+            <p class="faq-antwort">Your entries are stored in your account on servers in Frankfurt, Germany, and sent over an encrypted connection, so they follow you to a new phone. Enara shows no ads and sells no data. You can delete your account and everything in it yourself, right in the app. The details are in the <a href="../privacy.html">privacy policy</a>.</p>
           </details>
           <details>
-            <summary>Does an AI just read along in my journal?</summary>
-            <p class="faq-antwort">No. It only sees what you hand it yourself, and only after you have agreed. Take that yes back and Enara stays fully usable as a journal.</p>
+            <summary>Does an AI read my journal without asking?</summary>
+            <p class="faq-antwort">Not unless you say yes. After that, the app sends along a package of context from your account: your profile and your wish, your ritual answers from the last few days, Enara’s own weekly summaries and, as long as you leave the setting “Let Enara read what I write” on, the pages you write on your own. More on that in the <a href="../privacy.html">privacy policy</a>. Withdraw that consent and Enara stays fully usable as a journal.</p>
           </details>
           <details>
             <summary>Does Enara replace therapy?</summary>
-            <p class="faq-antwort">No. Enara is a tool for self reflection and wellbeing, not a medical or therapeutic service. If things get heavy, Enara names places with real people who can listen right now.</p>
+            <p class="faq-antwort">No. Enara is a tool for reflection and well-being, not a medical or therapeutic service. In a crisis, Enara points you to the 988 Suicide and Crisis Lifeline in the US, and to findahelpline.com anywhere else.</p>
           </details>
           <details>
-            <summary>Is Enara on Android?</summary>
-            <p class="faq-antwort">Enara launched on iPhone first. The Android version is in closed testing and is coming in the next few weeks. Write to <a href="mailto:support@getenara.app">support@getenara.app</a> and we will let you know.</p>
+            <summary>Is Enara available for Android?</summary>
+            <p class="faq-antwort">Yes. Enara is on the App Store for iPhone and on Google Play for Android, in English and German. Your account moves with you from one device to the other.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- Worth reading. Same reason as on the german page: without this section
-         the articles are orphans, reachable only through sitemap.xml and linked
-         from nowhere. Every new article belongs in here. -->
+    <!-- Worth reading: every new article belongs here -->
     <section class="abschnitt" id="learn" style="padding-top: 24px;">
       <div class="innen">
         <div class="abschnitt-kopf mittig zeigen">
@@ -486,7 +565,7 @@
             <p>Five rules, six opening lines to copy, and the paragraph almost every guide leaves out.</p>
           </a>
           <a class="wissen-eintrag" href="learn/self-love-affirmations.html">
-            <h3>Self love affirmations</h3>
+            <h3>Self-love affirmations</h3>
             <p>30 lines in three strengths, so none of them lands like a lie.</p>
           </a>
           <a class="wissen-eintrag" href="learn/does-manifestation-work.html">
@@ -500,10 +579,21 @@
     <!-- Closing -->
     <section class="finale" id="join">
       <div class="sterne" aria-hidden="true"></div>
-      <img class="finale-logo" src="../bilder/logo-gold.png" alt="The Enara logo, a swallow in flight drawn in golden lines">
+      <img class="finale-logo" src="../bilder/logo-gold.png" alt="Enara logo, a swallow in flight drawn in golden lines" loading="lazy">
       <h2>Enara means swallow.</h2>
-      <p>She comes back every year without anyone calling her. Enara is on the App Store, for iPhone. Questions are welcome at <a href="mailto:support@getenara.app">support@getenara.app</a></p>
-      <a class="knopf-gold" href="https://apps.apple.com/app/id6791974547">Get Enara free</a>
+      <p>She comes back every year without anyone calling her. Enara is available for iPhone and Android. Questions are welcome at <a href="mailto:support@getenara.app">support@getenara.app</a></p>
+      <div class="store-reihe">
+        <a class="store-badge" href="https://apps.apple.com/app/id6791974547">
+          <img src="../bilder/app-store-badge-en.svg" alt="Download on the App Store" width="144" height="48">
+        </a>
+        <a class="store-badge" href="https://play.google.com/store/apps/details?id=de.enara.app&amp;hl=en_US&amp;referrer=utm_source%3Dgetenara.app%26utm_medium%3Dwebsite">
+          <img src="../bilder/google-play-badge-en.png" alt="Get it on Google Play" width="162" height="48" loading="lazy">
+        </a>
+      </div>
+      <div class="qr-box">
+        <img src="../bilder/qr-laden.svg" alt="QR code that leads to Enara’s download page" width="112" height="112">
+        <p>On a computer? Point your phone’s camera at the code and you land in the right store.</p>
+      </div>
     </section>
 
   </main>
@@ -513,7 +603,7 @@
       <span class="footer-copy">© 2026 Enara</span>
       <nav aria-label="Legal">
         <a href="../privacy.html">Privacy</a>
-        <a href="../impressum.html">Legal notice</a>
+        <a href="../impressum.html">Legal notice (German)</a>
         <a href="../terms.html">Terms</a>
         <a href="mailto:support@getenara.app">Contact</a>
       </nav>
@@ -521,9 +611,7 @@
   </footer>
 
   <script>
-    // Sprachwahl merken. Wer hier auf "Deutsch" klickt, soll von der
-    // automatischen Weiterleitung auf der Startseite nicht zurueckgeschickt
-    // werden. Der Merker haelt genau diese Entscheidung fest.
+    // Remember the language choice as soon as someone taps Deutsch
     (function () {
       var schalter = document.getElementById('sprach-schalter');
       if (!schalter) { return; }
@@ -532,7 +620,26 @@
       });
     })();
 
-    // Sanfte Scroll Reveals; wer weniger Bewegung wünscht, sieht alles sofort
+    // Other wishes: the chips swap the card
+    (function () {
+      var chips = document.querySelectorAll('.chip[data-wunsch]');
+      var karten = document.querySelectorAll('.wunsch-karte[data-wunsch]');
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          var wahl = chip.getAttribute('data-wunsch');
+          chips.forEach(function (c) {
+            var aktiv = c === chip;
+            c.classList.toggle('aktiv', aktiv);
+            c.setAttribute('aria-selected', aktiv ? 'true' : 'false');
+          });
+          karten.forEach(function (karte) {
+            karte.hidden = karte.getAttribute('data-wunsch') !== wahl;
+          });
+        });
+      });
+    })();
+
+    // Gentle scroll reveals; anyone who prefers less motion sees everything at once
     (function () {
       var ruhig = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var elemente = document.querySelectorAll('.zeigen');
@@ -547,10 +654,9 @@
             beobachter.unobserve(eintrag.target);
           }
         });
-      }, { threshold: 0.15 });
+      }, { threshold: 0.12 });
       elemente.forEach(function (el) { beobachter.observe(el); });
     })();
   </script>
-
 </body>
 </html>

@@ -218,6 +218,18 @@ a { color: var(--goldhell); }
   .nav-links { gap: 16px; }
 }
 
+/* Auf 320 px (iPhone SE) lagen Markenname und Preislink uebereinander
+   (22.09.2026 nachgemessen). Enger setzen, kleineres Logo, und der Name
+   darf schrumpfen, bevor irgendetwas ueberlappt. */
+@media (max-width: 380px) {
+  .nav { padding: 12px 14px; gap: 8px; }
+  .nav-marke { gap: 7px; font-size: 1.15rem; min-width: 0; }
+  .nav-marke img { width: 34px; height: 34px; }
+  .nav-links { gap: 10px; }
+  .nav-links a { font-size: 0.9rem; }
+  .nav-cta { padding: 8px 14px; }
+}
+
 /* ---------- Handy Rahmen ----------
    Regel: innerer Radius = äußerer Radius minus Rand, sonst wirkt
    der Rahmen billig. Screens sind 390x844, Rahmen niemals verzerren. */
@@ -1131,4 +1143,370 @@ footer {
   .bento { gap: 12px; }
   .laden { padding: 20px 0 4px; }
   .mitte-cta { padding: 24px 0 4px; }
+}
+
+/* ============================================================
+   Relaunch 22.09.2026: die Seite erzaehlt eine Beispielperson durch.
+   Neue Bausteine unten angehaengt, alles Bestehende bleibt fuer die
+   Artikel und Rechtsseiten unveraendert.
+   ============================================================ */
+
+/* ---------- Beide Stores nebeneinander ----------
+   Googles Badge ist wie Apples ein Original und bleibt unveraendert. Beide
+   gleich hoch (48px), damit keiner der beiden Wege wichtiger aussieht. */
+.store-reihe { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.store-reihe .store-badge { margin: 8px 6px; }
+.hero-ctas .store-reihe { margin: 0; }
+.laden .store-reihe, .finale .store-reihe, .laden-karte .store-reihe { justify-content: center; }
+
+/* ---------- Kennzeichnung Beispielkonto ----------
+   Steht am ersten Bild und an jeder Stelle, an der Lenas Worte auftauchen.
+   Leise, aber immer lesbar: die Regelwerke werten den Gesamteindruck. */
+.beispiel-marke {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid rgba(245, 240, 230, 0.18);
+  border-radius: 999px;
+  background: rgba(10, 15, 34, 0.55);
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  color: var(--creme);
+}
+
+.beispiel-marke::before { content: "✦"; color: var(--gold); font-size: 0.85rem; }
+
+.hero-buehne .beispiel-marke {
+  position: absolute;
+  left: 50%;
+  bottom: -14px;
+  transform: translateX(-50%);
+  z-index: 3;
+  white-space: nowrap;
+  max-width: calc(100vw - 24px);
+}
+
+/* Auf sehr schmalen Geraeten (iPhone SE, 320 px) passte die Kennzeichnung in
+   einer Zeile nicht mehr und ragte beidseitig hinaus (22.09.2026, nachdem
+   sie groesser gesetzt wurde). Lesbar bleiben MUSS sie, also bricht sie dort
+   um. Umgebrochen waere sie ueber dem Handy gelandet, deshalb steht sie dort
+   unter der Buehne statt darin. */
+@media (max-width: 380px) {
+  .hero-buehne { flex-direction: column; align-items: center; }
+  .hero-buehne .beispiel-marke {
+    position: static;
+    transform: none;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.35;
+    border-radius: 18px;
+    margin-top: 14px;
+  }
+}
+
+/* ---------- Ihre Worte, Enaras Antwort ----------
+   Zwei Handys nebeneinander, dazwischen der Weg: links tippt Lena ihren
+   Wunsch, rechts kommt der erste Satz zurueck. Der Beweis in zehn Sekunden. */
+.worte {
+  background:
+    radial-gradient(900px 480px at 20% 20%, rgba(108, 85, 184, 0.18), transparent 70%),
+    radial-gradient(800px 420px at 85% 80%, rgba(217, 164, 65, 0.08), transparent 70%),
+    var(--nacht0);
+}
+
+.worte-paar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 28px;
+}
+
+.worte-seite { text-align: center; }
+
+.worte-seite .telefon { margin: 0 auto 22px; width: min(280px, 100%); }
+
+.worte-seite h3 { font-size: 1.3rem; margin-bottom: 10px; }
+
+.worte-seite p { font-size: 0.97rem; max-width: 36ch; margin: 0 auto; }
+
+.worte-pfeil {
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  color: var(--gold);
+  text-align: center;
+  line-height: 1;
+}
+
+.zitat {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--creme);
+  font-size: 1.08rem;
+}
+
+@media (max-width: 820px) {
+  .worte-paar { grid-template-columns: 1fr; gap: 36px; }
+  .worte-pfeil { transform: rotate(90deg); font-size: 2rem; }
+}
+
+/* ---------- Der Durchlauf: Tag 1, Woche 1, Monat 1 ----------
+   Jede Station traegt oben ihre Zeit, so liest man die Seite wie einen
+   Monat und nicht wie eine Funktionsliste. */
+.durchlauf {
+  background: linear-gradient(180deg, var(--nacht0), var(--nacht1) 40%, var(--nacht0));
+}
+
+.etappe { margin-top: 64px; }
+
+.etappe-kopf {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.etappe-kopf .eyebrow { margin: 0; }
+
+.etappe-kopf::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(217, 164, 65, 0.5), transparent);
+}
+
+.etappe h3.etappe-titel { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 8px; }
+
+.etappe > p.etappe-satz { max-width: 60ch; margin-bottom: 8px; }
+
+.stationen {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 36px;
+  align-items: start;
+}
+
+.station { text-align: center; }
+
+.station .telefon { width: min(230px, 100%); margin: 0 auto 22px; }
+
+.station-zeit {
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.station h4 { font-family: var(--serif); color: var(--creme); font-weight: 500; font-size: 1.25rem; margin-bottom: 10px; }
+
+.station p { font-size: 0.97rem; max-width: 34ch; margin: 0 auto; }
+
+.station .zitat { display: block; margin: 12px auto 0; font-size: 0.98rem; }
+
+.stationen.zwei { grid-template-columns: repeat(2, 1fr); max-width: 760px; margin-left: auto; margin-right: auto; }
+
+@media (max-width: 900px) {
+  .stationen { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+}
+
+@media (max-width: 520px) {
+  .stationen, .stationen.zwei { grid-template-columns: 1fr; gap: 48px; }
+}
+
+/* ---------- Hoerprobe ----------
+   Wo Bewertungen fehlen, ersetzt die Vorfuehrung die Sterne. Der Browser
+   spielt die Datei selbst, kein fremder Player, keine Anfrage nach aussen. */
+.hoerprobe {
+  background:
+    radial-gradient(800px 460px at 50% 30%, rgba(74, 58, 140, 0.34), transparent 70%),
+    var(--nacht0);
+}
+
+.hoer-gitter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hoer-karte {
+  background: rgba(29, 46, 78, 0.4);
+  border: 1px solid rgba(217, 164, 65, 0.28);
+  border-radius: 24px;
+  padding: 28px 26px;
+}
+
+.hoer-karte h3 { font-size: 1.25rem; margin-bottom: 6px; }
+
+.hoer-karte .hoer-unter { font-size: 0.92rem; color: var(--leise); margin-bottom: 16px; }
+
+.hoer-karte audio { width: 100%; margin: 6px 0 12px; }
+
+.hoer-karte .zitat { font-size: 0.98rem; }
+
+.hoer-karte p.hoer-hinweis { font-size: 0.86rem; color: var(--leise); margin-top: 12px; }
+
+@media (max-width: 720px) { .hoer-gitter { grid-template-columns: 1fr; } }
+
+/* ---------- Umschalter: andere Wuensche ----------
+   Damit sich niemand ausgeschlossen fuehlt: dieselbe Vorgehensweise mit
+   einem anderen Wunsch. Die Chips wechseln den Text, kein Bild, denn ein
+   zweites und drittes Beispielkonto gibt es nicht. */
+.wuensche { text-align: center; }
+
+.wuensche .chips { justify-content: center; }
+
+.wunsch-karte {
+  max-width: 720px;
+  margin: 26px auto 0;
+  background: var(--flaeche);
+  border: 1px solid rgba(245, 240, 230, 0.12);
+  border-radius: 24px;
+  padding: 30px 30px 26px;
+  text-align: left;
+}
+
+.wunsch-karte .zitat { display: block; font-size: 1.15rem; margin-bottom: 18px; }
+
+.wunsch-karte dl { display: grid; grid-template-columns: auto 1fr; gap: 10px 18px; font-size: 0.97rem; }
+
+.wunsch-karte dt { color: var(--gold); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; padding-top: 3px; }
+
+.wunsch-karte dd { margin: 0; }
+
+.wunsch-karte[hidden] { display: none; }
+
+@media (max-width: 520px) {
+  .wunsch-karte dl { grid-template-columns: 1fr; gap: 4px 0; }
+  .wunsch-karte dd { margin-bottom: 10px; }
+}
+
+/* ---------- Alles, was dabei ist: gratis und Plus ehrlich getrennt ---------- */
+.dabei-gitter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.dabei-karte {
+  background: var(--flaeche);
+  border: 1px solid rgba(245, 240, 230, 0.12);
+  border-radius: 24px;
+  padding: 30px 28px;
+}
+
+.dabei-karte.plus {
+  background: linear-gradient(180deg, rgba(217, 164, 65, 0.12), rgba(217, 164, 65, 0.03));
+  border-color: rgba(217, 164, 65, 0.5);
+}
+
+.dabei-karte h3 { font-size: 1.4rem; margin-bottom: 4px; }
+
+.dabei-karte .dabei-unter { font-size: 0.92rem; color: var(--leise); margin-bottom: 18px; }
+
+.dabei-karte ul { list-style: none; }
+
+.dabei-karte li { position: relative; padding-left: 26px; margin-bottom: 10px; font-size: 0.97rem; }
+
+.dabei-karte li::before { content: "✦"; position: absolute; left: 0; top: 2px; color: var(--gold); font-size: 0.85rem; }
+
+.dabei-karte li strong { color: var(--creme); font-weight: 700; }
+
+/* Sechs Zahlen: drei je Reihe, sonst stand die sechste am Desktop allein
+   in der zweiten Reihe (22.09.2026). Am Handy zwei je Reihe. */
+.zahlen-zeile {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px 24px;
+  margin: 0 auto 40px;
+  max-width: 760px;
+}
+
+.zahl { text-align: center; }
+
+@media (max-width: 600px) { .zahlen-zeile { grid-template-columns: repeat(2, 1fr); } }
+
+.zahl b { display: block; font-family: var(--serif); font-size: 1.9rem; color: var(--creme); font-weight: 500; line-height: 1.1; }
+
+.zahl span { font-size: 0.86rem; color: var(--leise); }
+
+@media (max-width: 760px) { .dabei-gitter { grid-template-columns: 1fr; } }
+
+/* ---------- Was Enara nie verspricht ---------- */
+.nie {
+  max-width: 760px;
+  margin: 0 auto;
+  border: 1px solid rgba(217, 164, 65, 0.35);
+  border-radius: 24px;
+  padding: 30px 32px;
+  background: rgba(29, 46, 78, 0.35);
+}
+
+.nie h3 { font-size: 1.3rem; margin-bottom: 12px; }
+
+.nie ul { list-style: none; }
+
+.nie li { position: relative; padding-left: 26px; margin-bottom: 10px; font-size: 0.98rem; }
+
+.nie li::before { content: "✦"; position: absolute; left: 0; top: 2px; color: var(--gold); font-size: 0.85rem; }
+
+/* ---------- QR am Desktop ----------
+   Am Rechner laedt niemand eine App. Der Code fuehrt zu laden.html, und die
+   Seite schickt das Handy in den passenden Store. Am Handy selbst ist der
+   Code sinnlos und bleibt versteckt. */
+.qr-box {
+  display: none;
+  align-items: center;
+  gap: 22px;
+  max-width: 520px;
+  margin: 34px auto 0;
+  padding: 18px 22px;
+  border: 1px solid rgba(245, 240, 230, 0.14);
+  border-radius: 20px;
+  background: var(--flaeche);
+  text-align: left;
+}
+
+.qr-box img { width: 112px; height: 112px; border-radius: 12px; background: #fff; padding: 6px; flex-shrink: 0; }
+
+.qr-box p { font-size: 0.92rem; color: var(--leise); margin: 0; }
+
+@media (min-width: 900px) and (hover: hover) { .qr-box { display: flex; } }
+
+/* ---------- laden.html ---------- */
+.laden-seite { min-height: 100vh; display: grid; place-items: center; padding: 24px; }
+
+.laden-karte { text-align: center; max-width: 520px; }
+
+.laden-karte h1 { font-size: 2rem; margin-bottom: 12px; }
+
+.laden-karte p { margin-bottom: 22px; }
+
+.laden-karte .laden-klein { font-size: 0.9rem; color: var(--leise); margin-top: 24px; }
+
+/* Keine Dynamic Island mehr am Hero Handy (22.09.2026): der Heute Schirm
+   traegt oben die Begruessung, und die schwarze Pille lag genau darueber. */
+.hero-buehne .telefon::before { display: none; }
+
+/* ---------- Farbinseln der neuen Abschnitte ---------- */
+#dabei {
+  background:
+    radial-gradient(1000px 520px at 12% 16%, rgba(108, 85, 184, 0.2), transparent 70%),
+    radial-gradient(900px 500px at 88% 70%, rgba(217, 164, 65, 0.08), transparent 70%),
+    var(--nacht0);
+}
+
+#ehrlich { background: linear-gradient(180deg, var(--nacht0), var(--nacht1) 55%, var(--nacht0)); }
+
+@media (max-width: 720px) {
+  .etappe { margin-top: 40px; }
+  .stationen { margin-top: 24px; }
+  .station .telefon { width: 170px; }
+  .worte-seite .telefon { width: 205px; }
 }
