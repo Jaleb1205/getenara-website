@@ -6,7 +6,7 @@
   <title>Datenschutzerklärung | Enara</title>
   <meta name="robots" content="noindex">
   <link rel="icon" type="image/png" href="bilder/favicon.png">
-  <link rel="stylesheet" href="stil.css?v=13">
+  <link rel="stylesheet" href="stil.css?v=19">
 </head>
 <body>
 
@@ -20,7 +20,7 @@
   <div class="recht-kopf">
     <div class="innen">
       <h1>Datenschutzerklärung</h1>
-      <p class="stand">Für die App Enara und die Webseite getenara.app · Stand: 21. September 2026 · <a href="privacy.html">English version</a></p>
+      <p class="stand">Für die App Enara und die Webseite getenara.app · Stand: 29. September 2026 · <a href="privacy.html">English version</a></p>
     </div>
   </div>
 
@@ -38,14 +38,15 @@
 
       <h3>a) Konto und Anmeldung</h3>
       <p>Zur Nutzung ist ein Konto nötig. Dabei verarbeiten wir deine E-Mail-Adresse und ein Passwort (verschlüsselt gespeichert). Alternativ kannst du dich mit Google oder Apple anmelden; dabei erhalten wir von diesen Anbietern eine Kennung und deine E-Mail-Adresse.</p>
+      <p>Die E-Mails rund um dein Konto (Bestätigung der Anmeldung, Zurücksetzen des Passworts) verschickt für uns der Dienst Resend. Resend erhält dafür deine E-Mail-Adresse und den Inhalt der jeweiligen Nachricht, versendet vom Absender hallo@getenara.app über Server in Irland. Werbliche E-Mails laufen nicht darüber (siehe Abschnitt 3l).</p>
       <ul>
-        <li><strong>Zweck:</strong> Bereitstellung des Kontos, Anmeldung, Geräteabgleich.</li>
+        <li><strong>Zweck:</strong> Bereitstellung des Kontos, Anmeldung, Geräteabgleich, Zustellung der E-Mails zu deinem Konto.</li>
         <li><strong>Rechtsgrundlage:</strong> Vertragserfüllung, Art. 6 Abs. 1 lit. b DSGVO.</li>
-        <li><strong>Dienstleister:</strong> Supabase (siehe Abschnitt 5).</li>
+        <li><strong>Dienstleister:</strong> Supabase und Resend (siehe Abschnitt 5).</li>
       </ul>
 
       <h3>b) Deine Inhalte (Journal, Rituale, Profil, Gespräche)</h3>
-      <p>Deine Journaleinträge, Ritualantworten, dein Profil (u. a. Name, Geburtsdatum für das Sternzeichen, Wunsch, Lebensbereich) und deine Gespräche mit der Begleiterin werden zunächst lokal auf deinem Gerät gespeichert. Wenn der Geräteabgleich aktiv ist, werden sie zusätzlich auf unserem Server (Supabase) gesichert, damit sie auf deinen Geräten verfügbar sind. Die Übertragung dorthin erfolgt verschlüsselt (TLS); auf dem Server schützen die standardmäßige Verschlüsselung des Rechenzentrums und strikte Zugriffsregeln (Zugriff nur über dein Konto) deine Daten. Eine Ende-zu-Ende-Verschlüsselung, bei der auch wir die Inhalte technisch nicht lesen könnten, bietet Enara derzeit nicht.</p>
+      <p>Deine Journaleinträge, Ritualantworten, dein Profil (u. a. Name, Geburtsdatum für das Sternzeichen, Wunsch, Lebensbereich) und deine Gespräche mit der Begleiterin werden zunächst lokal auf deinem Gerät gespeichert. Mit deinem Konto werden sie zusätzlich auf unserem Server (Supabase) gesichert, damit sie auf deinen Geräten verfügbar sind. Die Übertragung dorthin erfolgt verschlüsselt (TLS); auf dem Server schützen die standardmäßige Verschlüsselung des Rechenzentrums und strikte Zugriffsregeln (Zugriff nur über dein Konto) deine Daten. Eine Ende-zu-Ende-Verschlüsselung, bei der auch wir die Inhalte technisch nicht lesen könnten, bietet Enara derzeit nicht.</p>
       <ul>
         <li><strong>Zweck:</strong> Kernfunktion der App, Sicherung und Abgleich deiner Einträge.</li>
         <li><strong>Rechtsgrundlage:</strong> Vertragserfüllung, Art. 6 Abs. 1 lit. b DSGVO.</li>
@@ -57,7 +58,11 @@
       <p>Davon unabhängig steuerst du mit „Enara darf mein Geschriebenes lesen", ob deine frei geschriebenen Journalseiten überhaupt in das Gespräch einfließen.</p>
 
       <h3>d) KI-Begleiterin (Coach)</h3>
-      <p>Wenn du mit der Begleiterin schreibst, werden deine Nachricht und ein Kontextausschnitt zur Erzeugung der Antwort an Anthropic gesendet (Claude-Modelle). Auch das Kennenlerngespräch im Onboarding, die täglichen Impulse, die Morgen- und Abendgrüße sowie die optionale Veredelung eines Journaleintrags laufen über diesen Dienst. Dasselbe gilt für die persönliche Zeile zur Aufgabe des Tages (Enara Plus): dafür gehen dein Wunsch, dein Lebensbereich und die feste Aufgabe von heute an Anthropic, einmal am Tag.</p>
+      <p>Wenn du mit der Begleiterin schreibst, gehen deine Nachricht, der bisherige Verlauf des laufenden Gesprächskapitels (bis zu 80 Nachrichten) und ein Kontextausschnitt aus deinem Konto an Anthropic (Claude-Modelle), damit die Antwort entstehen kann.</p>
+      <p>Der Kontextausschnitt enthält: dein Profil (Name, Lebensbereich, Sternzeichen, dein Sternbild, die Stufe deines Glaubens), deinen Wunschsatz, deinen Startpunkt und deine Startaffirmation, deine Antworten auf die Wochenfragen, bis zu fünf Favoriten und drei eigene Sätze, die Anzahl deiner Bilder im Vision Board und wie viele davon eingetroffen sind (die Bilder selbst gehen nie mit), deinen Kursstand, das Kennenlerngespräch, deine Wochenzusammenfassungen und die Antworten deiner letzten Ritualtage samt deiner Zeile aus dem Tagesbogen. Solange du den Schalter „Enara darf mein Geschriebenes lesen“ anlässt, kommen bis zu vierzehn deiner frei geschriebenen Seiten dazu, samt Neumondbrief, Ernte und den Bildunterschriften deines Vision Boards. Wie viel davon mitgeht, hängt davon ab, was du tust: im Gespräch sind es bis zu sechs Wochenzusammenfassungen, sieben Ritualtage und zehn Seiten, bei „Frag dein Journal“ bis zu zwölf Wochen, vierzehn Tage und vierzehn Seiten. Schaltest du den Schalter aus, bleiben alle frei geschriebenen Seiten draußen, deine Ritualantworten gehen weiter mit. Was vor dem Ausschalten schon in eine Wochenzusammenfassung eingeflossen ist, bleibt darin enthalten.</p>
+      <p>Über denselben Dienst laufen außerdem, teils ohne dass du etwas anforderst: die täglichen Impulse, die Morgen- und Abendgrüße, die Vorschläge für deine Intention im Morgenritual und Enaras Notiz nach einem Ritual. Diese vier schicken dasselbe Kontextpaket wie das Gespräch. Auf dem Sperrbildschirm im Modus „Zurückhaltend“ geht dabei nur dein Name mit, sonst nichts. Drei weitere Wege laufen ebenfalls über Anthropic, schicken aber KEIN Kontextpaket, sondern nur den jeweiligen Text: das Kennenlerngespräch im Onboarding, die optionale Veredelung eines Journaleintrags und „Dein Wunsch“.</p>
+      <p>Zwei weitere Texte entstehen automatisch: Einmal je abgeschlossener Woche fasst Enara deine Woche zusammen (bis zu 4.200 Zeichen: jeder Tag mit Intention, dem was gut war, Manifestiertem, Losgelassenem und deinen beiden Vertrauensstufen, dazu die frei geschriebenen Seiten dieser Woche samt Neumondbrief und Ernte, wenn der Leseschalter an ist). Diese Zusammenfassung wird Enaras Langzeitgedächtnis. Mit Enara Plus entsteht am Monatsende zusätzlich ein Brief (bis zu 5.800 Zeichen aus den Wochenzusammenfassungen des Monats, der Zahl deiner Tage, dem Motiv, deinem eigenen Satz und dem Verlauf deines Glaubens über die Wochen). Beides geht an Anthropic.</p>
+      <p>Dasselbe gilt für die persönliche Zeile zur Aufgabe des Tages (Enara Plus): dafür gehen dein Wunsch, dein Lebensbereich, die Stufe deines Glaubens und die feste Aufgabe von heute an Anthropic, einmal am Tag.</p>
       <ul>
         <li><strong>Zweck:</strong> Erzeugung der persönlichen Antworten und Texte der Begleiterin.</li>
         <li><strong>Rechtsgrundlage:</strong> deine Einwilligung, Art. 6 Abs. 1 lit. a DSGVO, und für sensible Inhalte zusätzlich Art. 9 Abs. 2 lit. a DSGVO (siehe Abschnitt 3c).</li>
@@ -66,7 +71,7 @@
       </ul>
 
       <h3>e) Spracheingabe (Transkription)</h3>
-      <p>Nutzt du die Sprachaufnahme, wird die aufgenommene Audiodatei zur Umwandlung in Text an Groq gesendet (Whisper-Transkription). Der erkannte Text landet danach editierbar in deinem Eingabefeld. Die Aufnahme selbst speichern wir nicht.</p>
+      <p>Nutzt du die Sprachaufnahme, wird die aufgenommene Audiodatei zur Umwandlung in Text an Groq gesendet (Whisper-Transkription). Der erkannte Text landet danach editierbar in deinem Eingabefeld. Diese Aufnahme für die Spracheingabe speichern wir nicht. Anders ist es bei den Sätzen, die du bewusst für „In deiner Stimme" einsprichst, dazu Abschnitt 3g.</p>
       <ul>
         <li><strong>Zweck:</strong> Umwandlung deiner Sprache in Text.</li>
         <li><strong>Rechtsgrundlage:</strong> deine Einwilligung, Art. 6 Abs. 1 lit. a DSGVO, und für sensible Inhalte zusätzlich Art. 9 Abs. 2 lit. a DSGVO (siehe Abschnitt 3c).</li>
@@ -81,22 +86,31 @@
         <li><strong>Zweck:</strong> eine persönliche Sprachnachricht, die du selbst anforderst.</li>
         <li><strong>Rechtsgrundlage:</strong> deine Einwilligung, Art. 6 Abs. 1 lit. a DSGVO, und für sensible Inhalte zusätzlich Art. 9 Abs. 2 lit. a DSGVO (siehe Abschnitt 3c). Ohne diese Einwilligung nimmt Enara keine Nachricht auf.</li>
         <li><strong>Was ElevenLabs damit darf:</strong> ElevenLabs legt jede Anfrage mit Text und Ton im Verlauf unseres Kontos ab. Diesen Eintrag löscht unser Server automatisch wenige Sekunden nach der Aufnahme. Nach Angaben von ElevenLabs verschwinden Text und Ton damit sofort aus der Datenbank. In technischen Protokollen zur Fehlersuche und Missbrauchsprüfung können Daten zurückbleiben, in Sicherungskopien bis zu 30 Tage. Die Verwendung unserer Inhalte zum Training der Modelle haben wir in unserem Konto abgeschaltet. Einen Betrieb ganz ohne Speicherung („Zero Retention") bietet ElevenLabs nur Großkunden an, deshalb gehen wir den Weg über das sofortige Löschen.</li>
-        <li><strong>Hinweis:</strong> Unser Vertragspartner ist die Eleven Labs Inc., New York, USA. Nach Angaben des Anbieters werden Kundendaten in den USA gespeichert, verarbeitet werden kann eine Anfrage in den USA, in der EU oder in Singapur (siehe Abschnitt 6). Ein Vertrag zur Auftragsverarbeitung samt Standardvertragsklauseln ist Teil der Nutzungsbedingungen. Die Stimme ist künstlich erzeugt, es spricht kein Mensch. Darauf weist dich die App an Ort und Stelle hin (siehe auch Abschnitt 3i).</li>
+        <li><strong>Hinweis:</strong> Unser Vertragspartner ist die Eleven Labs Inc., New York, USA. Nach Angaben des Anbieters werden Kundendaten in den USA gespeichert, verarbeitet werden kann eine Anfrage in den USA, in der EU oder in Singapur (siehe Abschnitt 6). Ein Vertrag zur Auftragsverarbeitung samt Standardvertragsklauseln ist Teil der Nutzungsbedingungen. Die Stimme ist künstlich erzeugt, es spricht kein Mensch. Darauf weist dich die App an Ort und Stelle hin (siehe auch Abschnitt 3j).</li>
       </ul>
 
-      <h3>g) Abo und Käufe</h3>
-      <p>Jedes neue Konto erhält 7 Gratistage mit vollem Zugang; dafür werden keine Zahlungsdaten erhoben. Ein Abo („Enara Plus") wird über den App Store von Apple bzw. Google Play abgewickelt. Die Kauf- und Zahlungsdaten verarbeiten Apple bzw. Google in eigener Verantwortung; wir erhalten über unseren Dienstleister RevenueCat nur den Status deines Abos, keine vollständigen Zahlungsdaten.</p>
+      <h3>g) Deine eigenen Stimmaufnahmen („In deiner Stimme")</h3>
+      <p>Du kannst deine Sätze selbst einsprechen, um sie dir später anzuhören, etwa morgens oder vor dem Einschlafen. Diese Aufnahmen entstehen nur, wenn du selbst auf Aufnehmen tippst. Sie werden als Tondatei auf deinem Gerät gespeichert und zusätzlich dauerhaft in deinem privaten Bereich bei Supabase (Frankfurt) gesichert, damit sie dir auch auf einem neuen Handy erhalten bleiben. Der Speicherpfad beginnt mit deiner Kontokennung, und die Zugriffsregeln lassen nur dein eigenes Konto darauf zu. Deine Stimmaufnahmen gehen an keinen KI-Dienst, werden nicht in Text umgewandelt und nicht ausgewertet.</p>
+      <p>Jede Aufnahme kannst du in der App einzeln löschen, dabei verschwindet auch die Kopie in deinem Konto. „Von vorn beginnen" und das Löschen deines Kontos entfernen alle Aufnahmen.</p>
+      <ul>
+        <li><strong>Zweck:</strong> Wiedergabe deiner eigenen Sätze in deiner Stimme, Sicherung und Abgleich zwischen deinen Geräten.</li>
+        <li><strong>Rechtsgrundlage:</strong> Vertragserfüllung, Art. 6 Abs. 1 lit. b DSGVO. Eine Stimmaufnahme kann Rückschlüsse auf deine Person zulassen; wir verwenden sie ausschließlich, um sie dir selbst wieder abzuspielen.</li>
+        <li><strong>Dienstleister:</strong> Supabase (siehe Abschnitt 5).</li>
+      </ul>
+
+      <h3>h) Abo, Gratistage und Käufe</h3>
+      <p>Jedes neue Konto erhält 7 Gratistage mit vollem Zugang; dafür werden keine Zahlungsdaten erhoben. Wer in der ersten Woche an fünf Tagen ein Morgenritual oder Abendritual macht, erhält einmalig drei weitere Gratistage geschenkt. Ob die Bedingung erreicht ist, prüft unser Server an den in deinem Konto gesicherten Ritualtagen; die geschenkten Tage werden in deinem Konto vermerkt. Ein Abo („Enara Plus") wird über den App Store von Apple bzw. Google Play abgewickelt. Die Kauf- und Zahlungsdaten verarbeiten Apple bzw. Google in eigener Verantwortung; wir erhalten über unseren Dienstleister RevenueCat nur den Status deines Abos, keine vollständigen Zahlungsdaten.</p>
       <ul>
         <li><strong>Rechtsgrundlage:</strong> Vertragserfüllung, Art. 6 Abs. 1 lit. b DSGVO.</li>
       </ul>
 
-      <h3>h) Benachrichtigungen</h3>
+      <h3>i) Benachrichtigungen</h3>
       <p>Erinnerungen und Impulse werden, wenn du sie einschaltest, auf deinem Gerät geplant und angezeigt. Dazu benötigt die App die Systemerlaubnis für Benachrichtigungen.</p>
       <ul>
         <li><strong>Rechtsgrundlage:</strong> Einwilligung, Art. 6 Abs. 1 lit. a DSGVO (Aktivierung in der App und in den Systemeinstellungen).</li>
       </ul>
 
-      <h3>i) Hinweis: Du sprichst mit einer künstlichen Intelligenz</h3>
+      <h3>j) Hinweis: Du sprichst mit einer künstlichen Intelligenz</h3>
       <p>Enara ist keine reale Person. Ihre Antworten, Grüße und Impulse werden von einem Sprachmodell erzeugt. Wir weisen dich darauf hin, bevor du zum ersten Mal mit ihr sprichst, und dauerhaft sichtbar im Gesprächsbereich der App. Damit erfüllen wir die Transparenzpflicht aus Artikel 50 der Verordnung (EU) 2024/1689 (KI-Verordnung), die ab dem 2. August 2026 gilt.</p>
       <p>Enara ersetzt keine Therapie, keine ärztliche Behandlung und keine Beratung. Bei Hinweisen auf eine Krise nennt sie dir Anlaufstellen, führt das Gespräch aber nicht weiter.</p>
       <p>Wie das funktioniert und was dabei gespeichert wird: Die App prüft den Text, den du absendest, gegen eine feste Liste von Formulierungen, die auf Suizid oder Selbstverletzung deuten. Diese Prüfung läuft auf unserem Server, bevor das Sprachmodell aufgerufen wird, und sie ist für alle dieselbe. Ist eine Formulierung mehrdeutig, fragt Enara dich, wie du es gemeint hast, statt es anzunehmen. Trauer, ein Verlust, eine Trennung, eine Krankheit oder ein Jobverlust gelten nicht als Krise, dort bleibt Enara im Gespräch.</p>
@@ -106,13 +120,13 @@
         <li><strong>Speicherdauer:</strong> zwölf Stunden, danach automatische Löschung.</li>
       </ul>
 
-      <h3>j) Kontaktaufnahme</h3>
+      <h3>k) Kontaktaufnahme</h3>
       <p>Schreibst du uns an support@getenara.app, verarbeiten wir deine Angaben zur Bearbeitung deiner Anfrage. Das Postfach wird über Zoho (EU) betrieben.</p>
       <ul>
         <li><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b und lit. f DSGVO (Bearbeitung der Anfrage bzw. berechtigtes Interesse an der Kommunikation).</li>
       </ul>
 
-      <h3>k) Neuigkeiten per E-Mail (optional)</h3>
+      <h3>l) Neuigkeiten per E-Mail (optional)</h3>
       <p>Wenn du in den Einstellungen der App den Schalter „Neuigkeiten per E Mail" (so beschriftet) einschaltest, verwenden wir deine E-Mail-Adresse, um dir gelegentlich Neuigkeiten zu Enara zu schicken (zum Beispiel neue Funktionen). Den Zeitpunkt deiner Einwilligung speichern wir als Nachweis. Ohne diese Einwilligung erhältst du von uns keine solchen E-Mails; reine Konto- und Vertragsnachrichten (etwa zur Anmeldung oder zu Änderungen der Bedingungen) bleiben davon unberührt.</p>
       <ul>
         <li><strong>Zweck:</strong> Information über Neuigkeiten und Funktionen der App.</li>
@@ -120,8 +134,8 @@
         <li><strong>Widerruf:</strong> jederzeit mit Wirkung für die Zukunft, direkt in den Einstellungen der App oder per Nachricht an support@getenara.app.</li>
       </ul>
 
-      <h3>l) Vision Board (deine Fotos)</h3>
-      <p>Im Vision Board kannst du eigene Fotos ablegen. Du wählst sie selbst aus der Mediathek deines Geräts aus; die App durchsucht deine Mediathek nicht und sieht nur die Bilder, die du aussuchst. Jedes Foto wird vor dem Speichern verkleinert und zunächst lokal auf deinem Gerät abgelegt. Ist der Geräteabgleich aktiv, wird zusätzlich eine Kopie verschlüsselt (TLS) in deinem privaten Bereich bei Supabase gesichert, damit dein Board auf deinen Geräten verfügbar bleibt. Der Speicherpfad beginnt mit deiner Kontokennung, und die Zugriffsregeln lassen nur dein eigenes Konto darauf zu.</p>
+      <h3>m) Vision Board (deine Fotos)</h3>
+      <p>Im Vision Board kannst du eigene Fotos ablegen. Du wählst sie selbst aus der Mediathek deines Geräts aus; die App durchsucht deine Mediathek nicht und sieht nur die Bilder, die du aussuchst. Jedes Foto wird vor dem Speichern verkleinert und zunächst lokal auf deinem Gerät abgelegt. Mit deinem Konto wird zusätzlich eine Kopie verschlüsselt (TLS) in deinem privaten Bereich bei Supabase gesichert, damit dein Board auf deinen Geräten verfügbar bleibt. Der Speicherpfad beginnt mit deiner Kontokennung, und die Zugriffsregeln lassen nur dein eigenes Konto darauf zu.</p>
       <p>Löschst du ein Bild oder leerst du das Board, entfernt die App die Kopie in deinem Konto mit. Löschst du dein Konto, werden auch alle Fotos gelöscht.</p>
       <ul>
         <li><strong>Zweck:</strong> Darstellung deines Vision Boards, Sicherung und Abgleich zwischen deinen Geräten.</li>
@@ -130,14 +144,14 @@
         <li><strong>Hinweis:</strong> Deine Fotos werden nicht an einen KI-Dienst gesendet und nicht ausgewertet.</li>
       </ul>
 
-      <h3>m) Sätze teilen</h3>
+      <h3>n) Sätze teilen</h3>
       <p>Tippst du bei einem Satz auf „Teilen", erzeugt die App auf deinem Gerät ein Bild mit diesem Satz und reicht es an die Teilen-Auswahl deines Systems weiter. Wohin es geht, entscheidest du dort selbst, zum Beispiel an Instagram, an WhatsApp oder in deine eigenen Fotos. An uns wird dabei nichts übertragen und nichts gespeichert. Sobald du eine App ausgewählt hast, gelten deren Datenschutzbestimmungen.</p>
       <ul>
         <li><strong>Zweck:</strong> Weitergabe eines Satzes als Bild auf deine ausdrückliche Veranlassung.</li>
         <li><strong>Rechtsgrundlage:</strong> Vertragserfüllung, Art. 6 Abs. 1 lit. b DSGVO.</li>
       </ul>
 
-      <h3>n) App-Sperre (Fingerabdruck, Gesicht oder eigener Code)</h3>
+      <h3>o) App-Sperre (Fingerabdruck, Gesicht oder eigener Code)</h3>
       <p>Du kannst Enara so einstellen, dass sie beim Öffnen nach deinem Fingerabdruck, deinem Gesicht oder einem vierstelligen Code fragt. Wenn du Fingerabdruck oder Gesicht nutzt, prüft das dein Gerät selbst und meldet der App nur „erkannt" oder „nicht erkannt". <strong>Wir bekommen keine biometrischen Daten, und sie verlassen dein Gerät nicht.</strong> Entscheidest du dich für einen Code, speichern wir nicht den Code, sondern nur einen Prüfwert daraus, versehen mit einem Zufallswert. Er liegt im geschützten Schlüsselspeicher deines Geräts (Keychain unter iOS, Keystore unter Android) und wird nicht in dein Konto übertragen. Auf einem zweiten Gerät musst du die Sperre deshalb erneut einschalten.</p>
       <p>Hast du deinen Code vergessen, können wir ihn nicht zurücksetzen, weil wir ihn nicht kennen. Der Weg zurück führt über Abmelden und erneutes Anmelden, deine Einträge liegen in deinem Konto und bleiben erhalten.</p>
       <ul>
@@ -145,7 +159,7 @@
         <li><strong>Rechtsgrundlage:</strong> Vertragserfüllung, Art. 6 Abs. 1 lit. b DSGVO. Die Verarbeitung findet ausschließlich auf deinem Gerät statt.</li>
       </ul>
 
-      <h3>o) Bewertung im App Store</h3>
+      <h3>p) Bewertung im App Store</h3>
       <p>Enara bittet dich gelegentlich um eine Bewertung, höchstens zweimal im Jahr und nur nach einem Moment, in dem etwas fertig geworden ist. Das Fenster dafür stammt von Apple beziehungsweise Google, nicht von uns. <strong>Wir erfahren nicht, ob es dir überhaupt angezeigt wurde, ob du bewertet hast und was du geschrieben hast.</strong> Diese Angaben bekommen wir von den Stores nur als anonyme Gesamtzahlen.</p>
       <p>Damit die App dich nicht zu oft fragt, merkt sie sich auf deinem Gerät, wann sie zuletzt gefragt hat und in welcher Version. Diese Zähler bleiben lokal und werden ausdrücklich nicht in dein Konto übertragen. In den Einstellungen findest du außerdem einen dauerhaften Eintrag „Enara bewerten", der dich direkt in den Store führt.</p>
       <ul>
@@ -153,26 +167,28 @@
         <li><strong>Rechtsgrundlage:</strong> Berechtigtes Interesse, Art. 6 Abs. 1 lit. f DSGVO. Für den Ablauf im Store selbst sind Apple und Google verantwortlich.</li>
       </ul>
 
-      <h3>p) Besuch unserer Webseite (getenara.app)</h3>
+      <h3>q) Besuch unserer Webseite (getenara.app)</h3>
       <p>Unsere Webseite wird über GitHub Pages bereitgestellt (GitHub, Inc., USA). Beim Aufruf verarbeitet GitHub technisch notwendige Verbindungsdaten (insbesondere IP-Adresse, Datum und Uhrzeit, abgerufene Datei, Browser-Kennung) in Server-Protokollen, um die Seite auszuliefern und die Sicherheit des Dienstes zu gewährleisten. Wir selbst erheben beim Besuch der Webseite keine personenbezogenen Daten.</p>
       <ul>
         <li><strong>Keine Cookies:</strong> Die Webseite setzt keine Cookies ein und verwendet keine Analyse- oder Tracking-Dienste. Ein Cookie-Banner ist deshalb nicht erforderlich.</li>
-        <li><strong>Deine Sprachwahl bleibt auf deinem Gerät:</strong> Damit die Seite dich beim nächsten Besuch in der zuletzt gewählten Sprache begrüßt, legt sie einen einzigen Wert im lokalen Speicher deines Browsers ab (<code>enara-sprache</code>, Inhalt <code>de</code> oder <code>en</code>). Mehr wird dort nicht gespeichert. Dieser Wert wird nicht an uns übertragen, erlaubt keine Wiedererkennung über Webseiten hinweg und dient keiner Analyse. Eine Einwilligung ist dafür nicht erforderlich, weil die Speicherung für den von dir gewünschten Dienst unbedingt nötig ist (§ 25 Abs. 2 Nr. 2 TDDDG). Löschen kannst du sie jederzeit über die Einstellungen deines Browsers.</li>
+        <li><strong>Deine Sprachwahl bleibt auf deinem Gerät:</strong> Damit die Seite dich beim nächsten Besuch in der zuletzt gewählten Sprache begrüßt, legt sie einen einzigen Wert im lokalen Speicher deines Browsers ab (<code>enara-sprache</code>, Inhalt <code>de</code> oder <code>en</code>). Das ist kein Cookie, und mehr wird dort nicht gespeichert. Dieser Wert wird nicht an uns übertragen, erlaubt keine Wiedererkennung über Webseiten hinweg und dient keiner Analyse. Eine Einwilligung ist dafür nicht erforderlich, weil die Speicherung für den von dir gewünschten Dienst unbedingt nötig ist (§ 25 Abs. 2 Nr. 2 TDDDG). Löschen kannst du sie jederzeit über die Einstellungen deines Browsers.</li>
         <li><strong>Schriften lokal:</strong> Alle Schriftarten liegen auf unserem eigenen Webspace. Beim Besuch wird keine Verbindung zu Google Fonts oder anderen Schriftdiensten aufgebaut.</li>
         <li><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der sicheren und stabilen Bereitstellung der Webseite). GitHub ist unter dem EU-US Data Privacy Framework zertifiziert (siehe Abschnitt 6).</li>
       </ul>
 
       <h2>4. Keine Werbung, kein Tracking</h2>
-      <p>Enara nutzt keine Werbenetzwerke und kein Analyse- oder Tracking-Tool zu Marketingzwecken. Das gilt für die App und für die Webseite. Neuigkeiten per E-Mail verschicken wir nur, wenn du ausdrücklich eingewilligt hast (Abschnitt 3k).</p>
+      <p>Enara nutzt keine Werbenetzwerke und kein Analyse- oder Tracking-Tool zu Marketingzwecken. Das gilt für die App und für die Webseite. Neuigkeiten per E-Mail verschicken wir nur, wenn du ausdrücklich eingewilligt hast (Abschnitt 3l).</p>
 
       <h2>5. Eingesetzte Dienstleister (Auftragsverarbeiter)</h2>
-      <p>Wir setzen sorgfältig ausgewählte Dienstleister ein, mit denen jeweils ein Auftragsverarbeitungsvertrag (Art. 28 DSGVO) besteht bzw. abzuschließen ist:</p>
+      <p>Wir setzen sorgfältig ausgewählte Dienstleister ein. Mit Supabase besteht ein Vertrag zur Auftragsverarbeitung (Art. 28 DSGVO) als Bestandteil der Nutzungsbedingungen, seit dem 1. August 2026. Für die übrigen Anbieter richtet sich die Auftragsverarbeitung nach deren jeweiligem Data Processing Addendum; wo es Bestandteil der Nutzungsbedingungen ist, steht das beim jeweiligen Anbieter.</p>
       <ul>
-        <li><strong>Supabase</strong> (Konto, Datenbank, Server-Funktionen). Serverstandort Frankfurt am Main, Region eu-central-1. Anbieter: Supabase, Inc., USA.</li>
+        <li><strong>Supabase</strong> (Konto, Datenbank, Dateispeicher, Server-Funktionen). Serverstandort Frankfurt am Main, Region eu-central-1. Anbieter: Supabase, Inc., USA. Auftragsverarbeitung samt EU-Standardvertragsklauseln ist Teil der Nutzungsbedingungen.</li>
+        <li><strong>Cloudflare</strong> (Unterauftragsverarbeiter von Supabase). Alle Verbindungen zwischen der App und Supabase laufen über das Netzwerk von Cloudflare, das die Anfragen entgegennimmt, gegen Angriffe schützt und die Bilder deines Vision Boards sowie die Audiodateien (Hörstücke, deine Stimmaufnahmen, Sprachnachrichten) ausliefert. Cloudflare sieht dabei die Verbindungsdaten (Internetadresse, Zeitpunkt, angefragte Adresse) und kann ein rein technisches Cookie zum Schutz vor automatisierten Zugriffen setzen. Cloudflare dient dabei der Durchleitung und Absicherung; gespeichert bleiben deine Daten bei Supabase in Frankfurt. Anbieter: Cloudflare, Inc., USA, mit Rechenzentren auch in Deutschland. Die Übermittlung stützt sich auf die Standardvertragsklauseln, die Supabase mit seinen Unterauftragsverarbeitern vereinbart (siehe Abschnitt 6).</li>
+        <li><strong>Resend</strong> (Versand der E-Mails zu deinem Konto: Bestätigung der Anmeldung, Passwort zurücksetzen, siehe Abschnitt 3a). Erhält deine E-Mail-Adresse und den Inhalt der jeweiligen Nachricht. Versand über Server in Irland. Anbieter: Plus Five Five, Inc. (Resend), San Francisco, USA. Auftragsverarbeitung samt Standardvertragsklauseln nach dem Data Processing Addendum des Anbieters.</li>
         <li><strong>Anthropic</strong> (KI-Antworten der Begleiterin). USA. Auftragsverarbeitung samt EU-Standardvertragsklauseln ist Teil der Nutzungsbedingungen.</li>
         <li><strong>Groq</strong> (Sprach-Transkription). USA. Auftragsverarbeitung liegt vor, EU-Vertretung: DP-Dock GmbH, Hamburg.</li>
         <li><strong>ElevenLabs</strong> (Stimme der Sprachnachricht von deinem zukünftigen Ich, siehe Abschnitt 3f). Eleven Labs Inc., USA, zertifiziert unter dem EU-US Data Privacy Framework. Auftragsverarbeitung samt Standardvertragsklauseln ist Teil der Nutzungsbedingungen.</li>
-        <li><strong>RevenueCat</strong> (technische Abwicklung und Statusverwaltung des Abos). USA.</li>
+        <li><strong>RevenueCat</strong> (technische Abwicklung und Statusverwaltung des Abos). USA. Auftragsverarbeitung samt Standardvertragsklauseln nach dem Data Processing Addendum des Anbieters, das Bestandteil der Nutzungsbedingungen ist.</li>
         <li><strong>Apple</strong> (Anmeldung mit Apple, App Store, Abo).</li>
         <li><strong>Google</strong> (Anmeldung mit Google, Google Play, Abo).</li>
         <li><strong>Zoho</strong> (E-Mail-Postfach für den Support). EU-Rechenzentrum.</li>
@@ -181,19 +197,23 @@
       </ul>
 
       <h2>6. Übermittlung in Drittländer (USA)</h2>
-      <p>Einige Dienstleister (insbesondere Anthropic, Groq und ElevenLabs, ggf. auch Apple, Google, Supabase, RevenueCat) verarbeiten Daten außerhalb der EU. Diese Übermittlung erfolgt auf Grundlage geeigneter Garantien nach Art. 44 ff. DSGVO. Für Anthropic, Groq, Supabase und RevenueCat sind das die <strong>Standardvertragsklauseln der EU-Kommission</strong>: keiner dieser vier Anbieter ist unter dem EU-US Data Privacy Framework zertifiziert (Stand 30. Juli 2026, geprüft in der offiziellen Teilnehmerliste). Eine Zertifizierung unter dem Data Privacy Framework liegt dagegen für GitHub vor, wo diese Webseite gehostet wird, und für ElevenLabs (Eleven Labs Inc., aktiv seit dem 9. Februar 2026, geprüft am 21. September 2026 in der offiziellen Teilnehmerliste). Für ElevenLabs gelten zusätzlich die Standardvertragsklauseln aus dem Vertrag zur Auftragsverarbeitung. Eine Kopie der Standardvertragsklauseln kannst du bei uns anfordern.</p>
+      <p>Einige Dienstleister (insbesondere Anthropic, Groq und ElevenLabs, ggf. auch Apple, Google, Supabase, Cloudflare, Resend, RevenueCat) verarbeiten Daten außerhalb der EU. Diese Übermittlung erfolgt auf Grundlage geeigneter Garantien nach Art. 44 ff. DSGVO. Für Anthropic, Groq, Supabase und RevenueCat sind das die <strong>Standardvertragsklauseln der EU-Kommission</strong>: keiner dieser vier Anbieter ist unter dem EU-US Data Privacy Framework zertifiziert (Stand 30. Juli 2026, geprüft in der offiziellen Teilnehmerliste). Auch für Cloudflare (als Unterauftragsverarbeiter von Supabase) und Resend stützen wir uns auf die Standardvertragsklauseln aus dem jeweiligen Vertrag zur Auftragsverarbeitung; beide Anbieter geben zusätzlich an, unter dem EU-US Data Privacy Framework zertifiziert zu sein. Eine Zertifizierung unter dem Data Privacy Framework liegt dagegen für GitHub vor, wo diese Webseite gehostet wird, und für ElevenLabs (Eleven Labs Inc., aktiv seit dem 9. Februar 2026, geprüft am 21. September 2026 in der offiziellen Teilnehmerliste). Für ElevenLabs gelten zusätzlich die Standardvertragsklauseln aus dem Vertrag zur Auftragsverarbeitung. Eine Kopie der Standardvertragsklauseln kannst du bei uns anfordern.</p>
 
       <h2>7. Speicherdauer</h2>
       <p>Wir speichern deine Daten, solange dein Konto besteht und es für die genannten Zwecke erforderlich ist. Über die Funktion „Von vorn beginnen (alles löschen)" in der App kannst du deine Inhalte auf dem Gerät und in der Cloud löschen. Löschst du dein Konto, werden die zugehörigen Daten gelöscht, soweit keine gesetzlichen Aufbewahrungspflichten (z. B. steuerrechtlich) entgegenstehen.</p>
 
-      <h2>8. Deine Rechte</h2>
-      <p>Dir stehen nach der DSGVO zu: Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21). Erteilte Einwilligungen kannst du jederzeit mit Wirkung für die Zukunft widerrufen (Art. 7 Abs. 3 DSGVO). Wende dich dafür an <a href="mailto:support@getenara.app">support@getenara.app</a>.</p>
-      <p>Dein Recht auf Löschung kannst du außerdem selbst und sofort ausüben: in der App unter Einstellungen, ganz unten, mit „Konto endgültig löschen". Damit werden dein Zugang, alle Einträge, deine Fotos, deine Sprachnachrichten und dein Gespräch entfernt, auf dem Gerät und auf unserem Server. Das lässt sich nicht rückgängig machen. Ein laufendes Abo wird dadurch nicht gekündigt, das läuft über dein App Store Konto. Daneben gibt es „Von vorn beginnen", das nur die Inhalte leert und dein Konto bestehen lässt.</p>
+      <h2>8. Kinder und Jugendliche</h2>
+      <!-- Beschlossen 29.09.2026: Mindestalter 18, passend zur Zielgruppe 18 plus in der Play Console; dem Anwalt zur Kenntnis -->
+      <p>Enara richtet sich an Personen ab 18 Jahren. Eine eigene Altersprüfung nehmen wir bei der Anmeldung nicht vor. Erfahren wir, dass ein Konto von einer Person unter 18 Jahren angelegt wurde, löschen wir es samt aller Daten. Eltern und Sorgeberechtigte, die einen solchen Fall vermuten, erreichen uns unter <a href="mailto:support@getenara.app">support@getenara.app</a>.</p>
 
-      <h2>9. Beschwerderecht</h2>
+      <h2>9. Deine Rechte</h2>
+      <p>Dir stehen nach der DSGVO zu: Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21). Erteilte Einwilligungen kannst du jederzeit mit Wirkung für die Zukunft widerrufen (Art. 7 Abs. 3 DSGVO). Wende dich dafür an <a href="mailto:support@getenara.app">support@getenara.app</a>.</p>
+      <p>Dein Recht auf Löschung kannst du außerdem selbst und sofort ausüben: in der App unter Einstellungen, ganz unten, mit „Konto endgültig löschen". Damit werden dein Zugang, alle Einträge, deine Fotos, deine eigenen Stimmaufnahmen, deine Sprachnachrichten, deine Einstellungen und dein Gespräch entfernt, auf dem Gerät und auf unserem Server. Das lässt sich nicht rückgängig machen. Ein laufendes Abo wird dadurch nicht gekündigt, das läuft über dein App Store Konto. Daneben gibt es „Von vorn beginnen", das nur die Inhalte leert und dein Konto bestehen lässt.</p>
+
+      <h2>10. Beschwerderecht</h2>
       <p>Du hast das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Für uns zuständig ist: Bayerisches Landesamt für Datenschutzaufsicht (BayLDA), Promenade 18, 91522 Ansbach.</p>
 
-      <h2>10. Änderungen dieser Datenschutzerklärung</h2>
+      <h2>11. Änderungen dieser Datenschutzerklärung</h2>
       <p>Wir passen diese Erklärung an, wenn sich die App oder die Rechtslage ändert. Es gilt die jeweils hier und in der App abrufbare Fassung.</p>
 
     </div>
