@@ -2,25 +2,26 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Eigentumsnachweis fuer die Google Search Console, angelegt am 02.08.2026
-       als Property https://getenara.app/ (URL Praefix, deckt auch /en/ ab).
-       NICHT ENTFERNEN: Google prueft die Zeile regelmaessig nach. Faellt sie
-       weg, verliert das Konto den Zugriff auf alle Suchdaten der Seite. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Neue Startseite, live seit 23.10.2026 (Stand 1.0.5): Lena aus dem
+       Konto mit der Agentur, sechs Kurse, neue Stimme, iPhone und Android.
+       Entstanden in entwurf/ (per .git/info/exclude ausgenommen), Texte in
+       .planning/website-neu/texte-v3.md. -->
   <meta name="google-site-verification" content="fKZt1KqiFV8rRYNeQomMzWMHQovvWvsDIgBtXEecuAM">
-  <title>Enara: das Manifestationsjournal, das mit dir arbeitet</title>
-  <meta name="description" content="Sag Enara, was du dir wünschst. Zwei kurze Rituale, ein gesprochener Kurs, eine Begleiterin mit Gedächtnis. iPhone und Android, 7 Gratistage ohne Zahlungsdaten.">
-  <!-- Smart App Banner: Safari zeigt auf dem iPhone von selbst einen schmalen
-       Streifen mit dem App Symbol und einem Ladeknopf. -->
+  <title>Enara: Manifestationsjournal mit Ritualen und Begleiterin</title>
+  <meta name="description" content="Erzähl Enara deinen Wunsch. Zwei kurze Rituale am Tag, ein Himmel aus deinen Sternen, sechs Kurse zum Hören. Sieben Tage alles gratis, ohne Zahlungsdaten.">
   <meta name="apple-itunes-app" content="app-id=6791974547">
+  <meta name="theme-color" content="#050608">
   <link rel="icon" type="image/png" href="bilder/favicon.png?v=2">
-  <link rel="preload" href="schriften/lora.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="schriften/nunito-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <!-- Versionsnummer erzwingt frisches CSS nach jeder Änderung (Browser Cache
-       Umgehung). WICHTIG: bei JEDER Änderung an stil.css hochzählen. -->
-  <link rel="stylesheet" href="stil.css?v=19">
-  <!-- Sprachpaare fuer Google. Ohne sie haelt Google die englische Seite fuer
-       eine Dublette und indexiert nur eine von beiden. -->
+  <link rel="preload" href="schriften/lora-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="bilder/start-1920.webp" media="(min-width: 701px)">
+  <link rel="preload" as="image" href="bilder/start-hoch.webp" media="(max-width: 700px)">
+  <link rel="stylesheet" href="neu.css?v=13">
+  <!-- Kopfblock aus der Livefassung (14.10.2026, seo-pruefer Tor 5). Die
+       Adressen sind schon die endgültigen, im Entwurf wirken sie wegen der
+       robots Zeile nicht. Vorschaubild: bei der Übernahme mit og-bauen.cjs
+       eins mit der neuen Hauptzeile bauen und ?v hochzählen. -->
   <link rel="alternate" hreflang="de" href="https://getenara.app/">
   <link rel="alternate" hreflang="en" href="https://getenara.app/en/">
   <link rel="alternate" hreflang="x-default" href="https://getenara.app/">
@@ -30,9 +31,9 @@
   <meta property="og:locale" content="de_DE">
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:url" content="https://getenara.app/">
-  <meta property="og:title" content="Enara: das Manifestationsjournal, das mit dir arbeitet">
-  <meta property="og:description" content="Sag Enara, was du dir wünschst. Zwei kurze Rituale, ein gesprochener Kurs, eine Begleiterin mit Gedächtnis. Für iPhone und Android.">
-  <meta property="og:image" content="https://getenara.app/bilder/og-de.png?v=4">
+  <meta property="og:title" content="Enara: Manifestationsjournal mit Ritualen und Begleiterin">
+  <meta property="og:description" content="Erzähl Enara deinen Wunsch. Zwei kurze Rituale am Tag, ein Himmel aus deinen Sternen, sechs Kurse zum Hören. Für iPhone und Android.">
+  <meta property="og:image" content="https://getenara.app/bilder/og-de.png?v=5">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Enara, dein Manifestationsjournal: der Heute Bildschirm der App">
@@ -63,7 +64,7 @@
         "@type": "MobileApplication",
         "@id": "https://getenara.app/#app",
         "name": "Enara: Manifestation Journal",
-        "description": "Manifestationsjournal mit Morgenritual, Abendritual, gesprochenem Kurs, Aufgabe des Tages und einer Begleiterin, die sich an deine Einträge erinnert.",
+        "description": "Manifestationsjournal mit Morgenritual, Abendritual, sechs Kursen zum Hören, Aufgabe des Tages und einer Begleiterin, die sich an deine Einträge erinnert.",
         "operatingSystem": "iOS, Android",
         "applicationCategory": "HealthApplication",
         "url": "https://apps.apple.com/app/id6791974547",
@@ -71,7 +72,7 @@
         "inLanguage": ["de", "en"],
         "publisher": { "@id": "https://getenara.app/#anbieter" },
         "offers": [
-          { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Rituale, Journal, Himmel, Bibliothek, Hören und die ersten Kurs Kapitel dauerhaft kostenlos" },
+          { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Rituale, Journal, Himmel, Bibliothek, Playlists, zwei ganze Kurse und der Anfang des Manifestationskurses dauerhaft kostenlos" },
           { "@type": "Offer", "price": "12.99", "priceCurrency": "EUR", "description": "Enara Plus, monatlich" },
           { "@type": "Offer", "price": "59.99", "priceCurrency": "EUR", "description": "Enara Plus, jährlich" }
         ]
@@ -80,10 +81,8 @@
   }
   </script>
   <script>
-    // Sprachweiche. Steht bewusst im head und VOR dem sichtbaren Inhalt, sonst
-    // sieht ein englischer Besucher fuer einen Moment die deutsche Seite.
-    // Umgeleitet wird nur, wenn der Browser nicht auf Deutsch steht, niemand
-    // schon selbst Deutsch gewaehlt hat und kein ?lang=de gesetzt ist.
+    // Sprachweiche wie auf der echten Startseite: wer nicht auf Deutsch
+    // surft und nicht selbst Deutsch gewählt hat, landet auf /en/.
     (function () {
       try {
         var suche = window.location.search;
@@ -103,544 +102,847 @@
     })();
   </script>
 </head>
-<body>
+<body class="neu">
 
-  <header class="nav">
-    <a class="nav-marke" href="#">
+  <header class="kopf" id="kopf">
+    <a class="kopf-marke" href="#">
       <img src="bilder/logo-weiss.png" alt="" aria-hidden="true">
       <span>Enara</span>
     </a>
-    <nav class="nav-links" aria-label="Bereiche">
-      <a href="#durchlauf">Ein Monat mit Lena</a>
+    <nav class="kopf-links" aria-label="Bereiche">
+      <a href="#tag">Dein Tag</a>
       <a href="#hoeren">Hören</a>
-      <a href="#dabei">Was dabei ist</a>
+      <a href="#plus">Plus</a>
       <a href="#preise">Preise</a>
-      <a href="#faq">Fragen</a>
-      <a href="/en/" hreflang="en" id="sprach-schalter">English</a>
-      <a class="nav-cta" href="#laden">Gratis laden</a>
+      <a href="#fragen">Fragen</a>
+      <!-- Im Entwurf zur englischen Entwurfsseite; beim Übernehmen wieder /en/ -->
+      <a href="en/" hreflang="en" id="sprach-schalter">English</a>
+      <a class="kopf-cta" href="https://apps.apple.com/de/app/enara/id6791974547" data-store-link>Gratis laden</a>
     </nav>
   </header>
 
   <main>
 
-    <!-- Hero: Kategorie klein, Vorgehensweise gross, Lenas Handy -->
-    <section class="hero" aria-label="Enara">
-      <div class="sterne" aria-hidden="true"></div>
-      <div class="hero-innen">
-        <div>
-          <p class="hero-eyebrow">Dein Manifestationsjournal</p>
-          <h1>Sag Enara, was du dir wünschst. Sie arbeitet jeden Tag mit dir daran.</h1>
-          <p class="hero-sub">Zwei kurze Rituale, ein gesprochener Kurs und eine Begleiterin, die sich an deine Worte erinnert. Ein paar Minuten am Tag, für iPhone und Android.</p>
-          <div class="hero-ctas">
-            <div class="store-reihe">
-              <a class="store-badge" href="https://apps.apple.com/de/app/enara/id6791974547">
-                <img src="bilder/app-store-badge.svg" alt="Laden im App Store" width="144" height="48">
-              </a>
-              <a class="store-badge" href="https://play.google.com/store/apps/details?id=de.enara.app&amp;referrer=utm_source%3Dgetenara.app%26utm_medium%3Dwebsite">
-                <img src="bilder/google-play-badge-de.png" alt="Jetzt bei Google Play" width="162" height="48">
-              </a>
-            </div>
-          </div>
-          <p class="hero-hinweis">Die Rituale, dein Journal und dein Himmel bleiben kostenlos. Sieben Tage lang ist auch Plus dabei, ohne Zahlungsdaten.</p>
+    <!-- 1. Auftakt: Morgendämmerung, eine Zeile, ein Knopf -->
+    <section class="auftakt" id="auftakt" aria-label="Enara">
+      <picture class="auftakt-bild">
+        <source media="(max-width: 700px)" srcset="bilder/start-hoch.webp">
+        <img src="bilder/start-1920.webp" srcset="bilder/start-1000.webp 1000w, bilder/start-1920.webp 1920w" sizes="100vw" width="1920" height="1086" alt="Eine Frau steht kurz vor Sonnenaufgang im hohen Gras auf einem Hügel über einer kleinen Stadt, hält ein Notizbuch an die Brust und schaut lächelnd in den Himmel, wo drei Schwalben fliegen und eine schmale Mondsichel steht" fetchpriority="high">
+      </picture>
+      <div class="auftakt-schleier" aria-hidden="true"></div>
+      <span class="ki-marke ki-auftakt">KI Bild</span>
+      <div class="auftakt-text">
+        <p class="kicker">Manifestationsjournal für jeden Tag</p>
+        <h1>Gib deinem Wunsch einen <span class="zier">Morgen</span>.</h1>
+        <p class="auftakt-sub">Erzähl Enara einmal, was du dir wünschst, in deinen eigenen Worten. <span class="leiser">Ab dann begleitet sie dich damit durch jeden Tag: etwa drei Minuten am Morgen, eine Frage zur Mitte des Tages, etwa zwei Minuten am Abend.</span></p>
+        <div class="knopf-reihe">
+          <a class="knopf" href="https://apps.apple.com/de/app/enara/id6791974547" data-store-link>Gratis beginnen</a>
         </div>
-        <div class="hero-buehne">
-          <div class="schwebt">
-            <div class="telefon telefon-gross">
-              <div class="glow" aria-hidden="true"></div>
-              <img src="bilder/lena/01-home.webp" width="780" height="1688" alt="Der Heute Bildschirm der Enara App im Beispielkonto Lena: Begrüßung am Morgen, die Tageslinie mit Morgen, Mitte, Aufgabe und Abend, darunter das Morgenritual" fetchpriority="high">
-            </div>
+        <p class="klein">Sieben Tage lang ist alles offen, auch Plus. Ohne Zahlungsdaten, und danach beginnt kein Abo von selbst.</p>
+      </div>
+      <a class="runter" href="#wunsch" aria-label="Weiter zu deinem Tag mit Enara"></a>
+    </section>
+
+    <!-- 2. Dein Wunsch: Lenas unsortierter Wunsch und Enaras erster Satz -->
+    <section class="abschnitt" id="wunsch">
+      <div class="breite zwei umgekehrt bild-breit">
+        <div class="bildseite zeigen">
+          <div class="paar wisch">
+            <figure class="schraeg">
+              <img src="bilder/handys/lena/00-wunschsatz-440.webp" srcset="bilder/handys/lena/00-wunschsatz-440.webp 1x, bilder/handys/lena/00-wunschsatz-880.webp 2x, bilder/handys/lena/00-wunschsatz-1320.webp 3x" width="440" height="850" alt="Beispielkonto Lena, Onboarding: Lena schreibt Enara in ihren eigenen Worten, dass ihre Agentur richtig gut laufen soll und sie mit Tom in einem Haus mit Garten und Pool leben will" loading="lazy">
+              <figcaption>Beispielkonto Lena erzählt</figcaption>
+            </figure>
+            <figure class="schraeg">
+              <img src="bilder/handys/lena/00-aha-440.webp" srcset="bilder/handys/lena/00-aha-440.webp 1x, bilder/handys/lena/00-aha-880.webp 2x, bilder/handys/lena/00-aha-1320.webp 3x" width="440" height="850" alt="Beispielkonto Lena, ihr erster Satz: Enara begründet ihn mit Lenas eigenen Worten, darunter die Affirmation, dass Türen aufgehen, seit sie sagt, was sie will" loading="lazy">
+              <figcaption>Daraus wird Lenas erster Satz</figcaption>
+            </figure>
           </div>
-          <span class="beispiel-marke">Beispielkonto Lena, keine echte Nutzerin</span>
         </div>
+        <div class="zeigen">
+          <p class="kicker">So fängt es an</p>
+          <h2 class="titel">Unsortiert ist <span class="zier">genau richtig</span>.</h2>
+          <p class="fliess">Am Anfang erzählst du Enara deinen Wunsch so, wie er gerade in dir ist: was du dir wünschst, was fehlt, wo es hängt. Sie fragt höchstens dreimal nach. Mit deinem Ja zur KI baut sie daraus deinen ersten Satz, so stark, wie du ihn heute glauben kannst.</p>
+          <p><span class="beispiel-marke">Beispielkonto Lena · für diese Seite angelegt</span></p>
+          <div class="zitat-paar">
+            <blockquote><cite>Lena</cite>„Ich will, dass meine Agentur richtig gut läuft und Geld kein Thema mehr ist. Ich will mit Tom in einem Haus mit Garten und Pool leben […]“</blockquote>
+            <blockquote class="enara"><cite>Enara</cite>„Ich merke, wie Türen aufgehen, seit ich sage, was ich will.“</blockquote>
+          </div>
+          <p class="hinweiszeile">Lena gibt es nicht, ihr Konto schon. Wir haben es für diese Seite angelegt, und jede Antwort von Enara darin ist so in der App entstanden.</p>
+          <p class="fliess" style="margin-top: 30px;">Lenas Wunsch dreht sich um ihre Firma, um Geld und um ein Zuhause. Deiner darf ganz anders klingen.</p>
+          <div class="chips" style="margin-top: 14px;">
+            <span class="chip-still">Liebe</span>
+            <span class="chip-still">Fülle und Geld</span>
+            <span class="chip-still">Berufung und Karriere</span>
+            <span class="chip-still">Gesundheit und Energie</span>
+            <span class="chip-still">Selbstliebe</span>
+            <span class="chip-still">Innerer Frieden</span>
+          </div>
+          <p class="hinweiszeile">Ein Bereich reicht, ein zweiter darf dazu.</p>
+        </div>
+      </div>
+      <!-- Lenas Vision Board (21.10.2026): die drei Bilder aus ihrem Konto,
+           mit KI erzeugt (.planning/entwuerfe/lena-vision-105). Sie zeigen
+           ihren Wunsch, nie ein Ergebnis (Leitplanke vom 14.10.2026). -->
+      <div class="breite" style="margin-top: 70px;">
+        <div class="kopfzeile zeigen" style="margin-bottom: 0;">
+          <h3 class="titel-mittel">Lenas <span class="zier">Vision Board</span></h3>
+        </div>
+        <div class="tageszeiten wisch zeigen" style="margin-top: 30px;">
+          <figure class="foto foto-hoch">
+            <img src="bilder/lena-vision-terrasse-440.webp" srcset="bilder/lena-vision-terrasse-440.webp 440w, bilder/lena-vision-terrasse-880.webp 880w" sizes="(max-width: 700px) 84vw, 360px" width="880" height="1100" alt="Eine Terrasse am Morgen mit Blick über Garten und Pool, auf dem Holztisch ein aufgeschlagenes Notizbuch mit Stift und eine Tasse Kaffee" loading="lazy">
+            <span class="ki-marke">KI Bild</span>
+            <figcaption class="foto-zeile">Ihr Wunsch: ein Morgen auf der Terrasse</figcaption>
+          </figure>
+          <figure class="foto foto-hoch">
+            <img src="bilder/lena-vision-wagen-440.webp" srcset="bilder/lena-vision-wagen-440.webp 440w, bilder/lena-vision-wagen-880.webp 880w" sizes="(max-width: 700px) 84vw, 360px" width="880" height="1100" alt="Ein dunkelblauer Wagen ohne Markenzeichen steht im goldenen Abendlicht vor einem modernen weißen Haus" loading="lazy">
+            <span class="ki-marke">KI Bild</span>
+            <figcaption class="foto-zeile">Ihr Wunsch: der dunkelblaue Wagen</figcaption>
+          </figure>
+          <figure class="foto foto-hoch">
+            <img src="bilder/lena-vision-pool-440.webp" srcset="bilder/lena-vision-pool-440.webp 440w, bilder/lena-vision-pool-880.webp 880w" sizes="(max-width: 700px) 84vw, 360px" width="880" height="1100" alt="Ein Paar sitzt, von hinten gesehen, am Rand eines Pools vor einem großen Garten mit Bäumen und einem Haus" loading="lazy">
+            <span class="ki-marke">KI Bild</span>
+            <figcaption class="foto-zeile">Ihr Wunsch: Zeit mit Tom am Pool</figcaption>
+          </figure>
+        </div>
+        <p class="hinweiszeile mittig zeigen">Drei Bilder aus Lenas Vision Board, für diese Seite mit KI erstellt. Sie zeigen ihren Wunsch, kein Ergebnis. In der App legst du deine eigenen Bilder ab.</p>
       </div>
     </section>
 
-    <!-- Vertrauensstreifen: nur, was der Code trägt -->
-    <div class="streifen">
-      <div class="streifen-innen">
-        <p class="streifen-punkt"><span class="stern-icon" aria-hidden="true">✦</span> Für iPhone und Android</p>
-        <p class="streifen-punkt"><span class="stern-icon" aria-hidden="true">✦</span> Auf Deutsch geschrieben, nicht übersetzt</p>
-        <p class="streifen-punkt"><span class="stern-icon" aria-hidden="true">✦</span> Keine Werbung, kein Tracking</p>
-        <p class="streifen-punkt"><span class="stern-icon" aria-hidden="true">✦</span> Sieben Gratistage, kein automatisches Abo</p>
-      </div>
-    </div>
-
-    <!-- Ihre Worte, Enaras Antwort: der Beweis in den ersten zehn Sekunden -->
-    <section class="abschnitt worte" id="worte">
-      <div class="innen">
-        <div class="abschnitt-kopf mittig zeigen">
-          <p class="eyebrow">Beispielkonto Lena</p>
-          <h2>Ihre Worte. Enaras Antwort.</h2>
-          <p>Lena ist keine echte Nutzerin, sondern ein Konto, das wir für diese Seite angelegt haben. Ihr Wunsch steht in ihren eigenen Worten, und alles, was Enara ihr antwortet, ist genau so in der App entstanden.</p>
+    <!-- 3. Dein Tag: Morgen, Mitte, Abend, je mit Foto und echtem Bildschirm -->
+    <section class="abschnitt" id="tag">
+      <div class="breite">
+        <div class="kopfzeile zeigen">
+          <p class="kicker">Ein Tag mit Enara</p>
+          <h2 class="titel">Klein genug für <span class="zier">jeden</span> Tag.</h2>
+          <p class="fliess">Enara baut deinen Tag nicht um. Sie braucht ein paar Minuten am Morgen, eine Frage zur Mitte und ein paar Minuten am Abend, und schon ein Ritual am Tag ergibt einen Stern.</p>
         </div>
-        <div class="worte-paar zeigen">
-          <div class="worte-seite">
-            <div class="telefon telefon-mittel">
-              <div class="glow" aria-hidden="true"></div>
-              <img src="bilder/lena/00-wunschsatz.webp" width="780" height="1688" alt="Der Wunsch Bildschirm im Onboarding: Lena schreibt Enara in ihren eigenen Worten, was sie sich wünscht" loading="lazy">
+        <!-- Die kleinen Lena Bildschirme stehen neben dem Text, nicht auf dem
+             Foto: auf dem Foto sah es aus, als nutze die Person dort Enara
+             (Beleg Kritiker, dritte Runde, S6) -->
+        <div class="tageszeiten wisch zeigen">
+          <article class="tageskarte">
+            <div class="bild">
+              <img src="bilder/tag-morgen.webp" width="960" height="720" alt="Ein Mann Ende dreißig sitzt bei Sonnenaufgang auf der Bettkante vor einem offenen Fenster, das Handy in der Hand, und lächelt ruhig" loading="lazy">
+              <span class="ki-marke">KI Bild</span>
             </div>
-            <h3>Was Lena erzählt</h3>
-            <p class="zitat">„Ich will von meiner Fotografie leben und am Monatsende aufs Konto schauen, ohne dass mir eng wird.“</p>
-          </div>
-          <div class="worte-pfeil" aria-hidden="true">✦</div>
-          <div class="worte-seite">
-            <div class="telefon telefon-mittel">
-              <div class="glow" aria-hidden="true"></div>
-              <img src="bilder/lena/00-aha.webp" width="780" height="1688" alt="Der Aha Moment im Onboarding: Enara begründet, warum Lenas Weg mit genau diesem Satz beginnt, darunter ihre erste Affirmation" loading="lazy">
+            <div class="tagtext">
+              <p class="kicker">Morgens · etwa drei Minuten</p>
+              <h3>Der Tag gehört dir.</h3>
+              <p>Drei tiefe Atemzüge, dann eine Intention für heute, Platz für drei Dankbarkeiten und dein Satz des Tages. Fühlt er sich noch zu groß an, sag es Enara, dann wird er mit der Zeit sanfter.</p>
+              <p class="plus-zeile">Mit Plus: Enaras Gruß am Morgen, in ihren eigenen Worten.</p>
             </div>
-            <h3>Was Enara daraus macht</h3>
-            <p>Ein kurzes Kennenlerngespräch, ein paar Fragen, und daraus ihr erster Satz. Nicht aus einer Liste, sondern aus dem, was Lena gerade gesagt hat.</p>
-          </div>
+          </article>
+          <article class="tageskarte">
+            <div class="bild">
+              <img src="bilder/tag-mitte.webp" width="960" height="720" alt="Eine Frau um die fünfzig mit grauem Haar sitzt am Nachmittag in einem Café am Fenster und schreibt eine Karte" loading="lazy">
+              <span class="ki-marke">KI Bild</span>
+            </div>
+            <div class="tagtext">
+              <p class="kicker">Tagsüber · eine Frage, eine Aufgabe</p>
+              <h3>Mitten am Tag nachgefragt.</h3>
+              <p>Hast du morgens dein Ritual gemacht, wartet ab Mittag deine Intention mit einer Frage dazu. Gehst du den Manifestationskurs mit, kommt außerdem eine kleine Aufgabe von ein bis zehn Minuten dazu, 85 sind es insgesamt.</p>
+              <p class="plus-zeile">Mit Plus: an manchen Tagen um 16 Uhr ein Impuls von Enara, auf Wunsch täglich.</p>
+            </div>
+          </article>
+          <article class="tageskarte">
+            <div class="bild">
+              <img src="bilder/tag-abend.webp" width="960" height="720" alt="Eine junge Frau mit Locken sitzt zur blauen Stunde auf einem Dach, neben ihr brennt eine Laterne, sie hält ein zugeklapptes Notizbuch und schaut zum hellen Mond über den Dächern" loading="lazy">
+              <span class="ki-marke">KI Bild</span>
+            </div>
+            <div class="tagtext">
+              <p class="kicker">Abends · etwa zwei Minuten</p>
+              <h3>Ein Moment reicht.</h3>
+              <p>Was heute gut war, was davon passiert ist, was du loslassen willst. Danach schließt Enara den Tag, und er bleibt als Stern an deinem Himmel.</p>
+              <p class="plus-zeile">Mit Plus: eine geführte Abendsitzung, die den Tag beschließt.</p>
+            </div>
+          </article>
         </div>
-      </div>
-    </section>
-
-    <!-- Der Durchlauf: Tag 1, Woche 1, Monat 1 -->
-    <section class="abschnitt durchlauf" id="durchlauf">
-      <div class="innen">
-        <div class="abschnitt-kopf mittig zeigen">
-          <p class="eyebrow">Ein Monat mit Lena, Beispielkonto</p>
-          <h2>So arbeitet Enara mit dir.</h2>
-          <p>Ein paar Minuten am Tag, mehr braucht es nicht. Hier ist Lenas erster Monat, Bild für Bild aus ihrem Konto.</p>
+        <div class="tages-schirme wisch zeigen">
+          <figure class="schraeg">
+            <img src="bilder/handys/lena/14-morgenritual-440.webp" srcset="bilder/handys/lena/14-morgenritual-440.webp 1x, bilder/handys/lena/14-morgenritual-880.webp 2x, bilder/handys/lena/14-morgenritual-1320.webp 3x" width="440" height="850" alt="Beispielkonto Lena: der Beginn des Morgenrituals mit drei tiefen Atemzügen" loading="lazy">
+            <figcaption>Morgenritual</figcaption>
+          </figure>
+          <figure class="schraeg">
+            <img src="bilder/handys/lena/01-home-440.webp" srcset="bilder/handys/lena/01-home-440.webp 1x, bilder/handys/lena/01-home-880.webp 2x, bilder/handys/lena/01-home-1320.webp 3x" width="440" height="850" alt="Beispielkonto Lena, Bildschirm Heute: Schön, dass du da bist, Lena, darunter der Bogen des Tages, ihre Intention mit einer Frage zur Mitte des Tages und ihr Satz für heute" loading="lazy">
+            <figcaption>Heute</figcaption>
+          </figure>
+          <figure class="schraeg">
+            <img src="bilder/handys/lena/16-abendritual-440.webp" srcset="bilder/handys/lena/16-abendritual-440.webp 1x, bilder/handys/lena/16-abendritual-880.webp 2x, bilder/handys/lena/16-abendritual-1320.webp 3x" width="440" height="850" alt="Beispielkonto Lena: das Abendritual fragt, was heute gut war" loading="lazy">
+            <figcaption>Abendritual</figcaption>
+          </figure>
         </div>
-
-        <div class="etappe zeigen">
-          <div class="etappe-kopf"><p class="eyebrow">Tag 1</p></div>
-          <h3 class="etappe-titel">Zwei Anker und eine kleine Aufgabe.</h3>
-          <p class="etappe-satz">Morgens richtet Lena den Tag aus, abends schließt sie ihn. Dazwischen liegt eine Aufgabe aus dem Kurs, und Enara füllt sie mit Lenas eigenem Wunsch.</p>
-          <div class="stationen">
-            <div class="station">
-              <div class="telefon telefon-klein">
-                <div class="glow" aria-hidden="true"></div>
-                <img src="bilder/lena/14-morgenritual.webp" width="780" height="1688" alt="Das Morgenritual in Enara: der erste Schritt mit drei tiefen Atemzügen" loading="lazy">
-              </div>
-              <p class="station-zeit">Morgens</p>
-              <h4>Drei Minuten, die den Tag ausrichten.</h4>
-              <p>Eine Intention, drei Dankbarkeiten und ihr Satz für heute, in der Stärke, die sie gerade glauben kann.</p>
-            </div>
-            <div class="station">
-              <div class="telefon telefon-klein">
-                <div class="glow" aria-hidden="true"></div>
-                <img src="bilder/lena/02-aufgabe.webp" width="780" height="1688" alt="Die Aufgabe des Tages: Ein Bild für deinen Wunsch, darüber Enaras persönlicher Satz zu Lenas Wunsch und darunter drei Schritte" loading="lazy">
-              </div>
-              <p class="station-zeit">Tagsüber</p>
-              <h4>Eine Aufgabe, für Lena gefüllt.</h4>
-              <p>85 kleine Aufgaben gibt es im Kurs, eine je Tag. Mit Plus schreibt Enara den Bezug dazu:</p>
-              <p class="zitat">„Ein Bild zeigt dir, wie es aussieht, wenn du abends deine eigenen Fotos ansiehst statt im Kopf zu rechnen.“</p>
-            </div>
-            <div class="station">
-              <div class="telefon telefon-klein">
-                <div class="glow" aria-hidden="true"></div>
-                <img src="bilder/lena/16-abendritual.webp" width="780" height="1688" alt="Das Abendritual in Enara: der Abend schließt den Tag mit der Frage, was heute gut war" loading="lazy">
-              </div>
-              <p class="station-zeit">Abends</p>
-              <h4>Der Abend prüft nicht, er schließt.</h4>
-              <p>Was gut war, was sie loslässt. Dann ist der Tag zu, und am Himmel steht ein Stern.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="etappe zeigen">
-          <div class="etappe-kopf"><p class="eyebrow">Woche 1</p></div>
-          <h3 class="etappe-titel">Enara lernt, wie Lena spricht.</h3>
-          <p class="etappe-satz">Nach ein paar Tagen kennt Enara Lenas Einträge. Was sie schreibt, kommt in Gesprächen wieder, und der Kurs führt sie Kapitel für Kapitel durch das, was sie in den Ritualen übt.</p>
-          <div class="stationen">
-            <div class="station">
-              <div class="telefon telefon-klein">
-                <div class="glow" aria-hidden="true"></div>
-                <img src="bilder/lena/03-enara-chat.webp" width="780" height="1688" alt="Ein Gespräch mit Enara: Lena schreibt von einer Rechnung und dem engen Gefühl, Enara erinnert sie an einen Journaltag der Vorwoche und fragt nach" loading="lazy">
-              </div>
-              <p class="station-zeit">Das Gespräch</p>
-              <h4>Sie antwortet mit Gedächtnis.<span class="plus-marke">Plus</span></h4>
-              <p>Lena schreibt von einer Rechnung. Enara nennt keinen Betrag und keinen Trick. Sie erinnert an einen Tag aus Lenas Journal, an dem es anders lief, und stellt eine Frage.</p>
-            </div>
-            <div class="station">
-              <div class="telefon telefon-klein">
-                <div class="glow" aria-hidden="true"></div>
-                <img src="bilder/lena/06-kurs.webp" width="780" height="1688" alt="Der Kurs in Enara: sechs Kapitel als geführte Sitzung, davor die Sitzung Ankommen, als Nächstes Kapitel 1" loading="lazy">
-              </div>
-              <p class="station-zeit">Der Kurs</p>
-              <h4>Sechs Kapitel, zum Hören.</h4>
-              <p>Jedes Kapitel ist eine geführte Sitzung von rund zehn Minuten in Enaras Stimme, eine Woche lang, mit einer Aufgabe pro Tag. Die ersten zwei Kapitel sind gratis.</p>
-            </div>
-            <div class="station">
-              <div class="telefon telefon-klein">
-                <div class="glow" aria-hidden="true"></div>
-                <img src="bilder/lena/08-hoeren.webp" width="780" height="1688" alt="Der Bereich Hören in Enara: Playlists nach Tageszeit, für schwere Momente und für den langen Weg, dazu Nur Klang" loading="lazy">
-              </div>
-              <p class="station-zeit">Zwischendurch</p>
-              <h4>Enara liest vor.</h4>
-              <p>13 Playlists in ihrer Stimme, vom Einschlafen bis zum langen Weg, dazu acht Klänge. Handy weglegen, es läuft weiter, auch bei gesperrtem Bildschirm.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="etappe zeigen">
-          <div class="etappe-kopf"><p class="eyebrow">Monat 1</p></div>
-          <h3 class="etappe-titel">Am Monatsende kommt etwas zurück.</h3>
-          <p class="etappe-satz">Jeder Tag mit Ritual wird ein Stern. Aus den Sternen entsteht ein Bild, und zum Monatsende legt Enara es Lena noch einmal hin, zusammen mit einem Satz aus ihren eigenen Worten.</p>
-          <div class="stationen">
-            <div class="station">
-              <div class="telefon telefon-klein">
-                <div class="glow" aria-hidden="true"></div>
-                <img src="bilder/lena/04-himmel.webp" width="780" height="1688" alt="Dein Himmel in Enara: der September als Mondsichel aus 16 Sternen, darunter der August als Schwalbe" loading="lazy">
-              </div>
-              <p class="station-zeit">Ihr Himmel</p>
-              <h4>Jeder Tag mit Ritual setzt einen Stern.</h4>
-              <p>Lenas September, 16 Sterne, und darunter ihr August. Jeder Stern führt zurück zu seinem Tag. Nichts verfällt, nichts mahnt.</p>
-            </div>
-            <div class="station">
-              <div class="telefon telefon-klein">
-                <div class="glow" aria-hidden="true"></div>
-                <img src="bilder/lena/05b-monat-brief.webp" width="780" height="1688" alt="Der Monatsrückblick in Enara: 18 Sterne, die Schwalbe hat Form angenommen, die Frage nach der Nähe zum Wunsch und ein Satz aus Lenas eigenen Worten" loading="lazy">
-              </div>
-              <p class="station-zeit">Der Monatsrückblick</p>
-              <h4>Kein Pokal. Ein Beweis.</h4>
-              <p>18 Sterne im August, ihre Intention vom letzten Tag, und einmal im Monat die Frage, wie nah sich ihr Wunsch gerade anfühlt. Mit Plus schreibt Enara dazu einen Brief über den Monat.</p>
-            </div>
-            <div class="station">
-              <div class="telefon telefon-klein">
-                <div class="glow" aria-hidden="true"></div>
-                <img src="bilder/lena/09-zukunft.webp" width="780" height="1688" alt="Nachricht von deinem zukünftigen Ich in Enara: Lenas Wunsch, darunter ihre aufgenommene Nachricht zum Anhören" loading="lazy">
-              </div>
-              <p class="station-zeit">Ihr zukünftiges Ich</p>
-              <h4>Ein Tag aus dem Leben, das sie sich wünscht.<span class="plus-marke">Plus</span></h4>
-              <p>Ihr zukünftiges Ich erzählt einen ganz gewöhnlichen Tag, als Sprachnachricht in Enaras Stimme. Eine Vorstellungshilfe, kein Versprechen. Unten kannst du sie hören.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="laden zeigen" id="laden">
-          <div class="store-reihe">
-            <a class="store-badge" href="https://apps.apple.com/de/app/enara/id6791974547">
-              <img src="bilder/app-store-badge.svg" alt="Laden im App Store" width="144" height="48">
-            </a>
-            <a class="store-badge" href="https://play.google.com/store/apps/details?id=de.enara.app&amp;referrer=utm_source%3Dgetenara.app%26utm_medium%3Dwebsite">
-              <img src="bilder/google-play-badge-de.png" alt="Jetzt bei Google Play" width="162" height="48" loading="lazy">
-            </a>
-          </div>
-          <p>Dein erster Stern kann heute Abend entstehen. Sieben Gratistage, ohne Zahlungsdaten.</p>
-        </div>
+        <p class="hinweiszeile mittig zeigen">Bildschirme aus dem Beispielkonto Lena.</p>
+        <p class="ruhezeile zeigen">Keine Strafe für eine Lücke. Fehlt ein Tag, fehlt ein Stern, und dein Himmel behält alle anderen.</p>
       </div>
     </section>
 
-    <!-- Hörprobe: die Vorführung ersetzt fehlende Sterne -->
-    <section class="abschnitt hoerprobe" id="hoeren">
-      <div class="sterne" aria-hidden="true"></div>
-      <div class="innen">
-        <div class="abschnitt-kopf mittig zeigen">
-          <p class="eyebrow">Hörprobe</p>
-          <h2>Enaras Stimme, zum Reinhören.</h2>
-          <p>Alles, was Enara vorliest, ist in ihrer Stimme vertont, einer KI Stimme, die zu ihr gehört: 1.560 Sätze, 8 geführte Sitzungen, 13 Playlists. Zwei Stücke daraus, direkt hier.</p>
+    <!-- 4. Warum täglich: Gewohnheit, Spanne, zwei belegte Übungen -->
+    <section class="abschnitt" id="warum">
+      <div class="breite zwei">
+        <div class="bildseite sterne-bild zeigen">
+          <img src="bilder/tage-254.svg" width="440" height="440" alt="Eine Spirale aus 254 Punkten, ein Punkt je Tag, ab dem achtzehnten golden, beschriftet mit 18 Tage und 254 Tage">
+          <p class="bildzeile">Die Spanne aus der Studie, ein Punkt für jeden Tag. Wie lange es bei dir dauert, weiß vorher niemand.</p>
         </div>
-        <div class="hoer-gitter zeigen">
-          <div class="hoer-karte">
-            <h3>Aus dem Kurs: Ankommen</h3>
-            <p class="hoer-unter">Die erste Minute der Sitzung, die vor jedem Werkzeug stehen kann. Gratis in der App.</p>
-            <audio controls preload="none" src="ton/kurs-ankommen-de.mp3"></audio>
-            <p class="zitat">„Setz dich aufrecht hin, so dass du wach bleibst. Die Hände liegen im Schoß oder auf den Beinen.“</p>
-            <p class="hoer-hinweis">Die ganze Sitzung dauert knapp vier Minuten, die sechs Kapitel je rund zehn.</p>
+        <div class="zeigen">
+          <p class="kicker">Warum täglich</p>
+          <h2 class="titel">Täglich, in <span class="zier">deinem</span> Tempo.</h2>
+          <p class="fliess">Gewohnheiten hängen an festen Momenten im Alltag, das ist gut untersucht. Darum hat Enara ihren Platz am Morgen und am Abend, zu den Zeiten, die du wählst.</p>
+          <p class="fliess">Wie lange es dauert, bis sich etwas Neues selbstverständlich anfühlt, ist sehr verschieden. Als Lally und Kollegen das 2010 untersuchten, reichte die Spanne von 18 bis geschätzt 254 Tagen. Darum setzt Enara dir keine Frist, sie zählt die Tage, an denen du da warst.</p>
+        </div>
+      </div>
+      <div class="breite">
+        <div class="befunde zwei-spalten zeigen">
+          <div class="karte">
+            <h3>Ein Satz mit Wenn und Dann.</h3>
+            <p>In einer Auswertung von 2024 über 642 Tests hatten Vorsätze in dieser Form einen echten Effekt.</p>
+            <p class="in-enara">In Enara: der Knopf „Wenn …, dann …“ in deiner Morgenintention.</p>
           </div>
-          <div class="hoer-karte">
-            <h3>Lenas Nachricht von ihrem zukünftigen Ich<span class="plus-marke">Plus</span></h3>
-            <p class="hoer-unter">Aus ihrem Wunsch entstanden, gesprochen in Enaras Stimme. Rund eine Minute.</p>
-            <audio controls preload="none" src="ton/zukunft-lena.mp3"></audio>
-            <p class="zitat">„Ich wache auf und höre erst mal nichts als den Kaffee, der durchläuft. Kein Rechnen im Kopf, das fällt mir auf, und ich lächle kurz darüber.“</p>
-            <p class="hoer-hinweis">Text und Stimme entstehen mit KI aus dem eigenen Wunsch. Eine Vorstellungshilfe, kein Versprechen. Drei neue Nachrichten je Monat, gespeicherte bleiben immer hörbar.</p>
+          <div class="karte">
+            <h3>Drei Zeilen Dank.</h3>
+            <p>Emmons und McCullough fanden 2003 in drei Studien bei Menschen, die aufschrieben, wofür sie dankbar sind, vor allem bessere Stimmung, wenn auch nicht bei allen Messwerten.</p>
+            <p class="in-enara">In Enara: drei Felder im Morgenritual, das erste reicht.</p>
           </div>
         </div>
+        <p class="einordnung zeigen">Die Studien prüfen diese Übungen, nicht Enara. Was sie fanden, ist echt und meistens klein, und über deinen Wunsch sagt keine von ihnen etwas.</p>
+        <details class="quellen zeigen">
+          <summary>Die Quellen</summary>
+          <ol>
+            <li>Lally, van Jaarsveld, Potts und Wardle (2010): How are habits formed: Modelling habit formation in the real world. European Journal of Social Psychology 40 (6), Seite 998 bis 1009.</li>
+            <li>Wood und Neal (2007): A new look at habits and the habit goal interface. Psychological Review 114 (4), Seite 843 bis 863.</li>
+            <li>Sheeran, Listrom und Gollwitzer (online 2024): The when and how of planning, Metaanalyse über 642 Tests. European Review of Social Psychology 36 (1), Seite 162 bis 194, <a href="https://www.tandfonline.com/doi/abs/10.1080/10463283.2024.2334563">zum Artikel</a>.</li>
+            <li>Emmons und McCullough (2003): Counting blessings versus burdens. Journal of Personality and Social Psychology 84 (2), Seite 377 bis 389.</li>
+          </ol>
+        </details>
       </div>
     </section>
 
-    <!-- Andere Wünsche: dieselbe Vorgehensweise -->
-    <section class="abschnitt wuensche" id="wuensche">
-      <div class="innen">
-        <div class="abschnitt-kopf mittig zeigen">
-          <p class="eyebrow">Andere Wünsche</p>
-          <h2>Lena wünscht sich Ruhe beim Geld. Du vielleicht etwas anderes.</h2>
-          <p>Sechs Lebensbereiche stehen im Onboarding zur Wahl, ein Hauptwunsch und ein zweiter. Die Vorgehensweise bleibt dieselbe, die Worte darin sind deine.</p>
+    <!-- 5. Dein Himmel: die Nacht, das Jahr in Sternen -->
+    <section class="abschnitt nacht" id="himmel">
+      <div class="breite">
+        <div class="kopfzeile zeigen">
+          <p class="kicker">Dein Himmel</p>
+          <h2 class="titel">Dein Jahr, in <span class="zier">Sternen</span> erzählt.</h2>
+          <p class="fliess">Mit jedem Ritualtag kommt ein Stern dazu. Aus den Sternen eines Monats wächst ein Sternbild, zwölf sind es im Jahr, von der Schwalbe bis zum Stern der Sterne. Tippst du einen Stern an, siehst du seinen Tag wieder.</p>
         </div>
-        <div class="chips zeigen" role="tablist" aria-label="Beispiele für andere Wünsche">
-          <button type="button" class="chip aktiv" role="tab" aria-selected="true" data-wunsch="liebe">Liebe</button>
-          <button type="button" class="chip" role="tab" aria-selected="false" data-wunsch="frieden">Innerer Frieden</button>
-          <button type="button" class="chip" role="tab" aria-selected="false" data-wunsch="gesundheit">Gesundheit und Energie</button>
+        <div class="himmel-buehne zeigen">
+          <figure class="foto">
+            <img src="bilder/see-1920.webp" srcset="bilder/see-1000.webp 1000w, bilder/see-1920.webp 1920w" sizes="(max-width: 1100px) 100vw, 1080px" width="1920" height="1080" alt="Ein stiller Bergsee bei Nacht mit einem Holzsteg, darüber ein klarer Sternenhimmel mit der Milchstraße, der sich im Wasser spiegelt" loading="lazy">
+            <span class="ki-marke">KI Bild</span>
+          </figure>
+          <div class="himmel-screens wisch">
+            <figure class="schraeg">
+              <img src="bilder/handys/lena/04-himmel-440.webp" srcset="bilder/handys/lena/04-himmel-440.webp 1x, bilder/handys/lena/04-himmel-880.webp 2x, bilder/handys/lena/04-himmel-1320.webp 3x" width="440" height="850" alt="Beispielkonto Lena, Bildschirm Dein Himmel: oben die Mondsichel des Oktobers aus Sternen, unten die Schwalbe des Septembers, dazu die Zeile 35 Sterne insgesamt" loading="lazy">
+              <figcaption>Dein Himmel</figcaption>
+            </figure>
+            <figure class="schraeg">
+              <img src="bilder/handys/lena/05-monat-440.webp" srcset="bilder/handys/lena/05-monat-440.webp 1x, bilder/handys/lena/05-monat-880.webp 2x, bilder/handys/lena/05-monat-1320.webp 3x" width="440" height="850" alt="Beispielkonto Lena, Monatsrückblick: September 2026 mit 19 Sternen, die Schwalbe hat Form angenommen, darunter die Frage, wie nah sich der Wunsch anfühlt" loading="lazy">
+              <figcaption>Dein Monatsrückblick</figcaption>
+            </figure>
+            <figure class="schraeg">
+              <img src="bilder/handys/lena/10-sternbild-440.webp" srcset="bilder/handys/lena/10-sternbild-440.webp 1x, bilder/handys/lena/10-sternbild-880.webp 2x, bilder/handys/lena/10-sternbild-1320.webp 3x" width="440" height="850" alt="Beispielkonto Lena, Bildschirm Dein Sternbild: Wandelstern im Zeichen des Aufbruchs, darunter der Weg Bau Brücken, ein Schritt weiter als heute, nie zu groß" loading="lazy">
+              <figcaption>Dein Sternbild</figcaption>
+            </figure>
+          </div>
+          <p class="hinweiszeile mittig">Bildschirme aus dem Beispielkonto Lena.</p>
         </div>
-        <div class="wunsch-karte zeigen" data-wunsch="liebe">
-          <p class="zitat">„Ich wünsche mir eine Beziehung, in der ich mich nicht kleiner machen muss.“</p>
-          <dl>
-            <dt>Dein Satz</dt><dd>Enara baut ihn aus deinen Worten, in der Stärke, die du gerade glauben kannst. Sanft, Wachstum oder Kraftvoll.</dd>
-            <dt>Die Aufgabe</dt><dd>Dieselben kleinen Aufgaben aus dem Kurs, mit Plus auf deinen Wunsch bezogen: hier auf dich, nicht auf eine andere Person.</dd>
-            <dt>Das Gespräch</dt><dd>Enara fragt nach deinem Tag und deinen Einträgen. Sie verspricht dir niemanden und redet dir niemanden aus.</dd>
-          </dl>
+        <div class="karten-vier wisch zeigen">
+          <div class="karte">
+            <h3>Der Monatsrückblick</h3>
+            <p>Ist ein Monat vorbei, zeigt dir Enara sein Sternbild noch einmal, dazu einen Satz, den du selbst geschrieben hast. Einmal im Monat fragt sie, wie nah sich dein Wunsch gerade anfühlt.</p>
+          </div>
+          <div class="karte">
+            <h3>Dein Sternbild</h3>
+            <p>Aus deinen ersten Antworten liest Enara dein eigenes Sternbild, etwa den Wandelstern im Zeichen des Aufbruchs. Wächst dein Vertrauen, wächst es mit.</p>
+          </div>
+          <div class="karte">
+            <h3>Dein Journal</h3>
+            <p>Jeder Tag auf einer Seite, mit Morgen, Mittag und Abend. Dazu Kalender, Suche und Platz zum freien Schreiben.</p>
+          </div>
+          <div class="karte">
+            <h3>Deine Bibliothek</h3>
+            <p>1.560 Sätze in 17 Themen und drei Stärken, von Sanft bis Kraftvoll, alle in Enaras Stimme. Deinen liebsten teilst du als Bildkarte.</p>
+          </div>
         </div>
-        <div class="wunsch-karte zeigen" data-wunsch="frieden" hidden>
-          <p class="zitat">„Ich will abends einschlafen, ohne den Tag noch einmal gegen mich zu verhandeln.“</p>
-          <dl>
-            <dt>Dein Satz</dt><dd>Aus deinen Worten gebaut, morgens in der Satzkarte, abends im Abschluss.</dd>
-            <dt>Das Abendritual</dt><dd>Was gut war, was du loslässt. Dazu die Playlist zum Einschlafen in Enaras Stimme, sie läuft auch bei gesperrtem Bildschirm weiter.</dd>
-            <dt>Das Gespräch</dt><dd>Enara hört zu, erinnert sich an die Woche und stellt die eine Frage, die weiterführt. In einer Krise nennt sie dir die Telefonseelsorge und Menschen, die jetzt helfen können.</dd>
-          </dl>
-        </div>
-        <div class="wunsch-karte zeigen" data-wunsch="gesundheit" hidden>
-          <p class="zitat">„Ich will abends noch Energie für die Dinge haben, die ich liebe.“</p>
-          <dl>
-            <dt>Dein Satz</dt><dd>Aus deinen Worten, nie eine Diagnose und nie ein Heilversprechen. Enara ist eine KI und macht daraus kein Geheimnis.</dd>
-            <dt>Die Aufgabe</dt><dd>Kleine Schritte von einer bis zehn Minuten, mit Plus auf deinen Alltag bezogen.</dd>
-            <dt>Der Himmel</dt><dd>Jeder Tag, an dem du da warst, wird ein Stern. Auch drei Sterne sind drei Tage.</dd>
-          </dl>
-        </div>
+        <p class="einordnung zeigen">Das alles ist gratis. Rituale, Journal und Himmel bleiben es für immer.</p>
       </div>
     </section>
 
-    <!-- Alles, was dabei ist: nachgezählte Zahlen, gratis und Plus getrennt -->
-    <section class="abschnitt" id="dabei">
-      <div class="innen">
-        <div class="abschnitt-kopf mittig zeigen">
-          <p class="eyebrow">Alles, was dabei ist</p>
-          <h2>Viel bleibt kostenlos. Plus macht Enara persönlich.</h2>
-          <p>Die Zahlen sind am Code nachgezählt, Stand September 2026.</p>
+    <!-- 6. Zum Hören: sechs Kurse, Playlists, Klänge, eine Hörprobe -->
+    <section class="abschnitt" id="hoeren">
+      <div class="breite zwei">
+        <div class="bildseite zeigen">
+          <figure style="max-width: 340px; margin: 0 auto; text-align: center;">
+            <div class="telefon"><img src="bilder/handys/lena/07-kurs-sitzung-322.webp" srcset="bilder/handys/lena/07-kurs-sitzung-322.webp 1x, bilder/handys/lena/07-kurs-sitzung-644.webp 2x, bilder/handys/lena/07-kurs-sitzung-966.webp 3x" width="322" height="697" alt="Beispielkonto Lena, Player einer Kurssitzung: Sternenhimmel über Tannen, darauf der gesprochene Satz als Text: Willkommen zur ersten Sitzung deines Kurses, sie gehört zu Kapitel 1" loading="lazy"></div>
+            <figcaption class="hinweiszeile">Beispielkonto Lena: Kapitel 1 im Player, der Text läuft mit</figcaption>
+          </figure>
         </div>
-        <div class="zahlen-zeile zeigen">
-          <div class="zahl"><b>1.560</b><span>Sätze in 17 Kategorien</span></div>
-          <div class="zahl"><b>8</b><span>geführte Sitzungen</span></div>
-          <div class="zahl"><b>85</b><span>Aufgaben des Tages</span></div>
-          <div class="zahl"><b>13</b><span>Playlists in Enaras Stimme</span></div>
-          <div class="zahl"><b>10</b><span>Schreibvorlagen</span></div>
-          <div class="zahl"><b>12</b><span>Sternbilder am Himmel</span></div>
-        </div>
-        <div class="dabei-gitter">
-          <div class="dabei-karte zeigen">
-            <h3>Dauerhaft gratis</h3>
-            <p class="dabei-unter">Ohne Zahlungsdaten, mit Konto auf jedem Gerät.</p>
-            <ul>
-              <li><strong>Morgenritual, Tagesbogen, Abendritual</strong> mit Vertiefung und Wochenfragen</li>
-              <li><strong>Journal</strong> mit Kalender, Tagesseiten, Suche und freiem Schreiben</li>
-              <li><strong>Dein Himmel</strong> mit 12 Sternbildern, Jahresansicht und Monatsrückblick</li>
-              <li><strong>Dein Sternbild</strong>, das mit dir wächst</li>
-              <li><strong>Die ganze Bibliothek:</strong> 1.560 Sätze in drei Stärken, Favoriten, Satz als Karte teilen</li>
-              <li><strong>Hören:</strong> alle 13 Playlists, 8 Klänge, Nur Klang mit Timer</li>
-              <li><strong>Kurs:</strong> die Sitzung Ankommen, Kapitel 1 und 2, alle 85 Aufgaben</li>
-              <li>Vision Board mit zwei Bildern, fünf Sätze in deiner eigenen Stimme</li>
-              <li>Erinnerungen, App Sperre, Deutsch und Englisch</li>
-            </ul>
-          </div>
-          <div class="dabei-karte plus zeigen">
-            <h3>Enara Plus</h3>
-            <p class="dabei-unter">Alles, wofür Enara dich kennen muss. Sieben Tage inklusive.</p>
-            <ul>
-              <li><strong>Gespräche mit Enara,</strong> mit Gedächtnis aus deinem Journal, und Frag dein Journal</li>
-              <li><strong>Die persönliche Aufgabe:</strong> Enara bezieht jede Aufgabe auf deinen Wunsch</li>
-              <li><strong>Nachrichten von deinem zukünftigen Ich,</strong> drei je Monat</li>
-              <li><strong>Alle geführten Sitzungen,</strong> Kapitel 3 bis 6 und die Abendsitzung</li>
-              <li><strong>Grüße am Morgen und am Abend</strong> in eigenen Worten, dazu Impulse zwischendurch</li>
-              <li><strong>Der Brief zum Monat</strong> und Enaras Notiz nach dem Ritual</li>
-              <li><strong>Sprechen statt tippen:</strong> Enara macht einen klaren Eintrag daraus</li>
-              <li><strong>Mondritual</strong> an Neumond und Vollmond, alle Schreibvorlagen, Dein Wunsch in eigenen Sätzen</li>
-              <li>Vision Board und eigene Stimme ohne Grenze</li>
-            </ul>
+        <div class="zeigen">
+          <p class="kicker">Zum Hören</p>
+          <h2 class="titel">Eine Stimme für die <span class="zier">stillen</span> Minuten.</h2>
+          <p class="fliess">Sechs Kurse zum Hören, zusammen 38 geführte Sitzungen: Manifestation in sechs Kapiteln, „Zur Ruhe finden“, „Dein innerer Halt“, „Du bist genug“, „Die Freude im Kleinen“ und „Drei Minuten für dich“. Dazu 13 Playlists, vom Einschlafen bis zu den Tagen, an denen alles zu viel ist, und acht Klänge ganz ohne Worte. Gesprochen von Enaras KI Stimme, und alles läuft weiter, wenn der Bildschirm aus ist.</p>
+          <div class="karte hoer-karte" style="margin: 26px 0 0;">
+            <h3>Hörprobe aus dem Manifestationskurs: Ankommen</h3>
+            <p class="unter">Die erste Minute einer Sitzung von gut dreieinhalb Minuten. In der App gratis.</p>
+            <audio controls preload="none" src="ton/kurs-ankommen-de.mp3?v=2"></audio>
+            <p class="zitat">„Wenn du magst, schließ die Augen. Oder lass den Blick weich auf einem Punkt vor dir liegen.“</p>
+            <p class="hinweis">Gratis hörst du „Zur Ruhe finden“, „Drei Minuten für dich“, vom Manifestationskurs Ankommen sowie Kapitel 1 und 2, alle 13 Playlists und die Klänge. Die übrigen Kapitel, die Abendsitzung und die Kurse „Dein innerer Halt“, „Du bist genug“ und „Die Freude im Kleinen“ gehören zu Plus.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Ehrlich: was Enara nie verspricht, Datenschutz nur belegt -->
-    <section class="abschnitt" id="ehrlich">
-      <div class="innen">
-        <div class="abschnitt-kopf mittig zeigen">
-          <p class="eyebrow">Ehrlich</p>
-          <h2>Was Enara nie verspricht.</h2>
-          <p>Ein Journal lebt davon, dass du ehrlich sein kannst. Das gilt auch für uns.</p>
+    <!-- 7a. Enara Plus: der Auftritt, ein Foto über die ganze Breite -->
+    <section class="vollbild" id="plus">
+      <picture class="vollbild-bild">
+        <source media="(max-width: 700px)" srcset="bilder/impuls-hoch.webp">
+        <img src="bilder/impuls-1920.webp" srcset="bilder/impuls-1000.webp 1000w, bilder/impuls-1920.webp 1920w" sizes="100vw" width="1920" height="1086" alt="Eine junge Frau im grünen Mantel sitzt am späten Nachmittag in der Straßenbahn, die Sonne fällt durchs Fenster, und sie lächelt über eine Nachricht auf ihrem Handy" loading="lazy">
+      </picture>
+      <div class="vollbild-schleier" aria-hidden="true"></div>
+      <span class="ki-marke">KI Bild</span>
+      <div class="breite">
+        <div class="vollbild-text zeigen">
+          <p class="plus-wort"><img src="bilder/logo-gold.png" alt="" aria-hidden="true">Enara Plus</p>
+          <h2 class="titel">Mit Plus kommt Enara <span class="zier">zu dir</span>.</h2>
+          <p class="fliess">Gratis hast du deine tägliche Praxis mit Ritualen, Journal und Himmel. Plus bringt die Begleiterin dazu: Enara kennt deine letzten Einträge, antwortet mit Gedächtnis und meldet sich von selbst, in dem Takt, den du einstellst.</p>
+          <div class="knopf-reihe" style="margin-top: 26px;">
+            <a class="knopf" href="https://apps.apple.com/de/app/enara/id6791974547" data-store-link>Sieben Tage Plus gratis</a>
+          </div>
+          <p class="klein">Jedes neue Konto beginnt mit allem, was Plus hat. Ohne Zahlungsdaten.</p>
         </div>
-        <div class="nie zeigen">
-          <ul>
-            <li><strong>Kein Ergebnis.</strong> Enara sagt nie, wohin dein Weg führt. Sie hilft dir, jeden Tag ein paar Minuten da zu sein. Den Weg gehst du.</li>
-            <li><strong>Kein Betrag, kein Datum, keine höhere Macht, die für dich liefert.</strong> Bei einem Geldwunsch spricht Enara über Ruhe und Ordnung im Alltag, nie über Summen.</li>
-            <li><strong>Keine Therapie.</strong> Enara ist eine künstliche Intelligenz und sagt das offen. In einer Krise nennt sie dir die Telefonseelsorge und Menschen, die jetzt helfen können.</li>
-            <li><strong>Keine erfundenen Stimmen.</strong> Lena ist ein Beispielkonto. Es gibt auf dieser Seite keine Erfahrungsberichte, die es nicht gibt.</li>
-          </ul>
+      </div>
+    </section>
+
+    <!-- 7b bis 7e. Die Reise der Schwalbe, ein Tag mit Plus, neun Karten -->
+    <section class="abschnitt plus-auftritt" aria-label="Was Plus dir bringt">
+      <div class="breite zwei">
+        <div class="bildseite zeigen">
+          <figure class="foto foto-quadrat" style="max-width: 460px; margin: 0 auto;">
+            <img src="bilder/schwalben.webp" width="800" height="800" alt="Zwei Rauchschwalben sitzen bei Sonnenaufgang auf einem alten Draht über einer nebligen Wiese" loading="lazy">
+            <span class="ki-marke">KI Bild</span>
+          </figure>
         </div>
-        <div class="vertrauen-gitter zeigen" style="margin-top: 28px;">
-          <div class="vertrauen-karte">
-            <h3>Dein Konto liegt in Frankfurt</h3>
-            <p>Deine Einträge werden in deinem Konto auf Servern in Frankfurt gesichert und über eine verschlüsselte Verbindung übertragen. So sind sie beim Gerätewechsel wieder da.</p>
-          </div>
-          <div class="vertrauen-karte">
-            <h3>KI nur mit deinem Ja</h3>
-            <p>Bevor du zugestimmt hast, geht kein Wort an eine KI. Dein Ja kannst du jederzeit zurücknehmen, Enara bleibt dann als Journal vollständig nutzbar.</p>
-          </div>
-          <div class="vertrauen-karte">
-            <h3>Keine Werbung, kein Tracking</h3>
-            <p>Enara zeigt dir nichts an außer Enara. Keine Werbenetzwerke, keine Analyse zu Marketingzwecken, auch nicht auf dieser Seite.</p>
-          </div>
-          <div class="vertrauen-karte">
-            <h3>Löschen, wann du willst</h3>
-            <p>Dein Konto samt allen Inhalten löschst du selbst in der App. Was du geschrieben hast, bleibt deins, auch ohne Abo, immer.</p>
+        <div class="zeigen">
+          <p class="kicker">Die Reise der Schwalbe</p>
+          <h3 class="titel">Jeder Wunsch hat einen <span class="zier">Süden</span>.</h3>
+          <p class="fliess">Enara heißt Schwalbe, und Schwalben ziehen jedes Jahr nach Süden, über Berge und Meer. Keine schafft die Strecke an einem Tag. In der App ist der Ort, an den dein Wunsch dich zieht, dein Süden, und auf ihrer Plus Seite erzählt Enara dir diese Reise:</p>
+          <p class="app-zitat">„Wie eine Schwalbe trägt dich dein Weg weit. Er ist noch lang, und das ist kein Fehler an dir.“</p>
+          <p class="app-zitat gold">„Ich gehe ihn mit dir, an jedem Tag.“</p>
+          <p class="hinweiszeile">Dein Süden, zum Beispiel: „Die Arbeit, auf die du dich morgens freust.“</p>
+        </div>
+      </div>
+
+      <div class="breite" style="margin-top: 120px;">
+        <div class="kopfzeile zeigen" style="margin-bottom: 0;">
+          <h3 class="titel-mittel">Ein Tag mit <span class="zier">Plus</span></h3>
+        </div>
+        <ol class="zeitleiste sechs zeigen" style="list-style: none;">
+          <li class="schritt">
+            <span class="punkt" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"/></svg></span>
+            <span class="zeit">Morgens, zu deiner Zeit</span>
+            <p>Ein Gruß von Enara statt einer Erinnerung.</p>
+          </li>
+          <li class="schritt">
+            <span class="punkt" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h9l3 3v13H6z"/><path d="M9 11h6M9 15h4"/></svg></span>
+            <span class="zeit">Nach deinem Ritual</span>
+            <p>Eine kurze Notiz von ihr auf deinem Heute.</p>
+          </li>
+          <li class="schritt">
+            <span class="punkt" aria-hidden="true"><b>16</b></span>
+            <span class="zeit">16 Uhr, so oft du willst</span>
+            <p>Ein Impuls zu deinem Wunsch, aus dem, was Enara von dir weiß.</p>
+          </li>
+          <li class="schritt">
+            <span class="punkt" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M19 14.5A7.5 7.5 0 0 1 9.5 5a7.5 7.5 0 1 0 9.5 9.5z"/></svg></span>
+            <span class="zeit">Abends, zu deiner Zeit</span>
+            <p>Ihr Abendgruß, manchmal mit deiner Intention vom Morgen.</p>
+          </li>
+          <li class="schritt">
+            <span class="punkt" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M4 5.5h16V16H10l-4.5 3.5V16H4z"/></svg></span>
+            <span class="zeit">Wann immer du willst</span>
+            <p>Ein Gespräch, das sich an deine Einträge erinnert.</p>
+          </li>
+          <li class="schritt">
+            <span class="punkt" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="m4.5 7.5 7.5 5.5 7.5-5.5"/></svg></span>
+            <span class="zeit">Nach einer vollen Woche</span>
+            <p>Ihr Rückblick im Gespräch, und zum Monatsrückblick ein Brief.</p>
+          </li>
+        </ol>
+        <p class="hinweiszeile mittig zeigen" style="margin-top: 30px;">Grüße und Impulse schaltest du einzeln an oder ab.</p>
+
+        <div class="vorteile wisch zeigen">
+          <article class="vorteil">
+            <div class="vorteil-bild schirm">
+              <div class="telefon"><img src="bilder/handys/lena/03-enara-chat-278.webp" srcset="bilder/handys/lena/03-enara-chat-278.webp 1x, bilder/handys/lena/03-enara-chat-556.webp 2x, bilder/handys/lena/03-enara-chat-834.webp 3x" width="278" height="601" alt="Beispielkonto Lena, Gespräch mit Enara: Enaras Rückblick auf Lenas Woche, von der eigenen Website über das Angebot für eine Gründerin bis zu den falsch gelieferten Flyern, am Ende eine Frage" loading="lazy"></div>
+            </div>
+            <div class="vorteil-text">
+              <h3>Sie erinnert sich</h3>
+              <p>Schreib Enara, wann immer dich etwas beschäftigt: Sie kennt deine letzten Rituale und eure Wochen und antwortet mit dem, was du selbst geschrieben hast. Mit „Frag dein Journal“ fragst du Enara nach deinen letzten Wochen, etwa: Was hat mich diese Woche beschäftigt?</p>
+              <p class="quelle">Beispielkonto Lena: Enaras Rückblick auf ihre Woche, gebaut aus dem, was sie selbst geschrieben hat.</p>
+            </div>
+          </article>
+          <article class="vorteil">
+            <div class="vorteil-bild schirm">
+              <div class="telefon"><img src="bilder/handys/lena/01c-home-enara-278.webp" srcset="bilder/handys/lena/01c-home-enara-278.webp 1x, bilder/handys/lena/01c-home-enara-556.webp 2x, bilder/handys/lena/01c-home-enara-834.webp 3x" width="278" height="601" alt="Beispielkonto Lena, Startseite: eine Notiz von Enara nach Lenas Morgenritual, sie knüpft an das Angebot für die Gründerin an, darunter ihr Schritt für heute" loading="lazy"></div>
+            </div>
+            <div class="vorteil-text">
+              <h3>Sie meldet sich</h3>
+              <p>Morgens und abends schreibt sie dir eigene Worte statt einer Erinnerung, nach einem Ritual liegt eine Notiz von ihr bereit, und an manchen Tagen kommt um 16 Uhr ein Impuls: eine Frage, ein Anstoß oder eine Einladung an deinen Himmel oder in dein Journal. Wie oft und wie persönlich, stellst du selbst ein, bis hin zu allgemeinen Texten auf dem Sperrbildschirm.</p>
+              <p class="quelle">Beispielkonto Lena: Enaras Notiz nach ihrem Morgenritual, aus dem, was sie selbst geschrieben hat.</p>
+            </div>
+          </article>
+          <article class="vorteil">
+            <div class="vorteil-bild schirm">
+              <div class="telefon"><img src="bilder/handys/lena/09-zukunft-278.webp" srcset="bilder/handys/lena/09-zukunft-278.webp 1x, bilder/handys/lena/09-zukunft-556.webp 2x, bilder/handys/lena/09-zukunft-834.webp 3x" width="278" height="601" alt="Beispielkonto Lena, Nachricht von deinem zukünftigen Ich: oben Lenas Wunsch in ihren eigenen Worten, darunter ihre Nachrichten zum Anhören" loading="lazy"></div>
+            </div>
+            <div class="vorteil-text">
+              <h3>Eine Nachricht aus deinem Süden</h3>
+              <p>Aus acht Fragen zu dem Leben, das du dir wünschst, entsteht eine Sprachnachricht von rund zwei Minuten: Dein zukünftiges Ich erzählt dir einen Moment daraus, gesprochen von einer KI Stimme, die nur für diese Nachrichten da ist, bis zu dreimal im Monat neu. Gedacht als Vorstellungshilfe, nicht als Versprechen.</p>
+              <p class="quelle">Beispielkonto Lena: ihr Wunsch und ihre Nachrichten. Eine davon kannst du weiter unten hören.</p>
+            </div>
+          </article>
+          <article class="vorteil">
+            <div class="vorteil-bild schirm">
+              <div class="telefon"><img src="bilder/handys/lena/02-aufgabe-278.webp" srcset="bilder/handys/lena/02-aufgabe-278.webp 1x, bilder/handys/lena/02-aufgabe-556.webp 2x, bilder/handys/lena/02-aufgabe-834.webp 3x" width="278" height="601" alt="Beispielkonto Lena, Aufgabe des Tages: Drei Funde, die zu deinem Wunsch passen, darunter Enaras Satz zu Lenas Wunsch und die Schritte der Aufgabe" loading="lazy"></div>
+            </div>
+            <div class="vorteil-text">
+              <h3>Deine Aufgabe, für dich geschrieben</h3>
+              <p>Zu deiner Aufgabe aus dem Manifestationskurs schreibt Enara meist einen Satz zu deinem Wunsch und ein Beispiel, wie sie bei dir aussehen könnte.</p>
+              <p class="quelle">Beispielkonto Lena: die Aufgabe „Drei Funde, die zu deinem Wunsch passen“, auf ihren Wunsch bezogen.</p>
+            </div>
+          </article>
+          <article class="vorteil">
+            <div class="vorteil-bild schirm">
+              <div class="telefon"><img src="bilder/handys/lena/06-kurs-278.webp" srcset="bilder/handys/lena/06-kurs-278.webp 1x, bilder/handys/lena/06-kurs-556.webp 2x, bilder/handys/lena/06-kurs-834.webp 3x" width="278" height="601" alt="Beispielkonto Lena, Kurse: die Übersicht der sechs Kurse, oben ihr Weg im Manifestationskurs mit Kapitel 1, darunter Zur Ruhe finden, Dein innerer Halt, Du bist genug, Die Freude im Kleinen und Drei Minuten für dich" loading="lazy"></div>
+            </div>
+            <div class="vorteil-text">
+              <h3>Alle sechs Kurse zum Hören</h3>
+              <p>Mit Plus gehören dir alle 38 geführten Sitzungen: den ganzen Manifestationskurs samt Abendsitzung und die Kurse „Dein innerer Halt“, „Du bist genug“ und „Die Freude im Kleinen“. Gratis bleiben „Zur Ruhe finden“, „Drei Minuten für dich“ und der Anfang der Manifestation.</p>
+              <p class="quelle">Beispielkonto Lena: die Übersicht der sechs Kurse, ganz oben ihr Weg mit Kapitel 1.</p>
+            </div>
+          </article>
+          <article class="vorteil">
+            <div class="vorteil-bild schirm">
+              <div class="telefon"><img src="bilder/handys/lena/22-mondritual-278.webp" srcset="bilder/handys/lena/22-mondritual-278.webp 1x, bilder/handys/lena/22-mondritual-556.webp 2x, bilder/handys/lena/22-mondritual-834.webp 3x" width="278" height="601" alt="Beispielkonto Lena, Mondritual an Neumond: Enara erinnert an Lenas Wunsch, darunter der Brief an den nächsten Vollmond mit Leitfragen und Schreibfeld" loading="lazy"></div>
+            </div>
+            <div class="vorteil-text">
+              <h3>Das Mondritual</h3>
+              <p>An Neumond schreibst du einen Brief an den nächsten Vollmond und verschließt ihn. An Vollmond öffnest du ihn, schaust, was gewachsen ist, und lässt los, was gehen darf.</p>
+              <p class="quelle">Beispielkonto Lena: ihr Brief an den nächsten Vollmond, bevor sie ihn schreibt.</p>
+            </div>
+          </article>
+          <article class="vorteil">
+            <div class="vorteil-bild schirm">
+              <div class="telefon"><img src="bilder/handys/lena/05b-monat-brief-278.webp" srcset="bilder/handys/lena/05b-monat-brief-278.webp 1x, bilder/handys/lena/05b-monat-brief-556.webp 2x, bilder/handys/lena/05b-monat-brief-834.webp 3x" width="278" height="601" alt="Beispielkonto Lena, Monatsrückblick September: die Frage, wie nah sie sich ihrem Wunsch fühlt, eine Intention aus ihren eigenen Worten und der Übergang zu ihrem zukünftigen Ich" loading="lazy"></div>
+            </div>
+            <div class="vorteil-text">
+              <h3>Rückblicke, die sie dir schreibt</h3>
+              <p>Warst du in einer Woche an mindestens drei Tagen da, wartet in der Woche danach im Gespräch ihr Rückblick darauf. Kommen in einem Monat mindestens zwei solcher Rückblicke zusammen, schreibt sie dir zum Monatsrückblick einen Brief.</p>
+              <p class="quelle">Beispielkonto Lena: ihr Monatsrückblick für September. Enaras Rückblick auf eine Woche zeigt die erste Karte.</p>
+            </div>
+          </article>
+          <article class="vorteil">
+            <div class="vorteil-bild schirm">
+              <div class="telefon"><img src="bilder/handys/lena/19-scripting-278.webp" srcset="bilder/handys/lena/19-scripting-278.webp 1x, bilder/handys/lena/19-scripting-556.webp 2x, bilder/handys/lena/19-scripting-834.webp 3x" width="278" height="601" alt="Beispielkonto Lena, Bereich Scripting: oben Freies Schreiben, darunter die Vorlagen Dein Tag in fünf Jahren, Dankbarkeit im Voraus, Der perfekte gewöhnliche Tag und Brief an dein früheres Ich, jede mit gemaltem Bild" loading="lazy"></div>
+            </div>
+            <div class="vorteil-text">
+              <h3>Acht Vorlagen und dein Wunsch</h3>
+              <p>Von „Dein Tag in fünf Jahren“ bis „Was mir wirklich wichtig ist“: acht Schreibvorlagen mit Startsatz und Leitfragen. Unter „Dein Wunsch“ baut Enara dir aus einem Wunsch drei Sätze, einen in jeder Stärke.</p>
+              <p class="quelle">Beispielkonto Lena: freies Schreiben ist gratis, die Vorlagen gehören zu Plus.</p>
+            </div>
+          </article>
+          <article class="vorteil">
+            <div class="vorteil-bild schirm mitte">
+              <div class="telefon"><img src="bilder/handys/lena/26-frei-schreiben-278.webp" srcset="bilder/handys/lena/26-frei-schreiben-278.webp 1x, bilder/handys/lena/26-frei-schreiben-556.webp 2x, bilder/handys/lena/26-frei-schreiben-834.webp 3x" width="278" height="601" alt="Beispielkonto Lena, freies Schreiben: das leere Blatt, darunter der Knopf Sprechen und die drei Arten, einen Eintrag zu formen: Nah an mir, Schön erzählt, Kurz und klar" loading="lazy"></div>
+            </div>
+            <div class="vorteil-text">
+              <h3>Sprechen statt tippen</h3>
+              <p>Erzähl einfach, Enara macht Text daraus. Beim freien Schreiben formt sie auf Wunsch einen Eintrag daraus: nah an dir, schön erzählt oder kurz und klar.</p>
+              <p class="quelle">Beispielkonto Lena: freies Schreiben mit dem Knopf „Sprechen“.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Hörprobe des Zukunfts Ich (21.10.2026): Lenas Nachricht vom 18.10.
+             im Beispielkonto mit der Agentur, vom Betreiber abgenommen, die
+             ersten 68 Sekunden einer Nachricht von 1:51. Quelle
+             store-bilder/roh-lenaagentur/zukunft.mp3 und zukunft-seite.txt. -->
+        <div class="karte hoer-karte hoer-plus zeigen">
+          <h3>Hörprobe: Lenas Nachricht von ihrem zukünftigen Ich<span class="plus-marke">Plus</span></h3>
+          <p class="unter">Gut eine Minute aus einer Nachricht von knapp zwei Minuten, gesprochen von der KI Stimme, die nur für diese Nachrichten da ist.</p>
+          <audio controls preload="none" src="ton/zukunft-lena-de.mp3?v=2"></audio>
+          <p class="zitat">„Er sagt: Lass das Handy liegen, der Pool ist schon warm.“</p>
+          <p class="hinweis">Beispielkonto Lena: Ihre acht Antworten haben wir passend zu ihrem Konto geschrieben, die Nachricht selbst hat der echte Server der App so erzeugt, wie er es in der App tut. Gedacht als Vorstellungshilfe, nicht als Versprechen.</p>
+        </div>
+
+        <div class="plus-schluss zeigen">
+          <p class="fliess">Dazu ohne Grenze: dein Vision Board, Sätze in deiner eigenen Stimme und das Vorlesen all deiner Favoriten. Und die Vorschläge für deine Morgenintention schreibt Enara aus dem, was sie von dir weiß.</p>
+          <p class="hinweiszeile">Hörst du mit Plus auf, bleibt alles, was du geschrieben hast. Eure Gespräche liest du weiter nach, deine Nachrichten vom zukünftigen Ich hörst du weiter an.</p>
+          <div class="knopf-reihe">
+            <a class="knopf" href="https://apps.apple.com/de/app/enara/id6791974547" data-store-link>Sieben Tage Plus gratis</a>
+            <a class="knopf-dunkel" href="#preise">Zu den Preisen</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Preise -->
+    <!-- 8. Preise: Gratis und Plus, Vergleich, Gratistage -->
     <section class="abschnitt" id="preise">
-      <div class="innen">
-        <div class="abschnitt-kopf mittig zeigen">
-          <p class="eyebrow">Preise</p>
-          <h2>Ehrlich und einfach.</h2>
-          <p>Jedes neue Konto beginnt mit sieben Gratistagen und vollem Zugang, ohne Zahlungsdaten. Wer in der ersten Woche an fünf Tagen ein Ritual macht, bekommt drei Tage dazu. Danach entscheidest du, ein Abo startet nie von allein.</p>
+      <div class="breite">
+        <div class="kopfzeile zeigen">
+          <p class="kicker">Preise</p>
+          <h2 class="titel">Erst erleben, dann <span class="zier">entscheiden</span>.</h2>
+          <p class="fliess">Jedes neue Konto hat sieben Tage lang alles, was Plus hat, ohne Zahlungsdaten. Danach entscheidest du selbst. Tust du nichts, bleibt dir die freie Version, ohne Ablauf.</p>
         </div>
-        <div class="preise-gitter">
+        <div class="preise">
           <div class="preis-karte zeigen">
             <h3>Enara</h3>
-            <p class="preis-unter">Dein tägliches Ritual, dauerhaft frei.</p>
-            <p class="preis-betrag">0 € <span>für immer</span></p>
-            <p class="preis-jahr">&nbsp;</p>
+            <p class="preis-unter">Deine tägliche Praxis, ganz ohne Abo.</p>
+            <p class="preis-betrag">0 € <span>ohne Ablauf</span></p>
             <ul>
-              <li>Beide Rituale und der Tagesbogen</li>
-              <li>Journal, Himmel, Sternbild, Monatsrückblick</li>
-              <li>Die ganze Bibliothek und alles zum Hören</li>
-              <li>Kurs bis Kapitel 2, alle Aufgaben des Tages</li>
+              <li>Morgenritual, Mitte des Tages, Abendritual</li>
+              <li>Journal mit Suche und freiem Schreiben</li>
+              <li>Dein Himmel mit zwölf Sternbildern und Monatsrückblick</li>
+              <li>1.560 Sätze, 13 Playlists, acht Klänge</li>
+              <li>„Zur Ruhe finden“, „Drei Minuten für dich“, Manifestation bis Kapitel 2 und alle 85 Aufgaben</li>
             </ul>
+            <a class="knopf-dunkel" href="https://apps.apple.com/de/app/enara/id6791974547" data-store-link style="margin-top: auto; text-align: center;">Gratis laden</a>
           </div>
           <div class="preis-karte plus zeigen">
-            <!-- 59,99 geteilt durch 12 ergibt genau 5,00. Nachpruefbar. -->
-            <span class="preis-badge">Im Jahr: 5 € im Monat</span>
-            <h3>Enara Plus</h3>
-            <p class="preis-unter">Mit Enara als Begleiterin an deiner Seite.</p>
-            <p class="preis-betrag">12,99 € <span>im Monat</span></p>
-            <p class="preis-jahr">oder 59,99 € im Jahr</p>
+            <p class="plus-wort" style="align-self: flex-start;"><img src="bilder/logo-gold.png" alt="" aria-hidden="true">Enara Plus</p>
+            <p class="preis-unter">Alles aus Enara, dazu deine Begleiterin.</p>
+            <div class="preis-optionen">
+              <div class="preis-option empfohlen">
+                <div class="wer">Jährlich <span class="spar-marke">61 % gespart</span>
+                  <small>Das sind 5 € im Monat, unter 17 Cent am Tag.</small>
+                  <span class="anker-zeile">Zwölf Monate einzeln kosten 155,88 €.</span>
+                </div>
+                <div class="betrag">59,99 €<small>im Jahr</small></div>
+              </div>
+              <div class="preis-option">
+                <div class="wer">Monatlich<small>monatlich kündbar</small></div>
+                <div class="betrag">12,99 €<small>im Monat</small></div>
+              </div>
+            </div>
+            <p class="sternbild-zeile">Einmal durch alle zwölf Sternbilder, mit Enara an deiner Seite.</p>
+            <p class="hell" style="margin-bottom: 10px;">Alles aus Enara, dazu:</p>
             <ul>
-              <li>Gespräche mit Gedächtnis aus deinem Journal</li>
-              <li>Die persönliche Aufgabe und Nachrichten von deinem zukünftigen Ich</li>
-              <li>Alle geführten Sitzungen des Kurses</li>
-              <li>Grüße, Impulse und der Brief zum Monat</li>
-              <li>Sprechen statt tippen, Mondritual, alle Vorlagen</li>
+              <li>Gespräche mit Gedächtnis und Frag dein Journal</li>
+              <li>Grüße, Notizen und der Impuls um 16 Uhr</li>
+              <li>Deine Aufgabe, für dich geschrieben</li>
+              <li>Wochenrückblicke und der Brief zum Monat</li>
+              <li>Nachrichten von deinem zukünftigen Ich</li>
+              <li>Alle sechs Kurse, das Mondritual, acht Vorlagen</li>
+              <li>Sprechen statt tippen</li>
               <li>Vision Board und eigene Stimme ohne Grenze</li>
             </ul>
+            <a class="knopf" href="https://apps.apple.com/de/app/enara/id6791974547" data-store-link style="margin-top: 22px;">Mit sieben Tagen Plus starten</a>
+            <p class="preis-fuss">Gekauft wird erst in der App, und nur wenn du willst.</p>
           </div>
         </div>
-        <p class="preis-zeile">Die Preise siehst du vor jedem Kauf im Store. Ein Abo verlängert sich automatisch, bis du kündigst. Das geht jederzeit in deinen Store Einstellungen, und deine Einträge bleiben auch ohne Abo vollständig bei dir.</p>
-        <div class="laden zeigen">
-          <div class="store-reihe">
-            <a class="store-badge" href="https://apps.apple.com/de/app/enara/id6791974547">
-              <img src="bilder/app-store-badge.svg" alt="Laden im App Store" width="144" height="48">
-            </a>
-            <a class="store-badge" href="https://play.google.com/store/apps/details?id=de.enara.app&amp;referrer=utm_source%3Dgetenara.app%26utm_medium%3Dwebsite">
-              <img src="bilder/google-play-badge-de.png" alt="Jetzt bei Google Play" width="162" height="48" loading="lazy">
-            </a>
+
+        <!-- Am Handy zugeklappt (21 Zeilen sind dort fast zwei Bildschirme
+             lang), am Rechner öffnet das Skript unten sie sofort -->
+        <details class="vergleich-rahmen zeigen" id="vergleich-klappe">
+          <summary>Gratis und Plus im Vergleich <span>21 Zeilen</span></summary>
+          <table class="vergleich">
+            <caption class="nur-vorlesen">Gratis und Plus im Vergleich</caption>
+            <thead>
+              <tr><th scope="col"><span class="nur-vorlesen">Funktion</span></th><th scope="col" class="spalte">Gratis</th><th scope="col" class="spalte spalte-plus">Plus</th></tr>
+            </thead>
+            <tbody>
+              <tr class="gruppe"><th colspan="3" scope="colgroup">Dein Tag</th></tr>
+              <tr><th scope="row">Morgenritual, Mitte des Tages, Abendritual</th><td class="spalte"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td><td class="spalte spalte-plus"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td></tr>
+              <tr><th scope="row">Erinnerung morgens und abends</th><td class="spalte"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td><td class="spalte spalte-plus"><span class="wert">als Gruß in Enaras Worten</span></td></tr>
+              <tr><th scope="row">Vorschläge für deine Intention</th><td class="spalte"><span class="wert">aus der Sammlung</span></td><td class="spalte spalte-plus"><span class="wert">persönlich von Enara</span></td></tr>
+              <tr><th scope="row">Aufgabe des Tages, 85 insgesamt</th><td class="spalte"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td><td class="spalte spalte-plus"><span class="wert">mit Satz zu deinem Wunsch</span></td></tr>
+              <tr><th scope="row">Notiz von Enara nach dem Ritual</th><td class="spalte"><span class="leer" aria-hidden="true"></span><span class="nur-vorlesen">nicht dabei</span></td><td class="spalte spalte-plus"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td></tr>
+              <tr><th scope="row">Impuls um 16 Uhr</th><td class="spalte"><span class="leer" aria-hidden="true"></span><span class="nur-vorlesen">nicht dabei</span></td><td class="spalte spalte-plus"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td></tr>
+
+              <tr class="gruppe"><th colspan="3" scope="colgroup">Enara an deiner Seite</th></tr>
+              <tr><th scope="row">Gespräche mit Gedächtnis</th><td class="spalte"><span class="leer" aria-hidden="true"></span><span class="nur-vorlesen">nicht dabei</span></td><td class="spalte spalte-plus"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td></tr>
+              <tr><th scope="row">Frag dein Journal</th><td class="spalte"><span class="leer" aria-hidden="true"></span><span class="nur-vorlesen">nicht dabei</span></td><td class="spalte spalte-plus"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td></tr>
+              <tr><th scope="row">Wochenrückblick und Brief zum Monat</th><td class="spalte"><span class="leer" aria-hidden="true"></span><span class="nur-vorlesen">nicht dabei</span></td><td class="spalte spalte-plus"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td></tr>
+              <tr><th scope="row">Nachrichten von deinem zukünftigen Ich</th><td class="spalte"><span class="leer" aria-hidden="true"></span><span class="nur-vorlesen">nicht dabei</span></td><td class="spalte spalte-plus"><span class="wert">bis zu drei im Monat</span></td></tr>
+
+              <tr class="gruppe"><th colspan="3" scope="colgroup">Schreiben</th></tr>
+              <tr><th scope="row">Journal mit Kalender, Suche und freiem Schreiben</th><td class="spalte"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td><td class="spalte spalte-plus"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td></tr>
+              <tr><th scope="row">Acht Schreibvorlagen und Dein Wunsch</th><td class="spalte"><span class="leer" aria-hidden="true"></span><span class="nur-vorlesen">nicht dabei</span></td><td class="spalte spalte-plus"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td></tr>
+              <tr><th scope="row">Mondritual an Neumond und Vollmond</th><td class="spalte"><span class="leer" aria-hidden="true"></span><span class="nur-vorlesen">nicht dabei</span></td><td class="spalte spalte-plus"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td></tr>
+              <tr><th scope="row">Sprechen statt tippen, Eintrag formen lassen</th><td class="spalte"><span class="leer" aria-hidden="true"></span><span class="nur-vorlesen">nicht dabei</span></td><td class="spalte spalte-plus"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td></tr>
+              <tr><th scope="row">Vision Board</th><td class="spalte"><span class="wert">zwei Bilder</span></td><td class="spalte spalte-plus"><span class="wert">ohne Grenze</span></td></tr>
+
+              <tr class="gruppe"><th colspan="3" scope="colgroup">Hören und Himmel</th></tr>
+              <tr><th scope="row">1.560 Sätze, 13 Playlists, acht Klänge</th><td class="spalte"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td><td class="spalte spalte-plus"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td></tr>
+              <tr><th scope="row">Kurse „Zur Ruhe finden“ und „Drei Minuten für dich“, Manifestation bis Kapitel 2</th><td class="spalte"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td><td class="spalte spalte-plus"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td></tr>
+              <tr><th scope="row">Kurse „Dein innerer Halt“, „Du bist genug“, „Die Freude im Kleinen“, Manifestation ab Kapitel 3 und Abendsitzung</th><td class="spalte"><span class="leer" aria-hidden="true"></span><span class="nur-vorlesen">nicht dabei</span></td><td class="spalte spalte-plus"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td></tr>
+              <tr><th scope="row">Sätze in deiner eigenen Stimme</th><td class="spalte"><span class="wert">fünf</span></td><td class="spalte spalte-plus"><span class="wert">ohne Grenze</span></td></tr>
+              <tr><th scope="row">Favoriten vorlesen lassen</th><td class="spalte"><span class="wert">die ersten fünf</span></td><td class="spalte spalte-plus"><span class="wert">alle</span></td></tr>
+              <tr><th scope="row">Himmel, Sternbild, Monatsrückblick</th><td class="spalte"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td><td class="spalte spalte-plus"><svg class="haken" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg><span class="nur-vorlesen">enthalten</span></td></tr>
+            </tbody>
+          </table>
+        </details>
+
+        <div class="gratistage">
+          <div class="zeigen">
+            <h3 class="titel-mittel">So laufen deine <span class="zier">Gratistage</span></h3>
+            <ol class="schritte">
+              <li><span class="punkt" aria-hidden="true">1</span><h3>Heute</h3><p>Du legst dein Konto an. Ab da ist sieben Tage lang alles offen, auch Plus, und niemand fragt nach Zahlungsdaten.</p></li>
+              <li><span class="punkt" aria-hidden="true">2</span><h3>In der ersten Woche</h3><p>Machst du an fünf der ersten sieben Tage ein Ritual, schenkt dir Enara drei Tage dazu.</p></li>
+              <li><span class="punkt" aria-hidden="true">3</span><h3>Am Tag vor dem Ende</h3><p>Hast du Mitteilungen erlaubt, sagt Enara dir Bescheid, dass deine Gratistage morgen enden.</p></li>
+              <li><span class="punkt" aria-hidden="true">4</span><h3>Danach</h3><p>Es wird nichts abgebucht, Enara wird nur ruhiger. Sie läuft in der freien Version weiter, alles Geschriebene bleibt, und Plus gibt es nur, wenn du es selbst wählst.</p></li>
+            </ol>
           </div>
-          <p>Du fängst in der kostenlosen Fassung an. Plus buchst du nur, wenn du willst.</p>
+          <figure class="zeigen">
+            <div class="telefon"><img src="bilder/handys/lena/23-ich-302.webp" srcset="bilder/handys/lena/23-ich-302.webp 1x, bilder/handys/lena/23-ich-604.webp 2x, bilder/handys/lena/23-ich-906.webp 3x" width="302" height="653" alt="Beispielkonto Lena, Bereich Ich: oben Lenas Wunsch, darunter die Karte Enara Plus mit dem Satz, dass Plus bis morgen geschenkt ist und danach Rituale, Journal und alles Geschriebene kostenlos bleiben" loading="lazy"></div>
+            <figcaption>Beispielkonto Lena: So zeigt die App deine Gratistage.</figcaption>
+          </figure>
         </div>
+
+        <p class="fair zeigen">Kein Wochenabo, keine Werbung, keine versteckten Kosten. Und nichts, was du geschrieben hast, verschwindet hinter einer Bezahlschranke.</p>
+        <p class="preis-zeile">Den genauen Preis zeigt dir der Store vor jedem Kauf. Ein Abo verlängert sich automatisch, bis du es kündigst, jederzeit in den Einstellungen deines App Store Kontos oder Google Play Kontos. Kündigst du rechtzeitig vor Ende eines Zeitraums, im App Store spätestens 24 Stunden vorher, verlängert es sich nicht mehr.</p>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="abschnitt" id="faq" style="padding-top: 24px;">
-      <div class="innen">
-        <div class="abschnitt-kopf mittig zeigen">
-          <p class="eyebrow">Fragen</p>
-          <h2>Kurz beantwortet.</h2>
+    <!-- 9. Versprechen und Vertrauen -->
+    <section class="abschnitt" id="versprechen" style="padding-top: 40px;">
+      <div class="breite">
+        <div class="kopfzeile zeigen">
+          <p class="kicker">Ehrlich gesagt</p>
+          <h2 class="titel">Leise Versprechen, die <span class="zier">halten</span>.</h2>
+          <p class="fliess">Enara verspricht kein Ergebnis. Sie verspricht, was sie halten kann.</p>
         </div>
-        <div class="faq-liste zeigen">
+        <div class="versprechen zeigen">
+          <div class="karte liste-karte">
+            <h3>Darauf kannst du zählen</h3>
+            <ul>
+              <li>Ein Platz für deinen Wunsch, jeden Tag, in deinen Worten.</li>
+              <li>Rituale, die in ein paar Minuten passen.</li>
+              <li>Deine Einträge gehören dir, ob mit Abo oder ohne.</li>
+              <li>Mit Plus eine Begleiterin, die sich erinnert und sich meldet.</li>
+            </ul>
+          </div>
+          <div class="karte liste-karte nie">
+            <h3>Das bekommst du von Enara nie</h3>
+            <ul>
+              <li>Ein Datum, einen Betrag oder die Zusage, dass dein Wunsch eintritt. Auch bei Geldwünschen verspricht sie dir keine Summe und keinen Zeitpunkt.</li>
+              <li>Eine Therapie. Enara ist eine KI, und das weißt du von Anfang an. Schreibst du ihr in einer Krise, nennt sie dir die Telefonseelsorge.</li>
+              <li>Erfundene Kundenstimmen. Lena ist ein Beispielkonto, die Fotos sind KI Bilder, und Bewertungen oder Erfahrungsberichte gibt es hier keine.</li>
+              <li>Druck. Keine tickende Uhr vor dem Kauf, keine Strafe für eine Lücke, kein Wochenabo.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="vertrauen wisch zeigen">
+          <div class="karte">
+            <h3>Dein Konto liegt in Frankfurt.</h3>
+            <p>Was du schreibst, liegt in deinem Konto auf Servern in Frankfurt. Die Verbindung dorthin ist verschlüsselt, und auf einem neuen Handy ist alles wieder da.</p>
+          </div>
+          <div class="karte">
+            <h3>Keine KI ohne dein Ja.</h3>
+            <p>Erst wenn du zustimmst, geht ein Text an eine KI. Ein Schalter in den Einstellungen nimmt das zurück, und alles ohne KI läuft weiter wie gewohnt.</p>
+          </div>
+          <div class="karte">
+            <h3>Keine Werbung, kein Tracking.</h3>
+            <p>Enara zeigt dir keine Werbung und nutzt keine Werkzeuge, die dich für Werbezwecke vermessen. Das gilt für die App und für diese Seite.</p>
+          </div>
+          <div class="karte">
+            <h3>Löschen liegt bei dir.</h3>
+            <p>Du kannst dein Konto jederzeit selbst löschen, mitsamt allem, was darin liegt, direkt in der App. Ein laufendes Abo kündigst du zusätzlich im Store.</p>
+          </div>
+        </div>
+        <p class="einordnung zeigen"><a href="datenschutz.html">Zur Datenschutzerklärung</a></p>
+      </div>
+    </section>
+
+    <!-- 10. Fragen -->
+    <section class="abschnitt" id="fragen" style="padding-top: 40px;">
+      <div class="breite">
+        <div class="kopfzeile zeigen">
+          <p class="kicker">Fragen</p>
+          <h2 class="titel">Gut, dass du <span class="zier">fragst</span>.</h2>
+        </div>
+        <div class="fragen zeigen">
           <details>
-            <summary>Was kostet Enara?</summary>
-            <p class="faq-antwort">Die Rituale, das Journal, dein Himmel, die ganze Bibliothek, alle Playlists und Klänge und ein Teil der geführten Sitzungen sind dauerhaft kostenlos. Enara Plus kostet 12,99 € im Monat oder 59,99 € im Jahr, das sind 5 € im Monat. Dazu gehören die Gespräche mit Gedächtnis, die persönliche Aufgabe, die Nachrichten vom zukünftigen Ich, alle geführten Sitzungen, Grüße und Impulse, der Brief zum Monat, Sprechen statt tippen, das Mondritual und alle Schreibvorlagen. Jedes neue Konto beginnt mit sieben Gratistagen und vollem Zugang, ohne Zahlungsdaten.</p>
+            <summary>Was ist gratis, und was kostet Plus?</summary>
+            <p class="antwort">Gratis sind die Rituale, dein Journal, dein Himmel, alle 1.560 Sätze, die 13 Playlists und acht Klänge, die Kurse „Zur Ruhe finden“ und „Drei Minuten für dich“, der Manifestationskurs bis Kapitel 2 und alle 85 Aufgaben. Enara Plus kostet 59,99 € im Jahr, also 5 € im Monat, oder 12,99 € monatlich. Dafür bekommst du Gespräche mit Gedächtnis, Grüße, Notizen und den Impuls um 16 Uhr, Wochenrückblicke und den Brief zum Monat, Nachrichten vom zukünftigen Ich, alle sechs Kurse, das Mondritual, alle Vorlagen und Sprechen statt tippen.</p>
           </details>
           <details>
-            <summary>Startet nach den Gratistagen automatisch ein Abo?</summary>
-            <p class="faq-antwort">Nein, nie. Nach den Gratistagen wechselt Enara von allein in die kostenlose Version. Ein Abo gibt es nur, wenn du es selbst im Store abschließt.</p>
+            <summary>Muss ich nach den Gratistagen etwas kündigen?</summary>
+            <p class="antwort">Nein. Für die Gratistage gibst du keine Zahlungsdaten an, also kann auch nichts abgebucht werden. Danach läuft Enara einfach in der freien Version weiter, und ein Abo gibt es nur, wenn du es selbst im Store abschließt.</p>
+          </details>
+          <details>
+            <summary>Was bleibt, wenn ich Plus beende?</summary>
+            <p class="antwort">Alles, was du geschrieben hast, bleibt in deinem Journal, eure Gespräche kannst du weiter nachlesen und deine Nachrichten vom zukünftigen Ich weiter anhören. Die Briefe zum Monat liest du nur mit Plus. Neue Plus Inhalte entstehen dann nicht mehr, deine Rituale laufen gratis weiter.</p>
+          </details>
+          <details>
+            <summary>Wie oft meldet sich Enara?</summary>
+            <p class="antwort">Zu den Zeiten, die du wählst. Gratis erinnert sie dich morgens und abends an deine Rituale. Mit Plus werden daraus Grüße in ihren eigenen Worten, und dazu kommt höchstens ein Impuls am Tag, um 16 Uhr, je nach Stufe Sanft, Standard oder Täglich. Jede Art lässt sich einzeln abschalten.</p>
+          </details>
+          <details>
+            <summary>Liest eine KI mein Journal mit?</summary>
+            <p class="antwort">Nur mit deinem Ja, vorher geht kein Text an eine KI. Stimmst du zu, geht beim Kennenlernen nur euer Gespräch an die KI. Mit Plus bekommt Enara für ihre Antworten, Grüße und Impulse zusätzlich einen Ausschnitt aus deinem Konto, unter anderem Profil und Wunsch, euer Kennenlerngespräch, die Rituale der letzten Tage, ihre eigenen Wochenrückblicke und, solange du ihr das Lesen erlaubst, deine freien Seiten. Zurücknehmen kannst du dein Ja jederzeit in den Einstellungen. Mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+          </details>
+          <details>
+            <summary>Wo liegen meine Einträge?</summary>
+            <p class="antwort">In deinem Konto auf Servern in Frankfurt, übertragen über eine verschlüsselte Verbindung, damit sie auf jedem neuen Handy wieder da sind. Werbung gibt es in Enara keine. Löschen kannst du dein Konto jederzeit selbst in der App, mitsamt allen Einträgen. Alles Weitere erklärt die <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
           </details>
           <details>
             <summary>Ist Lena echt?</summary>
-            <p class="faq-antwort">Nein. Lena ist ein Beispielkonto, das wir für diese Seite angelegt haben, mit einem Wunsch in ihren Worten und Journaltagen, die wir geschrieben haben. Alles, was Enara ihr antwortet, ist echt in der App entstanden. Enara formuliert jedes Mal neu, die Bilder zeigen einen echten Lauf. Sie ist keine Kundin, und sie berichtet nichts.</p>
+            <p class="antwort">Nein. Lena haben wir erfunden, um dir die App an einem Beispiel zu zeigen: Wunsch, Journaltage und alles, was sie Enara schreibt, stammen von uns, jede Antwort von Enara darauf stammt aus der echten App und ihrem Server. Enara schreibt jedes Mal neu, bei dir klingt es also anders. Eine Kundenstimme ist sie nicht.</p>
           </details>
           <details>
-            <summary>Was passiert mit meinen Einträgen?</summary>
-            <p class="faq-antwort">Deine Einträge werden in deinem Konto auf Servern in Frankfurt gesichert und verschlüsselt übertragen, damit sie beim Gerätewechsel bei dir bleiben. Enara zeigt keine Werbung und verkauft keine Daten. Dein Konto samt allen Inhalten löschst du selbst in der App. Details stehen in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
-          </details>
-          <details>
-            <summary>Liest eine KI mein Journal einfach mit?</summary>
-            <p class="faq-antwort">Nicht ohne dein Ja. Erst danach schickt die App ein Paket aus deinem Konto mit: dein Profil und dein Wunsch, deine Ritualantworten der letzten Tage, Enaras eigene Wochenzusammenfassungen und, solange der Leseschalter an ist, deine frei geschriebenen Seiten. Mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>. Nimmst du dein Ja zurück, bleibt Enara als Journal vollständig nutzbar.</p>
+            <summary>Sind die Menschen auf den Fotos echt?</summary>
+            <p class="antwort">Nein. Jedes Foto hier ist ein Stimmungsbild, das mit KI erstellt wurde, darum steht an jedem die Marke „KI Bild“. Die Bildschirme aus der App sind dagegen echt, aufgenommen im Beispielkonto Lena.</p>
           </details>
           <details>
             <summary>Ersetzt Enara eine Therapie?</summary>
-            <p class="faq-antwort">Nein. Enara ist ein Werkzeug für Selbstreflexion und Wohlbefinden, keine medizinische oder therapeutische Leistung. In einer Krise nennt dir Enara die Telefonseelsorge und Menschen, die jetzt helfen können.</p>
+            <p class="antwort">Nein. Enara ist ein Werkzeug für Selbstreflexion und Wohlbefinden, ärztliche oder therapeutische Hilfe ersetzt sie nicht. Schreibst du ihr in einer Krise, nennt sie dir die Telefonseelsorge, in Deutschland unter 0800 111 0 111 oder 0800 111 0 222, in Österreich unter 142 und in der Schweiz bei der Dargebotenen Hand unter 143.</p>
           </details>
           <details>
             <summary>Gibt es Enara auch für Android?</summary>
-            <p class="faq-antwort">Ja. Enara gibt es im App Store für iPhone und bei Google Play für Android, in Deutsch und Englisch. Dein Konto nimmst du von einem Gerät zum anderen mit.</p>
+            <p class="antwort">Ja, für iPhone im App Store und für Android bei Google Play, auf Deutsch und auf Englisch. Wechselst du das Handy, kommt dein Konto mit.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- Zum Nachlesen: jeder neue Artikel gehoert hier hinein -->
-    <section class="abschnitt" id="wissen" style="padding-top: 24px;">
-      <div class="innen">
-        <div class="abschnitt-kopf mittig zeigen">
-          <p class="eyebrow">Zum Nachlesen</p>
-          <h2>Was belegt ist, und was nicht.</h2>
-          <p>Bei jeder Aussage steht dabei, was die Forschung zeigt und wo sie schweigt.</p>
+    <!-- 11. Zum Nachlesen: jeder neue Artikel gehört hier hinein -->
+    <section class="abschnitt" id="wissen" style="padding-top: 40px;">
+      <div class="breite">
+        <div class="kopfzeile zeigen">
+          <p class="kicker">Zum Nachlesen</p>
+          <h2 class="titel">Lies <span class="zier">tiefer</span>, wenn du magst.</h2>
+          <p class="fliess">Fünf Artikel für die Abende, an denen du mehr wissen willst: über Techniken, das Journal, Scripting, Affirmationen und darüber, was beim Manifestieren wirklich trägt.</p>
         </div>
-        <div class="wissen-liste zeigen">
-          <a class="wissen-eintrag" href="wissen/manifestieren-techniken.html">
-            <h3>Manifestieren Techniken: die Übersicht</h3>
-            <p>Zwölf Methoden nebeneinander, von Scripting bis zur Mondarbeit. Wie jede geht und womit du anfängst.</p>
+        <div class="wissen zeigen">
+          <a href="wissen/manifestieren-techniken.html">
+            <h3>Manifestieren Techniken: 12 Methoden und wie sie gehen</h3>
+            <p>Welche Methode zu deinem Wunsch passt, wie sie geht und wo du am besten anfängst.</p>
           </a>
-          <a class="wissen-eintrag" href="wissen/manifestationsjournal.html">
+          <a href="wissen/manifestationsjournal.html">
             <h3>Was in ein Manifestationsjournal gehört</h3>
-            <p>Sechs Bausteine für die leere Seite, jeder mit seiner ehrlichen Beleglage.</p>
+            <p>Womit du die erste leere Seite füllst, und was die Forschung zu jedem Baustein sagt.</p>
           </a>
-          <a class="wissen-eintrag" href="wissen/scripting-manifestieren.html">
-            <h3>Scripting: Anleitung und Vorlagen</h3>
-            <p>Fünf Regeln, sechs Startsätze zum Abschreiben und der Absatz, den fast jede Anleitung weglässt.</p>
+          <a href="wissen/scripting-manifestieren.html">
+            <h3>Scripting manifestieren: Anleitung und Vorlagen</h3>
+            <p>Deine Zukunft so aufschreiben, als wäre sie schon da, mit Startsätzen zum Abschreiben.</p>
           </a>
-          <a class="wissen-eintrag" href="wissen/affirmationen-selbstliebe.html">
-            <h3>Affirmationen für Selbstliebe</h3>
-            <p>30 Sätze in drei Stärken, damit sich keiner wie eine Lüge anfühlt.</p>
+          <a href="wissen/affirmationen-selbstliebe.html">
+            <h3>Affirmationen für Selbstliebe: 30 Sätze in 3 Stärken</h3>
+            <p>Sortiert danach, wie leicht du einen Satz heute glauben kannst.</p>
           </a>
-          <a class="wissen-eintrag" href="wissen/funktioniert-manifestieren.html">
+          <a href="wissen/funktioniert-manifestieren.html">
             <h3>So funktioniert Manifestieren wirklich</h3>
-            <p>Die fünf Schritte, hinter denen echte Forschung steht, und wo sie schweigt, dazu was du von Goddard, Byrne, Hicks und Dispenza mitnimmst.</p>
+            <p>Welche Schritte die Forschung trägt und welche Idee du von Goddard, Byrne und Hicks mitnimmst.</p>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Abschluss -->
-    <section class="finale" id="mitmachen">
-      <div class="sterne" aria-hidden="true"></div>
-      <img class="finale-logo" src="bilder/logo-gold.png" alt="Enara Logo, eine fliegende Schwalbe aus goldenen Linien" loading="lazy">
-      <h2>Enara heißt Schwalbe.</h2>
-      <p>Sie kommt wieder, jedes Jahr, ohne dass jemand sie ruft. Enara gibt es für iPhone und Android. Fragen beantworten wir gern unter <a href="mailto:support@getenara.app">support@getenara.app</a></p>
-      <div class="store-reihe">
-        <a class="store-badge" href="https://apps.apple.com/de/app/enara/id6791974547">
-          <img src="bilder/app-store-badge.svg" alt="Laden im App Store" width="144" height="48">
-        </a>
-        <a class="store-badge" href="https://play.google.com/store/apps/details?id=de.enara.app&amp;referrer=utm_source%3Dgetenara.app%26utm_medium%3Dwebsite">
-          <img src="bilder/google-play-badge-de.png" alt="Jetzt bei Google Play" width="162" height="48" loading="lazy">
-        </a>
-      </div>
-      <div class="qr-box">
-        <img src="bilder/qr-laden.svg" alt="QR Code, der zur Ladeseite von Enara führt" width="112" height="112">
-        <p>Am Rechner? Richte die Kamera deines Handys auf den Code, dann landest du im passenden Store.</p>
+    <!-- 12. Schluss: die Nacht, der erste Stern, beide Stores -->
+    <section class="schluss" id="laden">
+      <picture class="schluss-bild">
+        <source media="(max-width: 700px)" srcset="bilder/schluss-hoch.webp">
+        <img src="bilder/schluss-1920.webp" srcset="bilder/schluss-1000.webp 1000w, bilder/schluss-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Ein leerer Balkon bei Nacht, auf dem Stuhl liegen eine Decke und ein zugeklapptes Notizbuch, daneben leuchtet eine Laterne, darüber ein heller Stern" loading="lazy">
+      </picture>
+      <div class="schluss-schleier" aria-hidden="true"></div>
+      <span class="ki-marke">KI Bild</span>
+      <div class="schluss-inhalt">
+        <p class="kicker zeigen" style="justify-content: center;">Dein erster Stern</p>
+        <h2 class="zeigen">Der nächste Morgen gehört <span class="zier">deinem Wunsch</span>.</h2>
+        <p class="fliess zeigen">Lade Enara, erzähl ihr in ein paar Sätzen, was du dir wünschst, und mach dein erstes Ritual, wann es dir passt. Mit ihm steht dein erster Stern am Himmel.</p>
+        <div class="knopf-reihe zeigen">
+          <a class="knopf" href="https://apps.apple.com/de/app/enara/id6791974547" data-store-link>Gratis beginnen</a>
+          <a class="knopf-dunkel" href="#preise">Zu den Preisen</a>
+        </div>
+        <p class="klein">Ohne Zahlungsdaten. Kein Abo, das von allein beginnt.</p>
+        <div class="store-reihe" id="stores">
+          <a class="store-badge" href="https://apps.apple.com/de/app/enara/id6791974547">
+            <img src="bilder/app-store-badge.svg" alt="Laden im App Store" width="144" height="48">
+          </a>
+          <a class="store-badge" href="https://play.google.com/store/apps/details?id=de.enara.app&amp;referrer=utm_source%3Dgetenara.app%26utm_medium%3Dwebsite">
+            <img src="bilder/google-play-badge-de.png" alt="Jetzt bei Google Play" width="162" height="48" loading="lazy">
+          </a>
+        </div>
+        <div class="qr-box">
+          <img src="bilder/qr-laden.svg" alt="QR Code, der auf dem Handy den passenden Store öffnet" width="104" height="104" loading="lazy">
+          <p>Am Rechner? Scanne den Code mit deinem Handy, er öffnet den passenden Store.</p>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <footer>
-    <div class="footer-innen">
-      <span class="footer-copy">© 2026 Enara</span>
-      <nav aria-label="Rechtliches">
-        <a href="datenschutz.html">Datenschutz</a>
-        <a href="impressum.html">Impressum</a>
-        <a href="agb.html">AGB</a>
-        <a href="mailto:support@getenara.app">Kontakt</a>
-      </nav>
+  <footer class="fuss">
+    <div class="breite">
+      <div class="fuss-gitter">
+        <div>
+          <a class="kopf-marke" href="#" style="margin-bottom: 14px;">
+            <img src="bilder/logo-weiss.png" alt="" aria-hidden="true">
+            <span>Enara</span>
+          </a>
+          <p>Enara ist ein Manifestationsjournal mit zwei kurzen Ritualen am Tag, einem Himmel aus deinen eigenen Sternen, sechs Kursen zum Hören und, mit Plus, einer Begleiterin mit Gedächtnis. Für iPhone und Android, im Original auf Deutsch geschrieben.</p>
+          <p style="margin-top: 12px;"><a href="mailto:support@getenara.app">support@getenara.app</a></p>
+        </div>
+        <div>
+          <h3>Entdecken</h3>
+          <ul>
+            <li><a href="#tag">Dein Tag</a></li>
+            <li><a href="#hoeren">Hören</a></li>
+            <li><a href="#plus">Plus</a></li>
+            <li><a href="#preise">Preise</a></li>
+            <li><a href="#fragen">Fragen</a></li>
+            <li><a href="#wissen">Zum Nachlesen</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Die App</h3>
+          <a class="store-badge" href="https://apps.apple.com/de/app/enara/id6791974547"><img src="bilder/app-store-badge.svg" alt="Laden im App Store" width="108" height="36" loading="lazy"></a>
+          <a class="store-badge" href="https://play.google.com/store/apps/details?id=de.enara.app&amp;referrer=utm_source%3Dgetenara.app%26utm_medium%3Dwebsite"><img src="bilder/google-play-badge-de.png" alt="Jetzt bei Google Play" width="122" height="36" loading="lazy"></a>
+        </div>
+        <div>
+          <h3>Rechtliches</h3>
+          <ul>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="agb.html">AGB</a></li>
+            <li><a href="mailto:support@getenara.app">Kontakt</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="fuss-unten">
+        <span>© 2026 Enara</span>
+        <span>Jedes Foto dieser Seite ist ein KI Bild.</span>
+      </div>
     </div>
   </footer>
 
+  <!-- Am Handy ein fester Knopf unten: erscheint, sobald der Knopf im
+       Auftakt nicht zu sehen ist, und verschwindet am Schluss bei den Stores -->
+  <div class="handy-leiste" id="handy-leiste" inert>
+    <a class="knopf" href="https://apps.apple.com/de/app/enara/id6791974547" data-store-link>Gratis beginnen</a>
+    <span>Sieben Tage alles offen, ohne Zahlungsdaten.</span>
+  </div>
+
   <script>
+    // Jeder Gratis Knopf führt direkt zu Enara in den App Store, das steht
+    // schon im href (14.10.2026, Wunsch des Betreibers). Android Handys gehen
+    // seit 21.10.2026 zu Google Play, dort ist Enara live.
+    (function () {
+      if (!/Android/i.test(navigator.userAgent || '')) { return; }
+      document.querySelectorAll('[data-store-link]').forEach(function (link) {
+        link.href = 'https://play.google.com/store/apps/details?id=de.enara.app&referrer=utm_source%3Dgetenara.app%26utm_medium%3Dwebsite';
+      });
+    })();
+
+    // Die Kopfzeile liegt durchsichtig auf dem Foto und wird dunkel, sobald
+    // man scrollt, damit die Links über hellen Stellen lesbar bleiben
+    (function () {
+      var kopf = document.getElementById('kopf');
+      function pruefen() { kopf.classList.toggle('dunkel', window.scrollY > 40); }
+      window.addEventListener('scroll', pruefen, { passive: true });
+      pruefen();
+    })();
+
     // Sprachwahl merken, sobald jemand selbst auf English klickt
     (function () {
       var schalter = document.getElementById('sprach-schalter');
@@ -650,26 +952,63 @@
       });
     })();
 
-    // Andere Wuensche: die Chips tauschen die Karte
+    // Am Handy: der feste Knopf unten. Er zeigt sich nur, solange weder der
+    // Knopf im Auftakt noch der Schluss mit den Stores zu sehen ist, und ist
+    // sonst per inert auch für Tastatur und Screenreader aus dem Weg.
     (function () {
-      var chips = document.querySelectorAll('.chip[data-wunsch]');
-      var karten = document.querySelectorAll('.wunsch-karte[data-wunsch]');
-      chips.forEach(function (chip) {
-        chip.addEventListener('click', function () {
-          var wahl = chip.getAttribute('data-wunsch');
-          chips.forEach(function (c) {
-            var aktiv = c === chip;
-            c.classList.toggle('aktiv', aktiv);
-            c.setAttribute('aria-selected', aktiv ? 'true' : 'false');
+      var leiste = document.getElementById('handy-leiste');
+      var auftaktKnopf = document.querySelector('.auftakt .knopf');
+      // Über die Klasse, nicht die id: die englische Seite nennt den Schluss anders
+      var ende = [document.querySelector('.schluss'), document.querySelector('.fuss')];
+      if (!leiste || !auftaktKnopf || !('IntersectionObserver' in window)) { return; }
+      var imBild = new Map();
+      function setzen() {
+        var zeigen = true;
+        imBild.forEach(function (sichtbar) { if (sichtbar) { zeigen = false; } });
+        leiste.classList.toggle('zeigt', zeigen);
+        if (zeigen) { leiste.removeAttribute('inert'); } else { leiste.setAttribute('inert', ''); }
+      }
+      var beobachter = new IntersectionObserver(function (eintraege) {
+        eintraege.forEach(function (eintrag) { imBild.set(eintrag.target, eintrag.isIntersecting); });
+        setzen();
+      });
+      [auftaktKnopf].concat(ende).forEach(function (el) { if (el) { beobachter.observe(el); } });
+    })();
+
+    // Am Handy werden lange Kartenreihen zu Wischreihen. Die Punkte darunter
+    // zeigen, wie viele Karten es gibt und welche gerade vorne ist.
+    (function () {
+      document.querySelectorAll('.wisch').forEach(function (reihe) {
+        var karten = Array.prototype.slice.call(reihe.children);
+        var punkte = document.createElement('div');
+        punkte.className = 'wisch-punkte';
+        punkte.setAttribute('aria-hidden', 'true');
+        karten.forEach(function () { punkte.appendChild(document.createElement('span')); });
+        reihe.parentNode.insertBefore(punkte, reihe.nextSibling);
+        function markieren() {
+          var mitte = reihe.scrollLeft + reihe.clientWidth / 2;
+          var vorne = 0;
+          var abstand = Infinity;
+          karten.forEach(function (karte, nummer) {
+            var d = Math.abs(karte.offsetLeft + karte.offsetWidth / 2 - mitte);
+            if (d < abstand) { abstand = d; vorne = nummer; }
           });
-          karten.forEach(function (karte) {
-            karte.hidden = karte.getAttribute('data-wunsch') !== wahl;
+          Array.prototype.forEach.call(punkte.children, function (punkt, nummer) {
+            punkt.classList.toggle('aktiv', nummer === vorne);
           });
-        });
+        }
+        reihe.addEventListener('scroll', markieren, { passive: true });
+        markieren();
       });
     })();
 
-    // Sanfte Scroll Reveals; wer weniger Bewegung wuenscht, sieht alles sofort
+    // Die Vergleichstabelle ist am Rechner gleich offen, am Handy zugeklappt
+    (function () {
+      var klappe = document.getElementById('vergleich-klappe');
+      if (klappe && window.matchMedia('(min-width: 701px)').matches) { klappe.open = true; }
+    })();
+
+    // Sanftes Einblenden beim Scrollen; wer weniger Bewegung wünscht, sieht alles sofort
     (function () {
       var ruhig = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var elemente = document.querySelectorAll('.zeigen');

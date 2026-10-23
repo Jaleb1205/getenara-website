@@ -1,31 +1,45 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Gebaut von entwurf/unterseiten-bauen.py (21.10.2026). Inhalt und
+       Kopfangaben stammen unveraendert aus der Livefassung, Aenderungen am
+       Text dort machen und das Skript neu laufen lassen. -->
+  <meta name="theme-color" content="#050608">
+  <link rel="preload" href="schriften/nunito-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="schriften/lora-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="neu.css?v=13">
+  <link rel="stylesheet" href="seite.css?v=1">
   <title>Datenschutzerklärung | Enara</title>
   <meta name="robots" content="noindex">
   <link rel="icon" type="image/png" href="bilder/favicon.png">
-  <link rel="stylesheet" href="stil.css?v=19">
 </head>
-<body>
+<body class="neu seite">
 
-  <header class="nav">
-    <a class="nav-marke" href="index.html">
+  <header class="kopf dunkel" id="kopf">
+    <a class="kopf-marke" href="index.html">
       <img src="bilder/logo-weiss.png" alt="" aria-hidden="true">
       <span>Enara</span>
     </a>
+    <nav class="kopf-links" aria-label="Bereiche">
+      <a href="index.html#tag">Dein Tag</a>
+      <a href="index.html#hoeren">Hören</a>
+      <a href="index.html#plus">Plus</a>
+      <a href="index.html#preise">Preise</a>
+      <a href="index.html#fragen">Fragen</a>
+      <a href="en/index.html" hreflang="en">English</a>
+      <a class="kopf-cta" href="https://apps.apple.com/de/app/enara/id6791974547" data-store-link>Gratis laden</a>
+    </nav>
   </header>
 
-  <div class="recht-kopf">
-    <div class="innen">
+  <main class="seite-inhalt">
+    <div class="seite-spalte">
+      <a class="zurueck-knopf" href="index.html" data-zurueck><span aria-hidden="true">←</span> Zurück</a>
+      <p class="kicker">Rechtliches</p>
       <h1>Datenschutzerklärung</h1>
       <p class="stand">Für die App Enara und die Webseite getenara.app · Stand: 29. September 2026 · <a href="privacy.html">English version</a></p>
-    </div>
-  </div>
 
-  <main class="recht-inhalt">
-    <div class="innen">
 
       <h2>1. Verantwortlicher</h2>
       <p>Jakov Brekalo (Einzelunternehmen)<br>Schwanenplatz 3, 93047 Regensburg, Deutschland<br>E-Mail: <a href="mailto:support@getenara.app">support@getenara.app</a></p>
@@ -215,21 +229,81 @@
 
       <h2>11. Änderungen dieser Datenschutzerklärung</h2>
       <p>Wir passen diese Erklärung an, wenn sich die App oder die Rechtslage ändert. Es gilt die jeweils hier und in der App abrufbare Fassung.</p>
-
     </div>
   </main>
 
-  <footer>
-    <div class="footer-innen">
-      <span class="footer-copy">© 2026 Enara</span>
-      <nav aria-label="Rechtliches">
-        <a href="datenschutz.html">Datenschutz</a>
-        <a href="impressum.html">Impressum</a>
-        <a href="agb.html">AGB</a>
-        <a href="mailto:support@getenara.app">Kontakt</a>
-      </nav>
+  <footer class="fuss">
+    <div class="breite">
+      <div class="fuss-gitter">
+        <div>
+          <a class="kopf-marke" href="index.html" style="margin-bottom: 14px;">
+            <img src="bilder/logo-weiss.png" alt="" aria-hidden="true">
+            <span>Enara</span>
+          </a>
+          <p>Enara ist ein Manifestationsjournal mit zwei kurzen Ritualen am Tag, einem Himmel aus deinen eigenen Sternen, sechs Kursen zum Hören und, mit Plus, einer Begleiterin mit Gedächtnis. Für iPhone und Android, im Original auf Deutsch geschrieben.</p>
+          <p style="margin-top: 12px;"><a href="mailto:support@getenara.app">support@getenara.app</a></p>
+        </div>
+        <div>
+          <h3>Entdecken</h3>
+          <ul>
+            <li><a href="index.html#tag">Dein Tag</a></li>
+            <li><a href="index.html#hoeren">Hören</a></li>
+            <li><a href="index.html#plus">Plus</a></li>
+            <li><a href="index.html#preise">Preise</a></li>
+            <li><a href="index.html#fragen">Fragen</a></li>
+            <li><a href="index.html#wissen">Zum Nachlesen</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Die App</h3>
+          <a class="store-badge" href="https://apps.apple.com/de/app/enara/id6791974547"><img src="bilder/app-store-badge.svg" alt="Laden im App Store" width="108" height="36" loading="lazy"></a>
+          <a class="store-badge" href="https://play.google.com/store/apps/details?id=de.enara.app&amp;referrer=utm_source%3Dgetenara.app%26utm_medium%3Dwebsite"><img src="bilder/google-play-badge-de.png" alt="Jetzt bei Google Play" width="122" height="36" loading="lazy"></a>
+        </div>
+        <div>
+          <h3>Rechtliches</h3>
+          <ul>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="agb.html">AGB</a></li>
+            <li><a href="mailto:support@getenara.app">Kontakt</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="fuss-unten">
+        <span>© 2026 Enara</span>
+        <span>Dein Journal für Manifestation</span>
+      </div>
     </div>
   </footer>
 
+  <!-- Beim Lesen langer Seiten bleibt Zurueck erreichbar, ohne nach oben zu rollen -->
+  <a class="zurueck-schwebend" href="index.html" data-zurueck><span aria-hidden="true">←</span> Zurück</a>
+
+  <script>
+    (function () {
+      // Android Handys gehen zu Google Play, alle anderen in den App Store
+      if (/Android/i.test(navigator.userAgent || '')) {
+        document.querySelectorAll('[data-store-link]').forEach(function (link) {
+          link.href = 'https://play.google.com/store/apps/details?id=de.enara.app&referrer=utm_source%3Dgetenara.app%26utm_medium%3Dwebsite';
+        });
+      }
+      // Zurueck fuehrt dorthin, woher man kam, wenn das eine Seite dieser
+      // Website war. Sonst bleibt es beim href, der Startseite.
+      document.querySelectorAll('[data-zurueck]').forEach(function (knopf) {
+        knopf.addEventListener('click', function (ereignis) {
+          var vonHier = false;
+          try { vonHier = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch (fehler) {}
+          if (vonHier && history.length > 1) {
+            ereignis.preventDefault();
+            history.back();
+          }
+        });
+      });
+      var schwebend = document.querySelector('.zurueck-schwebend');
+      function pruefen() { schwebend.classList.toggle('sichtbar', window.scrollY > 480); }
+      window.addEventListener('scroll', pruefen, { passive: true });
+      pruefen();
+    })();
+  </script>
 </body>
 </html>

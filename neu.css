@@ -1,0 +1,1530 @@
+/* ============================================================
+   Entwurf 13.10.2026, dritte Fassung. Innertunes Wucht (echtes
+   Schwarz, sehr große fette Schrift, große Fotos), aber Enaras eigene
+   Welt: die Seite läuft wie ein Tag von der Morgendämmerung bis in die
+   Nacht, Akzentwörter stehen in Lora kursiv und Gold wie in der App,
+   die Nachtabschnitte tragen Enaras Nachtblau mit Sternen, und Plus
+   bekommt einen eigenen großen Auftritt statt einer Preiskarte.
+   Fassung 2 liegt unverändert in archiv-v2/.
+   Eigenständig: lädt stil.css NICHT.
+   ============================================================ */
+
+/* Schriften liegen bei uns selbst (DSGVO: keine Anfragen an Google) */
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('schriften/nunito-sans.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('schriften/lora-italic.woff2') format('woff2');
+}
+
+:root {
+  --schwarz: #050608;
+  --nacht: #080c1d;
+  --nachtblau: #0c1330;
+  --flaeche: rgba(255, 255, 255, 0.04);
+  --rand: rgba(255, 255, 255, 0.08);
+  --goldrand: rgba(235, 197, 125, 0.28);
+  --weiss: #ffffff;
+  --text: rgba(255, 255, 255, 0.66);
+  --leise: rgba(255, 255, 255, 0.44);
+  --gold: #d9a441;
+  --goldhell: #ebc57d;
+  --beige: #ead7b0;
+  --sans: 'Nunito Sans', 'Segoe UI', system-ui, sans-serif;
+  --serif: 'Lora', Georgia, serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body.neu {
+  background: var(--schwarz);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* height: auto, sonst gewinnt das height Attribut im HTML und zieht
+   Fotos mit fester Breite in die Länge (13.10. an den Tageskarten gesehen) */
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--goldhell); }
+
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+
+::selection { background: rgba(217, 164, 65, 0.35); color: #fff; }
+
+.neu h1, .neu h2, .neu h3 {
+  font-family: var(--sans);
+  font-weight: 800;
+  color: var(--weiss);
+  letter-spacing: -0.02em;
+}
+
+.breite { max-width: 1152px; margin: 0 auto; padding: 0 24px; }
+
+/* Nur für Screenreader, zum Beispiel „nicht enthalten“ in der Tabelle */
+.nur-vorlesen {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Bausteine der Schrift ---------- */
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--beige);
+  margin-bottom: 18px;
+}
+
+/* Der Funkelstern aus der App vor jeder Rubrik */
+.kicker::before { content: "✦"; color: var(--gold); letter-spacing: 0; font-size: 0.9rem; }
+
+.mittig .kicker, .kopfzeile .kicker { justify-content: center; }
+
+.titel {
+  font-size: clamp(2.2rem, 4.6vw, 3.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 26px;
+}
+
+/* Enaras Handschrift in jeder Überschrift: ein Wort in Lora kursiv und
+   Gold, so wie die App ihre Titel in Serife setzt. Lora gibt es nur in
+   400, darum das Gewicht fest, sonst malt der Browser sie künstlich fett. */
+.zier {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--goldhell);
+  padding-right: 0.06em;
+  /* Das Akzentwort bleibt beisammen, sonst stand „zu“ am Zeilenende
+     und „dir.“ allein in der nächsten Zeile (13.10. gesehen) */
+  white-space: nowrap;
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .zier {
+    background: linear-gradient(100deg, #f6e2b4 0%, var(--goldhell) 40%, var(--gold) 80%, #c98a3e 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+}
+
+.fliess { font-size: 1.125rem; color: var(--text); margin-bottom: 16px; max-width: 34em; }
+
+.fliess strong, .hell { color: var(--weiss); font-weight: 700; }
+
+.pointe { color: var(--weiss); font-weight: 800; font-size: 1.3rem; line-height: 1.35; margin-top: 12px; max-width: 30em; }
+
+.mittig { text-align: center; margin-left: auto; margin-right: auto; }
+
+.zitat-serif { font-family: var(--serif); font-style: italic; color: rgba(255, 255, 255, 0.88); }
+
+/* ---------- Knöpfe ---------- */
+.knopf-reihe { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+
+.knopf {
+  display: inline-block;
+  padding: 16px 34px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f2d495, var(--gold));
+  color: #1d1404;
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-decoration: none;
+  box-shadow: 0 12px 34px rgba(217, 164, 65, 0.28);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.knopf:hover { filter: brightness(1.06); transform: translateY(-1px); }
+
+.knopf-dunkel {
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--weiss);
+  font-weight: 700;
+  font-size: 1.02rem;
+  text-decoration: none;
+}
+
+.knopf-dunkel:hover { background: rgba(255, 255, 255, 0.12); }
+
+.klein { font-size: 0.9rem; color: var(--leise); margin-top: 18px; }
+
+.plus-marke {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 9px;
+  border: 1px solid rgba(235, 197, 125, 0.5);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--goldhell);
+  vertical-align: 3px;
+  white-space: nowrap;
+}
+
+/* ---------- Kopfzeile: über dem Foto durchsichtig, beim Scrollen dunkel ---------- */
+.kopf {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 32px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.kopf.dunkel {
+  background: rgba(5, 6, 8, 0.84);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.kopf-marke {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--weiss);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.kopf-marke img { width: 36px; height: 36px; object-fit: contain; }
+
+.kopf-links { display: flex; align-items: center; gap: 28px; }
+
+.kopf-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.kopf-links a:hover { color: var(--weiss); }
+
+.kopf-links a.kopf-cta {
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: var(--goldhell);
+  color: #1d1404;
+  letter-spacing: 0.1em;
+}
+
+.kopf-links a.kopf-cta:hover { background: #f2d495; }
+
+@media (max-width: 860px) {
+  .kopf { padding: 14px 18px; }
+  .kopf-links a:not(.kopf-cta):not([href="#preise"]) { display: none; }
+  .kopf-links { gap: 16px; }
+}
+
+/* ---------- Auftakt: Morgendämmerung über die ganze Fläche ---------- */
+.auftakt {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--schwarz);
+}
+
+.auftakt-bild img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 20 % statt Mitte: in schmaleren Fenstern wird sonst die linke der
+     drei Schwalben oben links angeschnitten, ihr Gesicht bleibt sichtbar */
+  object-position: 20% 40%;
+}
+
+/* Die Schrift sitzt unten links auf Tal und Dächern. Oben links bleiben
+   Mondsichel und Schwalben frei, rechts ihr Gesicht. */
+.auftakt-schleier {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(5, 6, 8, 0.72) 0%, rgba(5, 6, 8, 0.4) 38%, transparent 62%),
+    linear-gradient(180deg, rgba(5, 6, 8, 0.45) 0%, transparent 18%, transparent 46%, rgba(5, 6, 8, 0.7) 78%, var(--schwarz) 100%);
+}
+
+.auftakt-text {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 140px 24px 92px;
+}
+
+.auftakt-text > * { max-width: 620px; }
+
+.auftakt-text > h1 { max-width: 760px; }
+
+.auftakt h1 {
+  font-size: clamp(3.2rem, 6.6vw, 6.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.auftakt h1 .zier { letter-spacing: -0.02em; }
+
+.auftakt-sub {
+  margin: 26px 0 34px;
+  font-size: clamp(1.12rem, 1.6vw, 1.32rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 31em;
+}
+
+.auftakt-sub .leiser { color: rgba(255, 255, 255, 0.56); }
+
+.runter {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 22px;
+  width: 30px;
+  height: 30px;
+  margin-left: -15px;
+  border-right: 2px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  transform: rotate(45deg) scale(0.55);
+  animation: runter 2.4s ease-in-out infinite;
+}
+
+@keyframes runter {
+  0%, 100% { translate: 0 0; opacity: 0.5; }
+  50% { translate: 0 8px; opacity: 1; }
+}
+
+/* Am Handy: Foto oben, Schrift darunter. Lag die Schrift auf dem Foto,
+   verdeckte die Hauptzeile ihr Gesicht (13.10. bei 390 Pixeln gesehen).
+   Das Foto läuft unten ins Schwarz aus, die Schrift rückt ins Gras. */
+@media (max-width: 700px) {
+  .auftakt { display: block; min-height: 0; }
+  .auftakt-bild img {
+    position: relative;
+    height: 74vh;
+    height: 74svh;
+    object-position: center 12%;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 60%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 60%, transparent 100%);
+  }
+  .auftakt-schleier { background: linear-gradient(180deg, rgba(5, 6, 8, 0.45) 0%, transparent 14%); }
+  .auftakt-text { margin-top: -130px; padding: 0 22px 64px; }
+  .auftakt h1 { font-size: clamp(2.8rem, 13.5vw, 3.9rem); }
+  .auftakt-sub { margin: 18px 0 26px; }
+  .runter { display: none; }
+}
+
+/* ---------- Abschnitte ---------- */
+.abschnitt { position: relative; padding: 136px 0; }
+
+.kopfzeile { max-width: 800px; margin: 0 auto 64px; text-align: center; }
+
+.kopfzeile .fliess { margin-left: auto; margin-right: auto; }
+
+.zwei {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 72px;
+  align-items: center;
+}
+
+.zwei.umgekehrt .bildseite { order: 2; }
+
+.zwei .titel, .vollbild .titel { font-size: clamp(2.1rem, 3.6vw, 3rem); }
+
+.foto {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #0d0f16;
+  box-shadow: 0 40px 80px -34px rgba(0, 0, 0, 0.9);
+}
+
+.foto img { width: 100%; height: 100%; object-fit: cover; }
+
+.foto-hoch { aspect-ratio: 4 / 5; }
+
+.foto-quadrat { aspect-ratio: 1 / 1; }
+
+.foto-zeile {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 70px 26px 24px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.02rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Die Nacht: Enaras Nachtblau mit einem leisen Sternenfeld. Die Sterne
+   sind reine Verläufe, keine Bilddatei, und liegen hinter dem Inhalt. */
+.nacht {
+  background:
+    radial-gradient(1100px 480px at 50% 0%, rgba(70, 90, 180, 0.16), transparent 70%),
+    linear-gradient(180deg, var(--schwarz) 0%, var(--nacht) 12%, var(--nachtblau) 50%, var(--nacht) 88%, var(--schwarz) 100%);
+  overflow: hidden;
+}
+
+.nacht::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  background-image:
+    radial-gradient(1.2px 1.2px at 8% 12%, #fff, transparent 70%),
+    radial-gradient(1px 1px at 22% 38%, rgba(255, 255, 255, 0.8), transparent 70%),
+    radial-gradient(1.6px 1.6px at 35% 8%, rgba(246, 226, 180, 0.95), transparent 70%),
+    radial-gradient(1px 1px at 48% 27%, rgba(255, 255, 255, 0.7), transparent 70%),
+    radial-gradient(1.3px 1.3px at 61% 15%, #fff, transparent 70%),
+    radial-gradient(1px 1px at 74% 41%, rgba(255, 255, 255, 0.75), transparent 70%),
+    radial-gradient(1.8px 1.8px at 86% 9%, rgba(246, 226, 180, 0.9), transparent 70%),
+    radial-gradient(1px 1px at 93% 33%, rgba(255, 255, 255, 0.7), transparent 70%),
+    radial-gradient(1.1px 1.1px at 15% 72%, rgba(255, 255, 255, 0.7), transparent 70%),
+    radial-gradient(1.4px 1.4px at 41% 63%, #fff, transparent 70%),
+    radial-gradient(1px 1px at 67% 78%, rgba(255, 255, 255, 0.7), transparent 70%),
+    radial-gradient(1.5px 1.5px at 82% 66%, rgba(246, 226, 180, 0.85), transparent 70%);
+  background-size: 640px 520px;
+}
+
+.nacht > * { position: relative; }
+
+/* ---------- Dein Wunsch: zwei echte Bildschirme ---------- */
+.telefon {
+  position: relative;
+  aspect-ratio: 390 / 844;
+  padding: 8px;
+  border-radius: 34px;
+  background: #05050e;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 30px 60px -22px rgba(0, 0, 0, 0.9), 0 0 60px rgba(217, 164, 65, 0.1);
+}
+
+.telefon img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 26px; background: #131b38; }
+
+/* Nebeneinander statt übereinander: beim Überlappen verdeckte das rechte
+   Handy die Bildunterschrift des linken (13.10. gesehen) */
+.paar { position: relative; display: flex; justify-content: center; align-items: flex-start; gap: 22px; padding: 10px 0 44px; }
+
+.paar figure { width: min(300px, 48%); text-align: center; }
+
+.paar figure:last-child { transform: translateY(44px); }
+
+/* Das Paar braucht eine breitere Bildspalte, sonst passen zwei lesbar große
+   Handys nicht nebeneinander (14.10.2026) */
+.zwei.bild-breit { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 48px; }
+
+/* Vorab gedrehte Handys (store-bilder/handy-bilder.py): das Bild enthält
+   Rahmen und Schatten und reicht oben 90, seitlich 70 und unten 110 px über
+   das 300 px breite Handy hinaus. Die Ränder stehen in Prozent der
+   Handybreite, damit das Bild beim Verkleinern mitschrumpft. Der Browser
+   dreht hier nichts, deshalb bleibt die Schrift scharf. */
+.schraeg img {
+  display: block;
+  width: calc(100% * 440 / 300);
+  max-width: none;
+  height: auto;
+  margin: calc(-100% * 90 / 300) calc(-100% * 70 / 300) calc(-100% * 110 / 300);
+}
+
+.paar figcaption, .buehne figcaption {
+  margin-top: 16px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--beige);
+}
+
+.beispiel-marke {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.beispiel-marke::before { content: "✦"; color: var(--gold); }
+
+.lena-zitat {
+  margin: 26px 0 8px;
+  padding: 4px 0 4px 20px;
+  border-left: 2px solid var(--goldrand);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.12rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.lena-zitat cite { display: block; margin-top: 8px; font-family: var(--sans); font-style: normal; font-size: 0.82rem; color: var(--leise); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+
+.chip {
+  padding: 8px 18px;
+  border: 1px solid var(--rand);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.chip:hover { border-color: rgba(235, 197, 125, 0.6); color: var(--weiss); }
+
+.chip.aktiv { background: var(--weiss); border-color: var(--weiss); color: #111; font-weight: 700; }
+
+.wunsch-karte { margin-top: 18px; padding: 24px 26px; background: var(--flaeche); border: 1px solid var(--rand); border-radius: 18px; }
+
+.wunsch-karte[hidden] { display: none; }
+
+.wunsch-karte .zitat { font-family: var(--serif); font-style: italic; font-size: 1.08rem; color: var(--weiss); margin-bottom: 10px; }
+
+.wunsch-karte p { font-size: 0.96rem; }
+
+/* ---------- Dein Tag: drei Tageszeiten mit Foto und echtem Bildschirm ---------- */
+.tageszeiten { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+
+.tageskarte {
+  position: relative;
+  overflow: hidden;
+  background: var(--flaeche);
+  border: 1px solid var(--rand);
+  border-radius: 18px;
+}
+
+.tageskarte .bild { position: relative; }
+
+.tageskarte .bild > img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+
+.tageskarte .kicker { font-size: 0.7rem; letter-spacing: 0.16em; margin-bottom: 10px; }
+
+.tageskarte h3 { font-size: 1.22rem; line-height: 1.3; margin-bottom: 10px; }
+
+.tageskarte p { font-size: 0.96rem; }
+
+.tageskarte .tagtext { padding: 22px 22px 26px; }
+
+/* Die Bildschirme zu Morgen, Mittag und Abend stehen unter den Karten,
+   nicht auf dem Foto, sonst sähe es aus, als nutze die Person dort Enara
+   (Kritik S6). Bis 14.10.2026 waren es 84 px kleine Handys in den Karten,
+   zu klein zum Lesen. */
+.tages-schirme { margin-top: 64px; }
+
+.band {
+  max-width: 860px;
+  margin: 72px auto 0;
+  padding: 34px 32px;
+  text-align: center;
+  border: 1px solid var(--goldrand);
+  border-radius: 18px;
+  background: linear-gradient(90deg, rgba(235, 197, 125, 0.08), rgba(235, 197, 125, 0.025) 50%, rgba(235, 197, 125, 0.08));
+}
+
+.band p { font-size: clamp(1.3rem, 2.4vw, 1.8rem); font-weight: 800; line-height: 1.3; color: var(--weiss); letter-spacing: -0.01em; }
+
+/* ---------- Warum jeden Tag: Forschung, kurz ---------- */
+.sterne-bild { text-align: center; }
+
+.sterne-bild img { width: min(440px, 100%); margin: 0 auto; }
+
+.bildzeile { margin-top: 14px; text-align: center; font-family: var(--serif); font-style: italic; font-size: 0.95rem; color: var(--leise); }
+
+.befunde { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 88px; }
+
+.karte {
+  background: var(--flaeche);
+  border: 1px solid var(--rand);
+  border-radius: 16px;
+  padding: 26px 24px 24px;
+}
+
+.karte h3 { font-size: 1.1rem; line-height: 1.35; margin-bottom: 8px; letter-spacing: -0.01em; }
+
+.karte p { font-size: 0.95rem; color: var(--text); }
+
+.karte .in-enara {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rand);
+  color: var(--weiss);
+  font-size: 0.93rem;
+}
+
+.einordnung { max-width: 720px; margin: 36px auto 0; text-align: center; font-size: 0.95rem; color: var(--leise); }
+
+/* ---------- Symbole (Linien in Gold, im HTML als SVG) ---------- */
+.symbol {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  background: rgba(235, 197, 125, 0.09);
+  border: 1px solid rgba(235, 197, 125, 0.24);
+  color: var(--goldhell);
+}
+
+.symbol svg { width: 24px; height: 24px; }
+
+/* ---------- Dein Himmel ---------- */
+.himmel-screens, .tages-schirme { display: flex; justify-content: center; gap: 22px; }
+
+.himmel-screens figure, .tages-schirme figure { width: min(300px, 31%); text-align: center; }
+
+.himmel-screens figure:nth-child(2), .tages-schirme figure:nth-child(2) { transform: translateY(-34px); }
+
+.himmel-screens figcaption, .tages-schirme figcaption {
+  margin-top: 14px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--beige);
+}
+
+.karten-vier { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 80px; }
+
+.karten-vier .karte { background: rgba(255, 255, 255, 0.035); border-color: rgba(160, 180, 255, 0.12); }
+
+/* ---------- Enara Plus: der große Auftritt ---------- */
+.plus-auftritt {
+  background:
+    radial-gradient(900px 520px at 50% 18%, rgba(217, 164, 65, 0.16), transparent 70%),
+    radial-gradient(1200px 600px at 50% 100%, rgba(70, 90, 180, 0.14), transparent 70%),
+    linear-gradient(180deg, var(--schwarz) 0%, var(--nacht) 20%, #0a0f26 60%, var(--schwarz) 100%);
+  overflow: hidden;
+}
+
+.plus-wort {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  padding: 7px 16px 7px 10px;
+  border: 1px solid rgba(235, 197, 125, 0.45);
+  border-radius: 999px;
+  background: rgba(235, 197, 125, 0.08);
+  color: var(--goldhell);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.plus-wort img { width: 22px; height: 22px; object-fit: contain; }
+
+/* Drei echte Bildschirme, aufgefächert wie in der Hand gehalten */
+.buehne {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 10px auto 0;
+  padding: 0 0 20px;
+}
+
+.buehne figure { width: 250px; text-align: center; }
+
+.buehne figure.seite-links { transform: rotate(-6deg) translate(46px, 46px) scale(0.92); z-index: 1; }
+
+.buehne figure.mitte { width: 272px; z-index: 2; }
+
+.buehne figure.seite-rechts { transform: rotate(6deg) translate(-46px, 46px) scale(0.92); z-index: 1; }
+
+.buehne .telefon { box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.95), 0 0 80px rgba(217, 164, 65, 0.16); }
+
+.vorteile { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 88px; }
+
+.vorteil {
+  padding: 28px 26px 26px;
+  border: 1px solid rgba(235, 197, 125, 0.2);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(235, 197, 125, 0.075), rgba(235, 197, 125, 0.015));
+}
+
+.vorteil h3 { font-size: 1.12rem; line-height: 1.35; margin-bottom: 8px; }
+
+.vorteil p { font-size: 0.95rem; }
+
+.vorteil .quelle { margin-top: 12px; font-size: 0.8rem; color: var(--leise); }
+
+/* ---------- Foto über die ganze Breite (der Impuls um 16 Uhr) ---------- */
+.vollbild { position: relative; display: flex; align-items: center; min-height: 680px; overflow: hidden; }
+
+.vollbild-bild img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% center; }
+
+.vollbild-schleier {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(5, 6, 8, 0.94) 0%, rgba(5, 6, 8, 0.8) 36%, rgba(5, 6, 8, 0.12) 66%, rgba(5, 6, 8, 0.2) 100%),
+    linear-gradient(180deg, var(--schwarz) 0%, transparent 16%, transparent 84%, var(--schwarz) 100%);
+}
+
+.vollbild .breite { position: relative; z-index: 2; width: 100%; padding-top: 110px; padding-bottom: 110px; }
+
+.vollbild-text { max-width: 600px; }
+
+.uhrzeit {
+  display: inline-block;
+  margin-bottom: 18px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(3.4rem, 7vw, 5.6rem);
+  line-height: 1;
+  color: var(--goldhell);
+}
+
+.sterne-liste { list-style: none; margin: 24px 0 22px; }
+
+.sterne-liste li { position: relative; padding-left: 28px; margin-bottom: 14px; font-size: 1.02rem; color: var(--text); }
+
+.sterne-liste li::before { content: "✦"; position: absolute; left: 0; top: 1px; color: var(--goldhell); font-size: 0.9rem; }
+
+.sterne-liste strong { color: var(--weiss); }
+
+/* ---------- Hören ---------- */
+.hoer-karte { max-width: 600px; margin: 0 auto; }
+
+.hoer-karte h3 { font-size: 1.15rem; margin-bottom: 6px; }
+
+.hoer-karte .unter { font-size: 0.9rem; color: var(--leise); margin-bottom: 14px; }
+
+.hoer-karte audio { width: 100%; margin: 4px 0 14px; }
+
+.hoer-karte .zitat { font-family: var(--serif); font-style: italic; color: rgba(255, 255, 255, 0.86); font-size: 1rem; }
+
+.hoer-karte .hinweis { font-size: 0.84rem; color: var(--leise); margin-top: 12px; }
+
+/* Die Hörprobe des Zukunfts Ich im Plus Teil: golden umrandet wie Plus */
+.hoer-plus {
+  max-width: 760px;
+  margin: 56px auto 0;
+  border-color: rgba(235, 197, 125, 0.32);
+  background: linear-gradient(180deg, rgba(235, 197, 125, 0.08), rgba(235, 197, 125, 0.015));
+}
+
+/* ---------- Preise ---------- */
+.preise { display: grid; grid-template-columns: 1fr 1.3fr; gap: 20px; max-width: 980px; margin: 0 auto; align-items: stretch; }
+
+.preis-karte { position: relative; display: flex; flex-direction: column; padding: 34px 30px; background: var(--flaeche); border: 1px solid var(--rand); border-radius: 22px; }
+
+.preis-karte.plus {
+  border-color: rgba(235, 197, 125, 0.55);
+  background:
+    radial-gradient(520px 260px at 80% 0%, rgba(217, 164, 65, 0.18), transparent 70%),
+    linear-gradient(180deg, rgba(235, 197, 125, 0.1), rgba(235, 197, 125, 0.02));
+  box-shadow: 0 30px 80px -34px rgba(217, 164, 65, 0.5);
+}
+
+.preis-karte h3 { font-size: 1.5rem; margin-bottom: 4px; }
+
+.preis-unter { font-size: 0.95rem; color: var(--leise); margin-bottom: 20px; }
+
+.preis-betrag { font-size: 2.3rem; font-weight: 800; color: var(--weiss); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; }
+
+.preis-betrag span { font-size: 1rem; font-weight: 600; color: var(--leise); letter-spacing: 0; }
+
+.preis-optionen { display: grid; gap: 10px; margin: 4px 0 24px; }
+
+.preis-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.preis-option.empfohlen { border-color: var(--goldhell); background: rgba(235, 197, 125, 0.1); }
+
+.preis-option .wer { font-weight: 800; color: var(--weiss); font-size: 1.02rem; }
+
+.preis-option .wer small { display: block; font-weight: 600; font-size: 0.85rem; color: var(--leise); }
+
+.preis-option .betrag { text-align: right; font-weight: 800; font-size: 1.45rem; color: var(--weiss); line-height: 1.15; white-space: nowrap; }
+
+.preis-option .betrag small { display: block; font-size: 0.82rem; font-weight: 700; color: var(--goldhell); }
+
+.spar-marke {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--goldhell);
+  color: #1d1404;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  vertical-align: 2px;
+}
+
+.preis-karte ul { list-style: none; }
+
+.preis-karte li { position: relative; padding-left: 26px; margin-bottom: 10px; font-size: 0.96rem; }
+
+.preis-karte li::before { content: "✦"; position: absolute; left: 0; top: 1px; color: var(--goldhell); font-size: 0.85rem; }
+
+.preis-karte li strong { color: var(--weiss); }
+
+.preis-karte .knopf { margin-top: auto; text-align: center; }
+
+.preis-karte .preis-fuss { margin-top: 12px; font-size: 0.82rem; color: var(--leise); text-align: center; }
+
+/* Vergleich: Gratis gegen Plus, Zeile für Zeile */
+.vergleich-rahmen { max-width: 980px; margin: 72px auto 0; overflow-x: auto; }
+
+.vergleich { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 520px; }
+
+.vergleich caption { text-align: left; margin-bottom: 16px; font-size: 1.25rem; font-weight: 800; color: var(--weiss); }
+
+.vergleich th, .vergleich td { padding: 14px 16px; border-bottom: 1px solid var(--rand); text-align: left; font-size: 0.96rem; vertical-align: middle; }
+
+.vergleich thead th { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--beige); }
+
+.vergleich tbody th { font-weight: 600; color: var(--text); }
+
+.vergleich tbody th small { display: block; color: var(--leise); font-weight: 400; font-size: 0.85rem; }
+
+.vergleich .spalte { width: 128px; text-align: center; }
+
+.vergleich .spalte-plus { background: rgba(235, 197, 125, 0.06); }
+
+.vergleich thead .spalte-plus { border-radius: 12px 12px 0 0; color: var(--goldhell); }
+
+.vergleich .haken { display: inline-block; width: 20px; height: 20px; color: var(--goldhell); vertical-align: middle; }
+
+.vergleich .leer { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: rgba(255, 255, 255, 0.22); vertical-align: middle; }
+
+.vergleich .wert { font-size: 0.86rem; color: var(--weiss); font-weight: 700; }
+
+/* Zeitleiste der Gratistage */
+.zeitleiste {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  max-width: 1000px;
+  margin: 80px auto 0;
+}
+
+.zeitleiste::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(235, 197, 125, 0.55), transparent);
+}
+
+.schritt { position: relative; text-align: center; padding: 0 6px; }
+
+.schritt .punkt {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: #0b0f20;
+  border: 1px solid rgba(235, 197, 125, 0.55);
+  color: var(--goldhell);
+  font-size: 1rem;
+}
+
+.schritt h3 { font-size: 1.02rem; margin-bottom: 6px; }
+
+.schritt p { font-size: 0.9rem; color: var(--leise); }
+
+.preis-zeile { max-width: 700px; margin: 48px auto 0; text-align: center; font-size: 0.92rem; color: var(--leise); }
+
+.fair { max-width: 760px; margin: 22px auto 0; text-align: center; font-size: 1.02rem; color: var(--text); }
+
+/* ---------- Versprechen und Vertrauen ---------- */
+.schwalben-karte {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 34px;
+  align-items: center;
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 26px;
+  background: var(--flaeche);
+  border: 1px solid var(--rand);
+  border-radius: 18px;
+}
+
+.schwalben-bild { position: relative; }
+
+.schwalben-bild img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; }
+
+.schwalben-karte blockquote { font-family: var(--serif); font-style: italic; font-size: 1.2rem; line-height: 1.55; color: rgba(255, 255, 255, 0.88); }
+
+.schwalben-karte .wer { margin-top: 14px; font-size: 0.85rem; color: var(--leise); }
+
+.schwalben-karte .wer strong { color: var(--weiss); }
+
+.versprechen { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 940px; margin: 20px auto 0; }
+
+.vertrauen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 16px; }
+
+.vertrauen .karte h3 { font-size: 1rem; color: var(--goldhell); }
+
+.vertrauen .karte p { font-size: 0.9rem; }
+
+/* ---------- Fragen ---------- */
+.fragen { max-width: 800px; margin: 0 auto; }
+
+.fragen details { border-bottom: 1px solid var(--rand); }
+
+.fragen summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 4px;
+  list-style: none;
+  cursor: pointer;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--weiss);
+}
+
+.fragen summary::-webkit-details-marker { display: none; }
+
+.fragen summary::after { content: "+"; flex-shrink: 0; font-size: 1.4rem; font-weight: 400; color: var(--goldhell); transition: transform 0.25s ease; }
+
+.fragen details[open] summary::after { transform: rotate(45deg); }
+
+.fragen .antwort { padding: 0 4px 22px; font-size: 0.98rem; max-width: 66ch; }
+
+/* ---------- Zum Nachlesen ---------- */
+.wissen { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; max-width: 980px; margin: 0 auto; }
+
+.wissen a { display: block; padding: 22px 24px; background: var(--flaeche); border: 1px solid var(--rand); border-radius: 16px; text-decoration: none; transition: border-color 0.25s ease, transform 0.25s ease; }
+
+.wissen a:hover { border-color: rgba(235, 197, 125, 0.45); transform: translateY(-2px); }
+
+.wissen h3 { font-size: 1.02rem; color: var(--goldhell); margin-bottom: 6px; }
+
+.wissen p { font-size: 0.9rem; color: var(--leise); }
+
+/* ---------- Schluss: die Nacht am See, die Frage, die Stores ---------- */
+.schluss {
+  position: relative;
+  overflow: hidden;
+  padding: 200px 24px 130px;
+  text-align: center;
+  background: var(--schwarz);
+}
+
+.schluss-bild img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+
+.schluss-schleier {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--schwarz) 0%, rgba(5, 6, 8, 0.25) 22%, rgba(5, 6, 8, 0.45) 55%, rgba(5, 6, 8, 0.88) 82%, var(--schwarz) 100%);
+}
+
+.schluss-inhalt { position: relative; z-index: 2; }
+
+.schluss .vorzeile { font-size: 1rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 18px; }
+
+.schluss h2 { font-size: clamp(3rem, 8vw, 6.2rem); line-height: 1; letter-spacing: -0.04em; margin-bottom: 26px; }
+
+.schluss .fliess { margin: 0 auto 36px; text-align: center; color: rgba(255, 255, 255, 0.78); }
+
+.schluss .knopf-reihe { justify-content: center; }
+
+.schluss .ki-marke { top: auto; bottom: 22px; right: 22px; }
+
+.store-reihe { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px; margin-top: 34px; }
+
+.store-badge { display: inline-block; line-height: 0; margin: 8px 6px; transition: transform 0.2s ease; }
+
+.store-badge:hover { transform: translateY(-2px); }
+
+.store-badge img { height: 48px; width: auto; }
+
+.qr-box {
+  display: none;
+  align-items: center;
+  gap: 22px;
+  max-width: 520px;
+  margin: 30px auto 0;
+  padding: 18px 22px;
+  text-align: left;
+  border: 1px solid var(--rand);
+  border-radius: 18px;
+  background: rgba(5, 6, 8, 0.6);
+}
+
+.qr-box img { width: 104px; height: 104px; padding: 6px; border-radius: 12px; background: #fff; flex-shrink: 0; }
+
+.qr-box p { font-size: 0.9rem; color: var(--leise); }
+
+@media (min-width: 900px) and (hover: hover) { .qr-box { display: flex; } }
+
+.leitspruch {
+  padding: 34px 24px;
+  border-top: 1px solid var(--rand);
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.24);
+}
+
+/* ---------- Fußzeile ---------- */
+.fuss { border-top: 1px solid var(--rand); padding: 56px 0 30px; }
+
+.fuss-gitter { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; }
+
+.fuss h3 { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255, 255, 255, 0.82); margin-bottom: 14px; }
+
+.fuss p, .fuss li { font-size: 0.88rem; color: var(--leise); }
+
+.fuss ul { list-style: none; }
+
+.fuss li { margin-bottom: 8px; }
+
+.fuss a { color: var(--leise); text-decoration: none; }
+
+.fuss a:hover { color: var(--weiss); }
+
+.fuss .store-badge { margin: 4px 8px 4px 0; }
+
+.fuss .store-badge img { height: 36px; }
+
+.fuss-unten {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 44px;
+  padding-top: 22px;
+  border-top: 1px solid var(--rand);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.32);
+}
+
+/* ---------- Bausteine der dritten Fassung ---------- */
+
+/* Lenas Wunsch und Enaras erster Satz als Zitatpaar */
+.zitat-paar { display: grid; gap: 14px; margin: 26px 0 12px; }
+
+.zitat-paar blockquote {
+  padding: 4px 0 4px 20px;
+  border-left: 2px solid var(--goldrand);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.08rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.zitat-paar blockquote.enara { border-left-color: var(--gold); color: var(--goldhell); }
+
+.zitat-paar cite {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--leise);
+}
+
+/* Die Lebensbereiche nur als Hinweis, nicht klickbar */
+.chip-still { display: inline-block; padding: 7px 16px; border: 1px solid var(--rand); border-radius: 999px; font-size: 0.9rem; color: var(--text); }
+
+.hinweiszeile { margin-top: 14px; font-size: 0.86rem; color: var(--leise); }
+
+.mittig.hinweiszeile, .kopfzeile .hinweiszeile { text-align: center; }
+
+/* Was Plus an jeder Tageszeit dazulegt */
+.plus-zeile {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rand);
+  color: var(--goldhell);
+  font-size: 0.92rem;
+}
+
+.plus-zeile::before { content: "✦ "; color: var(--gold); }
+
+.ruhezeile { max-width: 760px; margin: 56px auto 0; text-align: center; font-size: 1.12rem; color: var(--weiss); font-weight: 700; }
+
+.ruhezeile::before { content: "✦"; display: block; margin-bottom: 10px; color: var(--gold); font-weight: 400; }
+
+/* Forschung: zwei Befunde nebeneinander, Quellen zum Aufklappen */
+.befunde.zwei-spalten { grid-template-columns: 1fr 1fr; max-width: 940px; margin-left: auto; margin-right: auto; }
+
+.quellen { max-width: 760px; margin: 16px auto 0; text-align: center; }
+
+.quellen summary { display: inline-block; cursor: pointer; list-style: none; font-size: 0.88rem; font-weight: 700; color: var(--goldhell); }
+
+.quellen summary::-webkit-details-marker { display: none; }
+
+.quellen summary::after { content: " +"; }
+
+.quellen[open] summary::after { content: " ×"; }
+
+.quellen ol { margin: 14px auto 0; padding-left: 20px; text-align: left; font-size: 0.84rem; color: var(--leise); }
+
+.quellen li { margin-bottom: 6px; }
+
+/* Dein Himmel: großes Nachtfoto, drei Bildschirme ragen hinein */
+.himmel-buehne { position: relative; max-width: 1080px; margin: 0 auto; }
+
+.himmel-buehne .foto { aspect-ratio: 16 / 8; }
+
+.himmel-buehne .himmel-screens { position: relative; z-index: 2; margin-top: -190px; }
+
+/* Plus Karten: oben ein echter Bildschirm, ein Foto oder ein großes Symbol */
+.vorteil { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
+
+.vorteil-bild {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  background:
+    radial-gradient(260px 170px at 50% 100%, rgba(217, 164, 65, 0.2), transparent 70%),
+    rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(235, 197, 125, 0.14);
+}
+
+.vorteil-bild .telefon { flex-shrink: 0; width: min(290px, 84%); height: max-content; margin-top: 26px; padding: 5px; border-radius: 24px; }
+
+.vorteil-bild .telefon img { border-radius: 19px; }
+
+/* Mittlerer Ausschnitt (21.10.2026): beim freien Schreiben sitzen der Knopf
+   Sprechen und die drei Arten, einen Eintrag zu formen, in der Mitte des
+   Bildschirms. Oben läuft der Schnitt weich aus wie unten. */
+.vorteil-bild.mitte .telefon { margin-top: -200px; }
+
+.vorteil-bild.mitte::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 56px;
+  background: linear-gradient(to bottom, rgba(14, 14, 20, 0.96), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Der Bildschirm läuft nach unten weich aus, statt hart abgeschnitten */
+.vorteil-bild.schirm::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 70px;
+  background: linear-gradient(to top, rgba(14, 14, 20, 0.96), transparent);
+  pointer-events: none;
+}
+
+.vorteil-bild.foto-fuellt img { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
+
+.vorteil-bild.zeichen { align-items: center; }
+
+/* Ein weicher goldener Schein hinter dem Symbol, wie in der App */
+.vorteil-bild.zeichen::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 170px;
+  height: 170px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(217, 164, 65, 0.16), transparent 70%);
+}
+
+.vorteil-bild.zeichen svg { position: relative; width: 124px; height: 124px; color: var(--goldhell); filter: drop-shadow(0 0 18px rgba(217, 164, 65, 0.35)); }
+
+.vorteil-text { padding: 24px 24px 26px; }
+
+.plus-schluss { max-width: 780px; margin: 72px auto 0; text-align: center; }
+
+.plus-schluss .fliess { margin-left: auto; margin-right: auto; }
+
+.plus-schluss .knopf-reihe { justify-content: center; margin-top: 26px; }
+
+/* Ein Tag mit Plus: sechs Stationen auf einer Linie */
+.zeitleiste.sechs { grid-template-columns: repeat(6, 1fr); max-width: 1152px; margin-top: 40px; }
+
+.zeitleiste.sechs::before { left: 8%; right: 8%; }
+
+.schritt .punkt svg { width: 20px; height: 20px; }
+
+.schritt .punkt b { font-size: 0.9rem; font-weight: 800; }
+
+.schritt .zeit { display: block; margin-bottom: 6px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--beige); }
+
+.titel-mittel { font-size: clamp(1.6rem, 2.8vw, 2.2rem); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 12px; }
+
+/* Gratistage: senkrechte Zeitleiste neben dem echten Bildschirm */
+.gratistage { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: 56px; align-items: center; max-width: 980px; margin: 96px auto 0; }
+
+.schritte { list-style: none; position: relative; display: grid; gap: 26px; margin-top: 26px; }
+
+.schritte::before { content: ""; position: absolute; top: 22px; bottom: 22px; left: 21px; width: 1px; background: linear-gradient(180deg, rgba(235, 197, 125, 0.6), rgba(235, 197, 125, 0.12)); }
+
+.schritte li { position: relative; display: grid; grid-template-columns: 44px 1fr; column-gap: 18px; }
+
+.schritte .punkt {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #0b0f20;
+  border: 1px solid rgba(235, 197, 125, 0.55);
+  color: var(--goldhell);
+  font-weight: 800;
+}
+
+.schritte h3 { align-self: end; font-size: 1.05rem; margin-bottom: 4px; }
+
+.schritte p { font-size: 0.96rem; }
+
+.gratistage figure { max-width: 320px; margin: 0 auto; text-align: center; }
+
+.gratistage figcaption { margin-top: 14px; font-size: 0.8rem; color: var(--leise); }
+
+.anker-zeile { display: block; font-size: 0.8rem; font-weight: 600; color: var(--leise); }
+
+.sternbild-zeile { margin: -8px 0 22px; font-family: var(--serif); font-style: italic; font-size: 0.98rem; color: rgba(255, 255, 255, 0.78); }
+
+.vergleich .gruppe th {
+  padding-top: 30px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--goldhell);
+  border-bottom-color: var(--goldrand);
+}
+
+/* Versprechen als zwei Listen: was gilt, und was nie kommt */
+.liste-karte h3 { font-size: 1.15rem; margin-bottom: 16px; }
+
+.liste-karte ul { list-style: none; }
+
+.liste-karte li { position: relative; padding-left: 26px; margin-bottom: 12px; font-size: 0.98rem; }
+
+.liste-karte li::before { content: "✦"; position: absolute; left: 0; top: 1px; color: var(--goldhell); font-size: 0.85rem; }
+
+.liste-karte.nie li::before { content: "○"; color: rgba(255, 255, 255, 0.4); }
+
+.app-zitat { margin: 22px 0 10px; font-family: var(--serif); font-style: italic; font-size: 1.15rem; line-height: 1.55; color: rgba(255, 255, 255, 0.86); }
+
+.app-zitat.gold { margin-top: 0; color: var(--goldhell); font-size: 1.3rem; }
+
+@media (max-width: 960px) {
+  /* Untereinander steht Plus zuerst: das Angebot, um das es geht, sieht
+     man zuerst, die freie Version folgt direkt darunter */
+  .preis-karte.plus { order: -1; }
+  .zeitleiste.sechs { grid-template-columns: repeat(3, 1fr); row-gap: 34px; }
+  .zeitleiste.sechs::before { display: none; }
+  .gratistage { grid-template-columns: 1fr; gap: 44px; }
+}
+
+@media (max-width: 700px) {
+  .befunde.zwei-spalten { grid-template-columns: 1fr; }
+  .himmel-buehne .foto { aspect-ratio: 4 / 3; }
+  .himmel-buehne .himmel-screens { margin-top: -90px; }
+  .zeitleiste.sechs { grid-template-columns: 1fr; }
+  .vergleich { min-width: 0; }
+  .vergleich th, .vergleich td { padding: 12px 8px; font-size: 0.88rem; }
+  .vergleich .spalte { width: 84px; }
+  .vergleich .wert { font-size: 0.78rem; }
+}
+
+/* ---------- KI Kennzeichnung direkt am Bild ----------
+   Artikel 50 der KI Verordnung verlangt den Hinweis bei der ersten
+   Begegnung mit dem Bild, nicht erst in Fußzeile oder Fragen (Beleg
+   Kritiker, 13.10.2026). Echter Text, damit Screenreader ihn vorlesen. */
+.ki-marke {
+  position: absolute;
+  z-index: 3;
+  top: 12px;
+  right: 12px;
+  padding: 3px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(5, 6, 8, 0.6);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.ki-auftakt { top: auto; bottom: 24px; right: 24px; }
+
+.vollbild .ki-marke { top: auto; bottom: 28px; right: 24px; }
+
+@media (max-width: 700px) {
+  /* Am Handy sitzt das Foto oben: Marke unter die feste Kopfzeile */
+  .ki-auftakt { top: 78px; bottom: auto; right: 16px; }
+  .vollbild .ki-marke { top: 16px; bottom: auto; right: 16px; }
+}
+
+/* ---------- Sanftes Einblenden beim Scrollen ---------- */
+.zeigen { opacity: 0; transform: translateY(26px); transition: opacity 0.8s ease, transform 0.8s ease; }
+
+.zeigen.sichtbar { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .zeigen { opacity: 1; transform: none; transition: none; }
+  .runter { animation: none; }
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 960px) {
+  .zwei, .zwei.umgekehrt { grid-template-columns: 1fr; gap: 48px; }
+  .zwei .bildseite, .zwei.umgekehrt .bildseite { order: 0; }
+  .befunde, .tageszeiten { grid-template-columns: 1fr; max-width: 560px; margin-left: auto; margin-right: auto; }
+  .vorteile { grid-template-columns: 1fr 1fr; }
+  .karten-vier, .vertrauen { grid-template-columns: 1fr 1fr; }
+  .preise { grid-template-columns: 1fr; max-width: 560px; }
+  .fuss-gitter { grid-template-columns: 1fr 1fr; }
+  .buehne figure { width: 200px; }
+  .buehne figure.mitte { width: 220px; }
+}
+
+/* ---------- Handy ---------- */
+@media (max-width: 700px) {
+  .abschnitt { padding: 88px 0; }
+  .kopfzeile { margin-bottom: 44px; }
+  .befunde { margin-top: 60px; }
+  .vorteile, .karten-vier, .versprechen, .vertrauen, .wissen { grid-template-columns: 1fr; }
+  .vorteile { margin-top: 56px; }
+  .karten-vier { margin-top: 56px; }
+  .schwalben-karte { grid-template-columns: 1fr; gap: 20px; }
+  .schwalben-bild { max-width: 220px; }
+  .band { margin-top: 52px; padding: 26px 22px; }
+
+
+  /* Die Bühne am Handy: drei Bildschirme kleiner, weiter überlappend */
+  .buehne figure { width: 36%; }
+  .buehne figure.mitte { width: 40%; }
+  .buehne figure.seite-links { transform: rotate(-6deg) translate(22px, 30px) scale(0.92); }
+  .buehne figure.seite-rechts { transform: rotate(6deg) translate(-22px, 30px) scale(0.92); }
+  .buehne .telefon { padding: 5px; border-radius: 22px; }
+  .buehne .telefon img { border-radius: 17px; }
+  .buehne figcaption { font-size: 0.58rem; letter-spacing: 0.08em; }
+
+
+  /* Die Zeitleiste steht am Handy senkrecht, die Linie läuft links mit */
+  .zeitleiste { grid-template-columns: 1fr; gap: 26px; max-width: 420px; }
+  .zeitleiste::before { top: 22px; bottom: 22px; left: 21px; right: auto; width: 1px; height: auto; background: linear-gradient(180deg, transparent, rgba(235, 197, 125, 0.55), transparent); }
+  .schritt { display: grid; grid-template-columns: 44px 1fr; column-gap: 16px; text-align: left; padding: 0; }
+  .schritt .punkt { margin: 0; grid-row: span 2; }
+  .schritt h3 { align-self: end; }
+
+  /* Das Vollbild wird am Handy zu Foto oben, Text darunter */
+  .vollbild { display: block; min-height: 0; }
+  /* Das Foto selbst läuft oben und unten ins Schwarz aus. Ein Schleier über
+     den ganzen Abschnitt reichte nicht: das Foto endete sichtbar hart mitten
+     im Text (13.10. am Handy gesehen) */
+  .vollbild-bild img {
+    position: relative;
+    height: 560px;
+    object-position: center top;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 52%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 52%, transparent 100%);
+  }
+  .vollbild-schleier { display: none; }
+  .vollbild .breite { margin-top: -150px; padding-top: 0; padding-bottom: 84px; }
+
+  .schluss { padding: 150px 22px 96px; }
+  .schluss .ki-marke { top: 16px; bottom: auto; right: 16px; }
+  .fuss-gitter { grid-template-columns: 1fr; }
+}
+
+/* ---------- Vergleichstabelle zum Aufklappen ---------- */
+.vergleich-rahmen > summary {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  list-style: none;
+  cursor: pointer;
+  border: 1px solid var(--rand);
+  border-radius: 14px;
+  background: var(--flaeche);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--weiss);
+}
+
+.vergleich-rahmen > summary::-webkit-details-marker { display: none; }
+
+.vergleich-rahmen > summary span { margin-left: auto; font-size: 0.8rem; font-weight: 700; color: var(--leise); }
+
+.vergleich-rahmen > summary::after { content: "+"; font-size: 1.4rem; font-weight: 400; color: var(--goldhell); transition: transform 0.25s ease; }
+
+.vergleich-rahmen[open] > summary { margin-bottom: 10px; }
+
+.vergleich-rahmen[open] > summary::after { transform: rotate(45deg); }
+
+/* ---------- Handy Komfort (13.10.2026, Wunsch des Betreibers) ----------
+   Am Handy war die Seite gut 31.000 Pixel lang. Darum: lange Kartenreihen
+   zum Wischen, die große Tabelle zum Aufklappen, ein fester Knopf unten,
+   größere Kleinschrift und etwas weniger Abstand zwischen den Abschnitten. */
+.handy-leiste, .wisch-punkte { display: none; }
+
+@media (max-width: 700px) {
+  .abschnitt { padding: 68px 0; }
+  .kopfzeile { margin-bottom: 34px; }
+
+  /* Kartenreihen zum Wischen: jede Karte 84 % breit, die nächste lugt
+     rechts herein, damit man sieht, dass es weitergeht */
+  .wisch {
+    position: relative;
+    display: flex;
+    gap: 14px;
+    max-width: none;
+    margin-left: -24px;
+    margin-right: -24px;
+    padding: 4px 24px 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 24px;
+    scrollbar-width: none;
+  }
+  .wisch::-webkit-scrollbar { display: none; }
+  .wisch > * { flex: 0 0 84%; scroll-snap-align: start; }
+  .tageszeiten.wisch { margin-top: 0; }
+
+  /* Handys zum Wischen: jedes so groß wie am Desktop, damit die Schrift
+     lesbar bleibt. Oben und unten Luft, weil die Reihe seitlich scrollt
+     und sonst Ecke und Schatten der gedrehten Handys abschneidet. */
+  /* Linksbündig: zentriert läge das erste Handy links außerhalb der Reihe,
+     und dorthin kann man nicht scrollen */
+  .paar.wisch, .himmel-screens.wisch, .tages-schirme.wisch { justify-content: flex-start; gap: 18px; padding-top: 24px; padding-bottom: 28px; }
+  .wisch > figure.schraeg { flex: 0 0 min(80%, 300px); width: auto; }
+  .paar.wisch figure:last-child, .himmel-screens.wisch figure:nth-child(2), .tages-schirme.wisch figure:nth-child(2) { transform: none; }
+
+  .wisch-punkte { display: flex; justify-content: center; gap: 7px; margin-top: 2px; }
+  .wisch-punkte span { width: 6px; height: 6px; border-radius: 3px; background: rgba(255, 255, 255, 0.24); transition: width 0.25s ease, background 0.25s ease; }
+  .wisch-punkte span.aktiv { width: 18px; background: var(--goldhell); }
+
+  /* Lesbare Kleinschrift: nichts unter rund 14 Pixeln */
+  .hinweiszeile { font-size: 0.9rem; }
+  .vorteil .quelle, .anker-zeile, .preis-fuss { font-size: 0.86rem; }
+  .klein { font-size: 0.92rem; }
+
+  /* Bequeme Tippflächen */
+  .kopf-links a.kopf-cta { padding: 13px 18px; }
+  .fuss li { margin-bottom: 14px; }
+  .fragen summary { padding: 20px 4px; }
+
+  /* Der feste Knopf unten */
+  .handy-leiste {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    background: rgba(5, 6, 8, 0.97);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    transform: translateY(110%);
+    transition: transform 0.35s ease;
+  }
+  .handy-leiste.zeigt { transform: none; }
+  .handy-leiste .knopf { flex-shrink: 0; padding: 13px 22px; font-size: 1rem; box-shadow: none; }
+  .handy-leiste span { font-size: 0.84rem; line-height: 1.35; color: var(--text); }
+
+  /* Damit der feste Knopf nie das Ende der Seite verdeckt */
+  .fuss { padding-bottom: 120px; }
+}
+
+@media (max-width: 700px) and (prefers-reduced-motion: reduce) {
+  .handy-leiste { transition: none; }
+}

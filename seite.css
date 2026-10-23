@@ -1,0 +1,162 @@
+/* Unterseiten im Aussehen der neuen Startseite (21.10.2026): Wissen Artikel
+   und Rechtliches. Baut auf neu.css auf (Farben, Schrift, Kopfzeile, Fuss)
+   und ergaenzt nur, was eine Textseite braucht. Die Seiten selbst baut
+   entwurf/unterseiten-bauen.py. */
+
+/* Oben ein leiser violetter Schein wie in der Nacht der Startseite, damit
+   die Seite nicht als flaches Schwarz beginnt */
+.seite-inhalt {
+  padding: 116px 0 110px;
+  background:
+    radial-gradient(900px 420px at 50% 0%, rgba(108, 85, 184, 0.16), transparent 70%),
+    var(--schwarz);
+}
+
+.seite-spalte { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+/* Zurueck oben: als Knopf sichtbar, nicht als kleiner Textlink */
+.zurueck-knopf {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  margin-bottom: 36px;
+  border: 1px solid var(--goldrand);
+  border-radius: 999px;
+  background: rgba(217, 164, 65, 0.06);
+  color: var(--goldhell);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.zurueck-knopf:hover { background: rgba(217, 164, 65, 0.14); }
+
+.seite h1 {
+  font-size: clamp(2rem, 4.4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+}
+
+.seite .stand {
+  color: var(--leise);
+  font-size: 0.95rem;
+  margin-bottom: 40px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--rand);
+}
+
+/* ---------- Der Text ---------- */
+.seite-spalte h2 { font-size: 1.5rem; line-height: 1.25; margin: 52px 0 14px; }
+
+.seite-spalte h3 { font-size: 1.15rem; line-height: 1.3; margin: 32px 0 10px; }
+
+/* Die Kopfzeile klebt oben, ohne Abstand verschwaende die angesprungene
+   Ueberschrift genau darunter */
+.seite-spalte h2[id], .seite-spalte h3[id] { scroll-margin-top: 100px; }
+
+.seite-spalte p, .seite-spalte ul, .seite-spalte ol { margin-bottom: 16px; }
+
+.seite-spalte ul, .seite-spalte ol { padding-left: 22px; }
+
+.seite-spalte li { margin-bottom: 8px; }
+
+.seite-spalte strong { color: var(--weiss); }
+
+.seite-spalte em { color: rgba(255, 255, 255, 0.82); }
+
+.seite-spalte a { text-underline-offset: 3px; }
+
+.seite-spalte code {
+  font-size: 0.9em;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--flaeche);
+  color: var(--beige);
+}
+
+/* Was die Forschung sagt: Gold, eingeordnet */
+.ehrlich {
+  margin-top: 20px;
+  padding: 14px 18px;
+  border-left: 2px solid var(--gold);
+  border-radius: 0 14px 14px 0;
+  background: rgba(217, 164, 65, 0.06);
+  font-size: 0.98rem;
+}
+
+/* Welches Werkzeug in Enara dazu passt: Violett, damit man auf einer langen
+   Seite beide Sorten Kasten auseinanderhaelt */
+.werkzeug {
+  margin-top: 20px;
+  padding: 14px 18px;
+  border-left: 2px solid #8a74d8;
+  border-radius: 0 14px 14px 0;
+  background: rgba(108, 85, 184, 0.1);
+  font-size: 0.98rem;
+}
+
+/* Inhaltsverzeichnis langer Artikel */
+.sprungmarken {
+  margin: 34px 0;
+  padding: 20px 24px;
+  border: 1px solid var(--rand);
+  border-radius: 16px;
+  background: var(--flaeche);
+}
+
+.sprungmarken p {
+  margin-bottom: 14px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--beige);
+}
+
+/* zwei Spalten, sonst waeren zwoelf Zeilen eine halbe Bildschirmhoehe */
+.sprungmarken ol { margin: 0; padding-left: 20px; columns: 2; column-gap: 30px; }
+
+.sprungmarken li { margin-bottom: 7px; break-inside: avoid; color: var(--leise); }
+
+.sprungmarken a { color: var(--text); text-decoration: none; }
+
+.sprungmarken a:hover { color: var(--goldhell); }
+
+/* ---------- Zurueck beim Lesen ---------- */
+.zurueck-schwebend {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: 1px solid var(--goldrand);
+  border-radius: 999px;
+  background: rgba(5, 6, 8, 0.86);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: var(--goldhell);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.zurueck-schwebend.sichtbar { opacity: 1; transform: none; pointer-events: auto; }
+
+@media (max-width: 560px) {
+  .sprungmarken ol { columns: 1; }
+  .zurueck-schwebend { right: 14px; bottom: 14px; padding: 11px 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zurueck-schwebend, .zurueck-knopf { transition: none; }
+}
