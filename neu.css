@@ -1306,7 +1306,9 @@ a { color: var(--goldhell); }
 @media (max-width: 700px) {
   .befunde.zwei-spalten { grid-template-columns: 1fr; }
   .himmel-buehne .foto { aspect-ratio: 4 / 3; }
-  .himmel-buehne .himmel-screens { margin-top: -90px; }
+  /* Am Handy ragen die Bildschirme nicht ins Foto: als Wischreihe lagen sie
+     schief über dem Fotorand und wirkten wie ein Fehler (24.10.2026 gesehen) */
+  .himmel-buehne .himmel-screens { margin-top: 0; }
   .zeitleiste.sechs { grid-template-columns: 1fr; }
   .vergleich { min-width: 0; }
   .vergleich th, .vergleich td { padding: 12px 8px; font-size: 0.88rem; }
@@ -1414,7 +1416,7 @@ a { color: var(--goldhell); }
     mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 52%, transparent 100%);
   }
   .vollbild-schleier { display: none; }
-  .vollbild .breite { margin-top: -150px; padding-top: 0; padding-bottom: 84px; }
+  .vollbild .breite { margin-top: -150px; padding-top: 0; padding-bottom: 36px; }
 
   .schluss { padding: 150px 22px 96px; }
   .schluss .ki-marke { top: 16px; bottom: auto; right: 16px; }
@@ -1454,8 +1456,16 @@ a { color: var(--goldhell); }
 .handy-leiste, .wisch-punkte { display: none; }
 
 @media (max-width: 700px) {
-  .abschnitt { padding: 68px 0; }
+  .abschnitt { padding: 52px 0; }
   .kopfzeile { margin-bottom: 34px; }
+
+  /* Weniger Leerraum zwischen den Teilen eines Abschnitts (24.10.2026,
+     Betreiber: „an vielen Stellen zu viel Platz“). Die zwei zweiten Teile
+     mit festem Abstand im HTML brauchen !important gegen das style Attribut. */
+  .tages-schirme, .ruhezeile, .befunde, .vorteile, .karten-vier, .hoer-plus { margin-top: 40px; }
+  .plus-schluss, .vergleich-rahmen { margin-top: 48px; }
+  .gratistage { margin-top: 56px; }
+  .abschnitt .breite + .breite { margin-top: 56px !important; }
 
   /* Kartenreihen zum Wischen: jede Karte 84 % breit, die nächste lugt
      rechts herein, damit man sieht, dass es weitergeht */
@@ -1468,12 +1478,17 @@ a { color: var(--goldhell); }
     margin-right: -24px;
     padding: 4px 24px 16px;
     overflow-x: auto;
+    /* Nie senkrecht scrollbar: der Schatten der schrägen Handys stand unten
+       über, dann schluckte die Reihe den ersten Wisch nach unten und die
+       Seite schien zu hängen (24.10.2026 nachgestellt) */
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scroll-padding: 0 24px;
     scrollbar-width: none;
   }
   .wisch::-webkit-scrollbar { display: none; }
-  .wisch > * { flex: 0 0 84%; scroll-snap-align: start; }
+  /* snap-stop: ein schneller Wisch hält beim nächsten Bild an, statt mehrere zu überspringen */
+  .wisch > * { flex: 0 0 84%; scroll-snap-align: start; scroll-snap-stop: always; }
   .tageszeiten.wisch { margin-top: 0; }
 
   /* Handys zum Wischen: jedes so groß wie am Desktop, damit die Schrift
