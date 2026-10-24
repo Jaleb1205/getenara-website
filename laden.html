@@ -36,12 +36,37 @@
           document.documentElement.className = 'en';
           document.documentElement.lang = 'en';
         }
+        // Quelle (24.10.2026): Links aus Instagram und Co. tragen ?quelle=vamari,
+        // dann zeigt Google Play in den Akquisitionsberichten, woher die
+        // Installationen kommen. Ohne Quelle (QR Code, direkt getippt) steht
+        // dort sichtbar "ohne_quelle", eine kaputte Quelle heißt "ungueltig".
+        var roh = new URLSearchParams(window.location.search).get('quelle');
+        var quelle;
+        if (roh === null || roh === '') {
+          quelle = 'ohne_quelle';
+        } else if (/^[a-z0-9_-]{1,40}$/.test(roh.toLowerCase())) {
+          quelle = roh.toLowerCase();
+        } else {
+          quelle = 'ungueltig';
+        }
+        var playLink = 'https://play.google.com/store/apps/details?id=de.enara.app&referrer=' +
+          encodeURIComponent('utm_source=' + quelle + '&utm_medium=laden&utm_campaign=' + quelle);
+        // Apple Kampagnenlink: pt ist das Anbieterkürzel aus App Store Connect
+        // (Analyse, Kampagnen, am 24.10.2026 abgelesen), ct die Quelle. Apple
+        // zählt nur Geräte, die dem Teilen von Analysedaten zugestimmt haben.
+        var appleLink = 'https://apps.apple.com/app/apple-store/id6791974547?pt=129174384&ct=' + quelle + '&mt=8';
+        // Die Knöpfe unten bekommen dieselben Links, falls jemand bleibt
+        document.addEventListener('DOMContentLoaded', function () {
+          document.querySelectorAll('[data-store="play"]').forEach(function (link) { link.href = playLink; });
+          document.querySelectorAll('[data-store="apple"]').forEach(function (link) { link.href = appleLink; });
+        });
+
         if (window.location.search.indexOf('bleiben=1') !== -1) { return; }
         var ua = navigator.userAgent || '';
         if (/iPhone|iPad|iPod/i.test(ua)) {
-          window.location.replace('https://apps.apple.com/app/id6791974547');
+          window.location.replace(appleLink);
         } else if (/Android/i.test(ua)) {
-          window.location.replace('https://play.google.com/store/apps/details?id=de.enara.app&referrer=utm_source%3Dgetenara.app%26utm_medium%3Dqr');
+          window.location.replace(playLink);
         }
       } catch (e) {}
     })();
@@ -55,18 +80,18 @@
     <p data-de>Für iPhone im App Store, für Android bei Google Play. Die Rituale und dein Journal bleiben kostenlos, sieben Tage lang ist auch Plus dabei.</p>
     <p data-en>For iPhone on the App Store, for Android on Google Play. The rituals and your journal stay free, and Plus is included for seven days.</p>
     <div class="store-reihe" data-de>
-      <a class="store-badge" href="https://apps.apple.com/app/id6791974547">
+      <a class="store-badge" data-store="apple" href="https://apps.apple.com/app/apple-store/id6791974547?pt=129174384&amp;ct=ohne_quelle&amp;mt=8">
         <img src="bilder/app-store-badge.svg" alt="Laden im App Store" width="144" height="48">
       </a>
-      <a class="store-badge" href="https://play.google.com/store/apps/details?id=de.enara.app&amp;referrer=utm_source%3Dgetenara.app%26utm_medium%3Dqr">
+      <a class="store-badge" data-store="play" href="https://play.google.com/store/apps/details?id=de.enara.app&amp;referrer=utm_source%3Dohne_quelle%26utm_medium%3Dladen%26utm_campaign%3Dohne_quelle">
         <img src="bilder/google-play-badge-de.png" alt="Jetzt bei Google Play" width="162" height="48">
       </a>
     </div>
     <div class="store-reihe" data-en>
-      <a class="store-badge" href="https://apps.apple.com/app/id6791974547">
+      <a class="store-badge" data-store="apple" href="https://apps.apple.com/app/apple-store/id6791974547?pt=129174384&amp;ct=ohne_quelle&amp;mt=8">
         <img src="bilder/app-store-badge.svg" alt="Download on the App Store" width="144" height="48">
       </a>
-      <a class="store-badge" href="https://play.google.com/store/apps/details?id=de.enara.app&amp;referrer=utm_source%3Dgetenara.app%26utm_medium%3Dqr">
+      <a class="store-badge" data-store="play" href="https://play.google.com/store/apps/details?id=de.enara.app&amp;referrer=utm_source%3Dohne_quelle%26utm_medium%3Dladen%26utm_campaign%3Dohne_quelle">
         <img src="bilder/google-play-badge-en.png" alt="Get it on Google Play" width="162" height="48">
       </a>
     </div>
