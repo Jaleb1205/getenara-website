@@ -40,20 +40,25 @@
         // dann zeigt Google Play in den Akquisitionsberichten, woher die
         // Installationen kommen. Ohne Quelle (QR Code, direkt getippt) steht
         // dort sichtbar "ohne_quelle", eine kaputte Quelle heißt "ungueltig".
+        // Muster kanal_wort für Köderwörter: ?quelle=vamari_morgenlicht.
         var roh = new URLSearchParams(window.location.search).get('quelle');
         var quelle;
         if (roh === null || roh === '') {
           quelle = 'ohne_quelle';
-        } else if (/^[a-z0-9_-]{1,40}$/.test(roh.toLowerCase())) {
+        } else if (/^[a-z0-9][a-z0-9_-]{0,39}$/.test(roh.toLowerCase())) {
           quelle = roh.toLowerCase();
         } else {
           quelle = 'ungueltig';
         }
+        // Kanal ist der Teil vor dem ersten Unterstrich (vamari_morgenlicht gibt
+        // vamari). Google Play zeigt Kanal und Köderwort so getrennt an.
+        var kanal = quelle === 'ohne_quelle' ? quelle : quelle.split('_')[0];
         var playLink = 'https://play.google.com/store/apps/details?id=de.enara.app&referrer=' +
-          encodeURIComponent('utm_source=' + quelle + '&utm_medium=laden&utm_campaign=' + quelle);
+          encodeURIComponent('utm_source=' + kanal + '&utm_medium=laden&utm_campaign=' + quelle);
         // Apple Kampagnenlink: pt ist das Anbieterkürzel aus App Store Connect
-        // (Analyse, Kampagnen, am 24.10.2026 abgelesen), ct die Quelle. Apple
-        // zählt nur Geräte, die dem Teilen von Analysedaten zugestimmt haben.
+        // (Analyse, Kampagnen, am 24.10.2026 abgelesen), ct die ganze Quelle mit
+        // Köderwort. Apple zählt nur Geräte, die dem Teilen von Analysedaten
+        // zugestimmt haben.
         var appleLink = 'https://apps.apple.com/app/apple-store/id6791974547?pt=129174384&ct=' + quelle + '&mt=8';
         // Die Knöpfe unten bekommen dieselben Links, falls jemand bleibt
         document.addEventListener('DOMContentLoaded', function () {
