@@ -63,9 +63,16 @@
 
         if (window.location.search.indexOf('bleiben=1') !== -1) { return; }
         var ua = navigator.userAgent || '';
-        if (/iPhone|iPad|iPod/i.test(ua)) {
+        var geraet = /iPhone|iPad|iPod/i.test(ua) ? 'iphone' : (/Android/i.test(ua) ? 'android' : 'andere');
+        // Zähler (24.10.2026): nur Quelle und Gerätetyp, keine IP, kein Cookie.
+        // sendBeacon geht auch dann noch raus, wenn die Seite gleich weiterleitet.
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon('https://ztmtqdmarasmizudvaji.supabase.co/functions/v1/laden-zaehler',
+            JSON.stringify({ quelle: quelle, geraet: geraet }));
+        }
+        if (geraet === 'iphone') {
           window.location.replace(appleLink);
-        } else if (/Android/i.test(ua)) {
+        } else if (geraet === 'android') {
           window.location.replace(playLink);
         }
       } catch (e) {}
